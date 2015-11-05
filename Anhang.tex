@@ -1,0 +1,68 @@
+\appendix
+
+\section{Anhang}
+\subsection{Sätze ohne Beweis}
+Die folgenden Sätze wurden in dieser Arbeit ohne Beweis benutzt:
+
+\begin{satz}[Satz von Banach-Alaoglu]\label{satz:BA}
+Sei $(\A, \norm{.})$ ein normierter Vektorraum und $\dual{\A}$ der zugehörige Dualraum. Dann ist die abgeschlossene Einheitskugel
+ \[\dual{B_1}(0) := \{f \in \dual{\A} ~|~ \norm{f} := \underset{\norm{a} = 1}{\sup}|f(a)| \leq 1\} \subset \dual{\A}\]
+kompakt bezüglich der schwach-*-Topologie.
+\end{satz}
+
+Ein Beweis dieses Satzes findet sich bspw. bei \cite[Theorem VIII.3.11 \& Korollar VIII.3.12]{Werner2011}.
+
+
+\begin{satz}[Lemma von Zorn]\label{satz:LZ}
+Sei $(M, \leq)$ eine partiell geordnete Menge (d.h. eine nicht-leere Menge $M$ mit einer reflexiven, transitiven und anti-symetrischen Ordnung $\leq$), sodass jede total geordnete Teilmenge $N$ (d.h. für je zwei Elemente $n, \tilde{n} \in N$ gilt $\tilde{n} \leq n \vee n \leq \tilde{n}$) eine obere Schranke besitzt (d.h. ein $m \in M$ sodass für alle $n \in N$ gilt: $n \leq m$).
+
+Dann gibt es in M ein maximales Element (d.h. ein $m \in M$ sodass es kein $\tilde{m} \in M$ mit $m < \tilde{m}$ gibt).
+\end{satz}
+
+Das Lemma von Zorn ist äquivalent zum Auswahlaxiom. Ein Beweis seiner Aussage findet sich in \cite[S. 214f]{Jaenich2008}.
+
+\begin{satz}\label{satz:Quotient}
+Ist $\A$ ein vollständiger normierter Vektorraum und $W \subseteq \A$ ein abgeschlossener Unterraum. Dann ist 
+	\[^\A/_W := \{[a] ~|~ a \in \A \text{ mit } [a] = [b] \Leftrightarrow a-b \in W\}\]
+mit
+	\[[a] + [b] := [a+b],\qquad \lambda[a] := [\lambda a],\qquad \norm{[a]} := \inf_{x \in W}\norm{a+x}\]
+ein vollständiger normierter Vektorraum.
+\end{satz}
+
+Ein Beweis zu diesem Satz findet sich in \cite[Satz I.3.2]{Werner2011}.
+
+\begin{satz}[Satz von Stone-Weierstraß]\label{satz:SW}
+Sei $X$ ein kompakter Hausdorffraum, $\stetig(X) :=\{\tau: X \to \CC ~|~ \tau \text{ stetig}\}$ der Raum der komplexwertigen, stetigen Funktionen auf $X$ und $\A \subseteq \stetig(X)$ eine Algebra mit folgenden Eigenschaften:
+\begin{itemize}
+	\item $\A$ enthält die konstanten Funktionen $X \to \CC: x \mapsto \lambda$.
+	\item $\A$ trennt Punkte in $X$, d.h. für je zwei $x, y \in X$ mit $x \neq y$ gibt es eine Funktion $\tau \in \A$, sodass $\tau(x) \neq \tau(y)$.
+	\item $\A$ ist selbstadjungiert, d.h. für alle $\tau \in \A$ ist auch $(\overline{\tau}: x \mapsto \overline{\tau(x)}) \in \A$.
+\end{itemize}
+Dann liegt $\A$ bezüglich der von der Supremumsnorm induzierten Topologie dicht in $\stetig(X)$.
+\end{satz}
+
+Ein Beweis dieses Satzes findet sich bspw. in \cite[Satz VIII.4.7]{Werner2011}.
+
+
+\begin{satz}[Lemma von Urysohn]\label{satz:Ury}
+Sei $X$ ein topologischer Raum, in dem je zwei disjunkte abgeschlossene Mengen immer disjunkte offene Umgebungen haben. Seien außerdem $V, W \subset X$ zwei disjunkte abgeschlossene Teilmengen. 
+
+Dann gibt es eine stetige Funktion $\psi: X \to [0,1]$ mit $\psi|_V \equiv 0$ und $\psi|_W \equiv 1$.
+\end{satz}
+
+Ein Beweis dieses Aussage findet sich in \cite[S. 136-139]{Jaenich2008}. Ein Beispiel für topologische Räume, die die Voraussetzung des Lemmas von Urysohn erfüllen, sind kompakte Hausdorffräume (siehe \cite[S. 135 (Bemerkung)]{Jaenich2008}).
+
+
+
+
+
+\newpage
+\subsection{Diagramm zum Satz von Gelfand-Neumark}\label{sec:DiagramGN}
+Dieses Diagramm veranschaulicht die verschiedenen Zwischenschritte im Beweis zum Satz von Gelfand-Neumark (\cref{satz:GN}):
+
+\begin{sideways}
+	\begin{minipage}{18cm}
+		\fontsize{8pt}{1.5}\selectfont
+		\input{Diagramm-GN-Version2}
+	\end{minipage}
+\end{sideways}

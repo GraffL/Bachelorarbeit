@@ -1,0 +1,176 @@
+\subsection{Definitionen}
+
+In diesem Kapitel werden die zur Formulierung des Satzes von Gelfand-Neumark notwendigen Objekte definiert. Außerdem werden wir zu diesen einige grundlegende Eigenschaften zeigen, die für den späteren Beweis hilfreich sein werden.
+
+\begin{defn}[Banachalgebra]
+Eine \emph{kommutative komplexe Banachalgebra mit Eins} ist ein $\CC$-Vektorraum, mit einer kommutativen Multiplikation, einem Einselement und einer submultiplikativen Norm, bezüglich der er vollständig ist.
+
+D.h. eine kommutative komplexe Banachalgebra mit Eins ist ein $\CC$-Vektorraum $(\A, +)$ mit einer Operationen $\cdot: \A \times \A \to \A: (a,b) \mapsto a\cdot b$, sodass
+\begin{itemize}
+	\item $\forall a,b,c  \in \A: a\cdot(b+c) = a\cdot b + a\cdot c$ (Distributivität)
+	\item $\forall a,b \in A, \lambda \in \CC: \lambda(a\cdot b) = (\lambda a)\cdot b$
+	\item $\forall a,b,c \in \A: (a\cdot b)\cdot c = a \cdot (b \cdot c)$ (Assoziativität)
+	\item $\forall a, b \in \A: a\cdot b = b \cdot a$ (Kommutativität)	
+\end{itemize}
+einem ausgezeichneten Element $e \in \A \backslash \{0\}$, sodass
+\begin{itemize}
+	\item $\forall a \in \A: e\cdot a = a$ (Einselement)
+\end{itemize}
+sowie einer Normabbildung $\norm{.}: \A \to \RR_{\geq0}: a \mapsto \norm{a}$, sodass
+\begin{itemize}
+	\item $\forall a,b \in \A: \norm{a \cdot b} \leq \norm{a} \cdot \norm{b}$ (Submultiplikativität)
+\end{itemize}
+und $(\A, \norm{.})$ vollständig ist.
+
+Die \emph{Dimension} einer Banachalgebra ist die Dimension des ihr zugrunde liegenden Vektorraums.
+\end{defn}
+
+\begin{bem}
+Da im Folgenden ausschließlich kommutative und komplexe Banachalgebren mit Eins betrachtet werden, nennen wir diese ab sofort kurz \emph{Banachalgebren}. Wie für Multiplikationen üblich wird außerdem oft $ab$ statt $a \cdot b$ verwendet werden.
+\end{bem}
+
+\begin{bem}
+Gibt es zu einem $a \in \A$ ein $b \in \A$ mit $ab = e$, so ist dieses $b$ eindeutig. Denn gäbe es ein $c \in \A$ mit der gleichen Eigenschaft, so wäre:
+	\[c = ce = c(ab) = (ac)b = eb = b\]
+Wir nennen ein solches $b$ \emph{Inverses} zu $a$ und bezeichnen es mit $a^{-1}$. Die Menge aller invertierbaren Elemente von $\A$ bezeichnen wir mit $\A^\times$.
+\end{bem}
+
+\begin{lemma}\label{lemma:BAlg-Eigenschaften}
+Ist $\A$ eine Banachalgebra, so sind folgende Abbildungen stetig:
+\begin{itemize}
+	\item $\A \times \A \to \A: (a,b) \mapsto a+b$
+	\item $\A \times \A \to \A: (a,b) \mapsto a\cdot b$	
+	\item $\CC \times \A \to \A: (\lambda,a) \mapsto \lambda a$
+	\item $\A^\times \to \A^\times: a \mapsto a^{-1}$
+\end{itemize}
+\end{lemma}
+
+\begin{proof}Wir folgen hier dem Beweis zu \cite[Lemma 2.1.14]{Baer2003}.
+
+Seien $a_0, b_0 \in \A, \lambda_0 \in \CC$ und $\epsilon > 0$. Dann gilt:
+\begin{itemize}
+\item Für alle $a,b \in \A$ mit $\norm{a-a_0}$, $\norm{b-b_0} < \frac{\epsilon}{2}$ ist
+		\[\norm{(a+b) - (a_0+b_0)} \leq \norm{a-a_0} + \norm{b-b_0} < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.\]
+		Also ist die Addition stetig.
+		
+\item Für alle $a,b \in \A$ mit $\norm{a-a_0}$, $\norm{b-b_0} < \min\left\lbrace\sqrt{\frac{\epsilon}{3}}, \frac{\epsilon}{3\norm{a_0}}, \frac{\epsilon}{3\norm{b_0}}\right\rbrace$ ist
+		\begin{align*}
+		\norm{ab - a_0b_0} = \norm{ab -a_0b +a_0b -a_0b_0} = \norm{(a-a_0)b + (b-b_0)a_0} \leq \\
+		\leq \norm{a-a_0}\norm{b} + \norm{b-b_0}\norm{a} = \norm{a-a_0}\norm{b-b_0+b_0} + \norm{b-b_0}\norm{a_0} \leq \\
+		\leq \norm{a-a_0}\norm{b-b_0} + \norm{a-a_0}\norm{b_0} + \norm{b-b_0}\norm{a_0} < \\
+		< \sqrt{\frac{\epsilon}{3}} \sqrt{\frac{\epsilon}{3}} + \frac{\epsilon}{3\norm{b_0}}\norm{b_0} + \frac{\epsilon}{3\norm{a_0}}\norm{a_0} = \frac{\epsilon}{3} + \frac{\epsilon}{3} + \frac{\epsilon}{3} = \epsilon.		
+		\end{align*}
+		Also ist die Multiplikation stetig.
+		
+\item Für alle $\lambda \in \CC$ mit $|\lambda - \lambda_0| < \frac{\epsilon}{\norm{e}}$ ist
+		\[\norm{\lambda e - \lambda_0 e} = \norm{(\lambda-\lambda_0)e} = |\lambda - \lambda_0| \norm{e} < \epsilon.\]
+		Also ist die Skalarmultiplikation $(\lambda,a) \mapsto \lambda a$ als Verknüpfung der stetigen Abbildungen $\lambda \mapsto \lambda e$ und $(\lambda e, a) \mapsto \lambda e \cdot a = \lambda a$ ebenfalls stetig.
+		
+\item Ist $a_0 \in \A^\times$, so ist für alle $a \in \A^\times$ mit $\norm{a-a_0}~<~\frac{\epsilon}{\norm{a_0^{-1}}^2+\norm{a_0^{-1}}\epsilon}$:
+	\begin{align*}
+	\norm{a^{-1}-a_0^{-1}} = \norm{a^{-1}a_0a_0^{-1}-a^{-1}aa_0^{-1}} = \norm{a^{-1}(a_0-a)a_0^{-1}} \leq \\
+	\norm{a^{-1}}\norm{a-a_0}\norm{a_0^{-1}} = \norm{a^{-1}-a_0^{-1}+a_0^{-1}}\norm{a-a_0}\norm{a_0^{-1}} \leq \\
+	\norm{a^{-1}-a_0^{-1}}\norm{a-a_0}\norm{a_0^{-1}} + \norm{a_0^{-1}}\norm{a-a_0}\norm{a_0^{-1}}
+	\end{align*}
+Also
+	\[\norm{a^{-1}-a_0^{-1}}\left(1 - \norm{a-a_0}\norm{a_0^{-1}}\right) \leq \norm{a-a_0}\norm{a_0^{-1}}^2\]
+und wegen
+	\[1-\norm{a-a_0}\norm{a_0^{-1}} > 1 - \frac{\epsilon}{\norm{a_0^{-1}}^2+\norm{a_0^{-1}}\epsilon} \norm{a_0^{-1}} = \frac{\norm{a_0^{-1}} + \epsilon - \epsilon}{\norm{a_0^{-1}}+\epsilon} > 0\]
+folgt
+	\[\norm{a^{-1}-a_0^{-1}} \leq \frac{\norm{a-a_0}\norm{a_0^{-1}}^2}{1 - \norm{a-a_0}\norm{a_0^{-1}}}.\]
+Außerdem gilt:
+	\begin{align*}
+	\norm{a-a_0} < \frac{\epsilon}{\norm{a_0^{-1}}^2+\norm{a_0^{-1}}\epsilon} 
+	\Rightarrow \norm{a-a_0}\left(\norm{a_0^{-1}}^2+\norm{a_0^{-1}}\epsilon\right) < \epsilon \\ 
+	\Rightarrow \norm{a-a_0}\norm{a_0^{-1}}^2 < \epsilon\left(1-\norm{a-a_0}\norm{a_0^{-1}}\right) 
+	\Rightarrow \frac{\norm{a-a_0}\norm{a_0^{-1}}^2}{1-\norm{a-a_0}\norm{a_0^{-1}}} < \epsilon
+	\end{align*}
+Also ist $\norm{a^{-1}-a_0^{-1}}< \epsilon$ und somit die Inversenbildung stetig.
+
+\end{itemize}
+\end{proof}
+
+\begin{defn}[C*-Algebra]
+Eine \emph{kommutative \CAlg{} mit Eins} ist eine Banachalgebra $(\A, +, \cdot, e, \norm{.})$ zusammen mit einer Involutionsabbildung $^*:\A \to \A$, die verträglich ist mit der Algebra-Struktur und der Norm.
+
+D.h. für die Involutionsabbildung soll gelten:
+\begin{itemize}
+	\item $\forall a,b \in \A, \lambda \in \CC: (\lambda a + b)^* = \overline{\lambda}a^* + b^*$ (verträglich mit der  Vektorraumstruktur)
+	\item $\forall a,b \in \A: (a^*)^* = a, (a\cdot b)^* = b^*\cdot a^*$ (verträglich mit der Multiplikation)
+	\item $\forall a \in \A: \norm{a^*\cdot a} = \norm{a}^2$ (verträglich mit der Norm)
+\end{itemize}
+\end{defn}
+
+\begin{bem}
+Auch die kommutative \CAlgn{} mit Eins werden wir ab sofort kurz als \emph{\CAlgn} bezeichnen.
+\end{bem}
+
+\begin{kor}\label{lemma:CAlg-Eigenschaften}
+Ist $\A$ eine \CAlg{}, so gilt $e^* = e$ und $\norm{e} = 1$
+\end{kor}
+
+\begin{proof}%Entspricht Bem2.1.4
+Für das Einselement $e$ einer \CAlg{} ist
+	\[e^* = ee^* = (ee^*)^{**} = (e^{**}e^*)^* = (ee^*)^* = (e^*)^* = e\]
+und
+	\[\norm{e}^2 = \norm{e^*e} = \norm{ee} = \norm{e}.\]
+Also muss $\norm{e} = 1$ gelten ($\norm{e} \neq 0$, da $e \neq 0$).
+\end{proof}
+
+
+\begin{defn}[\CAlgHom/Isometrie]\label{defn:AlgHom}\label{defn:CAlgHom}\label{defn:CAlgIso}\label{defn:Isometrie}
+Seien $\A, \B$ zwei \CAlgn, dann heißt eine Abbildung $h: \A \to \B$ 
+\begin{enumerate}
+\item\emph{Algebrenhomomorphismus}, wenn gilt
+\begin{itemize}
+	\item $\forall a,b \in \A, \lambda \in \CC: h(\lambda a + b) = \lambda h(a) + h(b)$ (linear)
+	\item $\forall a,b \in \A: h(ab) = h(a)h(b)$ (multiplikativ)
+	\item $h(e) = e$ (einserhaltend)
+\end{itemize}
+
+\item\emph{{\CAlgHom}}, wenn zusätzlich gilt:
+\begin{itemize}
+	\item $\forall a \in \A: h(a^*) = \big(h(a)\big)^*$
+\end{itemize}
+
+\item\emph{Isomorphismus von \CAlgn}, wenn $h$ außerdem biijektiv ist.
+
+\item\emph{Isometrie} bzw. \emph{isometrisch}, wenn gilt:
+\begin{itemize}
+	\item $\forall a \in \A: \norm{h(a)} = \norm{a}$
+\end{itemize}
+
+\end{enumerate}
+\end{defn}
+
+\begin{bem}
+Ein \CAlgHom{} ist immer auch stetig (bzgl. der von den Normen der \CAlgn{} induzierten Topologien), ein Isomorphismus von \CAlgn{} ist sogar immer isometrisch. Ein Beweis hierfür findet sich in  \cite[Korollare 2.1.19 \& 2.1.20]{Baer2003}.
+\end{bem}
+
+
+\begin{defn}[kompakter Hausdorffraum]
+Ein \emph{kompakter Hausdorffraum} ist eine Menge $X$ zusammen mit einer Topologie auf $X$, sodass gilt:
+\begin{itemize}
+	\item Sind $U_i \subseteq X, i \in I$ offene Mengen mit $\bigcup_{i\in I} U_i = X$ (dann heißt $(U_i)_{i \in I}$ \emph{Überdeckung} von $X$), so gibt es eine endliche Teilmenge $J \subseteq I$ mit $\bigcup_{i\in J} U_i = X$ (Kompaktheit).
+	\item Sind $x \neq y \in X$ zwei verschiedene Punkte in $X$, so gibt es offene Mengen $U,V \subset X$ mit $x \in U, y \in V$ und $U \cap V = \emptyset$ (Hausdorffeigenschaft).
+\end{itemize}
+\end{defn}
+
+\begin{defn}[Homöomorphismus]
+Seien $X, Y$ zwei topologische Räume. Dann heißt eine Abbildung $\varphi: X \to Y$ \emph{Homöomorphismus}, wenn sie bijektiv ist und sowohl $\varphi$ als auch $\varphi^{-1}$ stetig sind.
+\end{defn}
+
+\begin{lemma}\label{lemma:komHDHomoeo}
+Ist $X$ ein kompakter topologischer Raum, $Y$ ein Hausdorffraum und $\varphi: X \to Y$ eine stetige bijektive Abbildung, so ist auch $\varphi^{-1}$ stetig (also $\varphi$ ein Homöomorphismus).
+\end{lemma}
+
+\begin{proof}Sei $U \subseteq X$ offen. Zu zeigen ist, dass dann auch $\varphi(U) \subseteq Y$ offen ist, d.h. jedes $y_0 \in \varphi(U)$ eine offene Umgebung in $\varphi(U)$ hat.
+
+Da $Y$ hausdorffsch ist, gibt es zu jedem $y \in Y \backslash \varphi(U)$ offene disjunkte Mengen $V_y, W_y \subset Y$ mit $y_0 \in V_y$ und $y \in W_y$. Dann ist $(\varphi^{-1}(W_y))_{y \in Y\backslash \varphi(U)}$ eine offene Überdeckung von $X \backslash U$, denn:
+\begin{itemize}
+	\item Die $W_y$ sind offen und $\varphi$ ist stetig. Also sind auch die $\varphi^{-1}(W_y)$ offen.
+	\item Ist $x \in X \backslash U$, so ist, da $\varphi$ bijektiv ist, $y := \varphi(x) \in Y \backslash \varphi(U)$. Daher ist $x \in \varphi^{-1}(W_y)$ für ein $y \in Y \backslash \varphi(U)$. 
+\end{itemize}
+
+$X \backslash U$ ist als abgeschlossene Teilmenge einer kompakten Menge selbst kompakt. Folglich gibt es eine endliche Menge $M \subseteq Y \backslash \varphi(U)$, sodass $X \backslash U \subseteq \bigcup_{y \in M}\varphi^{-1}(W_y)$ ist. Also ist $\bigcap_{y \in M}\varphi^{-1}(V_y) \subseteq U$ und daher $\bigcap_{y \in M}V_y \subseteq \varphi(U)$ eine offene Umgebung von $y_0$.
+\end{proof}

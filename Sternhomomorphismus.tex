@@ -1,0 +1,64 @@
+\subsubsection{$\AlgIso$ ist ein \CAlgHom}\label{sec:CAlgHom}
+
+Dass $\AlgIso$ ein Algebrenhomomorphismus ist, haben wir bereits in \cref{sec:Algebrenhomomorphismus} bewiesen. Damit $\AlgIso$ auch ein \CAlgHom{} ist, fehlt also nur noch die Eigenschaft $\left(\AlgIso(a)\right)^* = \AlgIso(a^*)$. Für diese benötigen wir zwei weitere Hilfsaussagen:
+
+\begin{defn}[selbstadjungiert]\label{defn:selbstadjungiert}
+Ein Element $a$ einer \CAlg{} heißt \emph{selbstadjungiert}, wenn gilt:
+	\[a^* = a\]
+\end{defn}
+
+\begin{prop}\label{prop:Spektrum-reell}
+Sei $\A$ eine \CAlg{} und $a \in \A$ selbstadjungiert. Dann ist das Spektrum von $a$ reell, d.h.
+	\[\sigma_\A(a) \subset \RR\]
+\end{prop}
+
+\begin{proof}
+Sei $\alpha + i\beta$ ein beliebiges Element von $\sigma_\A(a)$ (mit $\alpha,\beta \in \RR$). Wir wollen zeigen, dass dann $\beta = 0$ gelten muss, also das Element selbst reell ist. Der Beweis hierfür orientiert sich an dem zu \cite[Lemma IX.3.3(c)]{Werner2011}.
+
+Wegen $\alpha +i\beta \in \sigma_\A(a)$ ist	für beliebige $\gamma \in \RR$
+	\[(\alpha + i(\beta + \gamma))\cdot e - (a + i\gamma e) = (\alpha+i\beta)\cdot e - a \notin \A^\times\]
+und somit $\alpha + i(\beta + \gamma) \in \sigma_\A(a+ i\gamma e)$. Folglich ist mit \cref{prop:R-gleich-Norm}
+	\[|\alpha + i(\beta + \gamma)| \leq \sup\{|\mu| ~|~ \mu \in \sigma_\A(a+ i\gamma e)\} = \norm{a+ i\gamma e}\]
+und es gilt (nach \cref{lemma:CAlg-Eigenschaften} ist $\norm{e} = 1$ und $e^* = e$):
+	\begin{align*}
+	\alpha^2+\beta^2+2\beta\gamma+\gamma^2 &= \alpha^2 + (\beta+\gamma)^2 = |\alpha + i(\beta + \gamma)|^2 \leq \norm{a+ i\gamma e}^2 = \\
+	&= \norm{(a+ i\gamma e)^*(a+ i\gamma e)} = \norm{(a^* - i\gamma e^*)(a+ i\gamma e)} = \\
+	&=\norm{(a - i\gamma e)(a+ i\gamma e)} = \norm{a^2 + \gamma^2 e^2} \leq \\
+	&\leq \norm{a^2} + |\gamma^2|\norm{e} = \norm{a^2} + \gamma^2
+	\end{align*}
+Durch Umformen erhalten wir:
+	\[2\beta \gamma \leq \norm{a^2} - \alpha^2 - \beta^2\]
+Da dies für beliebige $\gamma \in \RR$ gelten soll, muss $\beta$ bereits $0$ sein.
+
+Somit haben wir gezeigt, dass für selbstadjungierte $a \in \A$ Elemente aus $\sigma_\A(a)$ keinen Imaginärteil haben können, d.h. reell sein müssen.
+\end{proof}
+
+\begin{prop}\label{prop:Stern-zu-Konjugation}
+Ist $\A$ eine \CAlg{} und $f: \A \to \CC$ ein Algebrenhomomorphismus, so gilt:
+	\[f(a^*) = \overline{f(a)}\]
+\end{prop}
+
+\begin{proof}
+Sei $a \in \A$. Dann können wir $a^*$ wie folgt zerlegen:
+	\[a^* = \frac{1}{2}\Big((a^* + a) - ii(a^* - a)\Big)\]
+Dabei sind sowohl $(a^* + a)$ als auch $i(a^* - a)$ selbstadjungiert, denn es gilt
+	\[(a^* + a)^* = a^{**} + a^* = a + a^* = a^* + a\]
+und
+	\[(i(a^* - a))^* = \overline{i}(a^{**} - a^*) = -i(a - a^*) = i(a^* - a)\]
+Also ist:
+	\[f(a^* + a) \overset{\ref{prop:Spektrum-von-a}}{\in} \sigma_\A(a^* + a) \overset{\ref{prop:Spektrum-reell}}{\subseteq} \RR\]
+und analog $f(i(a^* - a)) \in \RR$. Daraus folgt (da $f$ ein Algebrenhomomorphismus ist):
+	\begin{align*}
+	f(a^*) &= \frac{1}{2}f(2a^*) = \frac{1}{2}f\Big((a^* + a) - ii(a^* - a)\Big) = \frac{1}{2}\Big(f(a^* + a) - if(i(a^* - a))\Big) = \\
+				&= \frac{1}{2}\Big(\overline{f(a^* + a) + if(i(a^* - a))}\Big) = \frac{1}{2}\overline{f\Big((a^* + a) + ii(a^* - a)\Big)} = \\
+				&= \frac{1}{2}\overline{f(a^* + a - a^* + a)} = \frac{1}{2}\overline{f(2a)} = \overline{f(a)}
+	\end{align*}
+\end{proof}
+
+Mit Hilfe dieser Aussage können wir nun zeigen, dass $\AlgIso$ ein \CAlgHom{} ist:
+
+\begin{proof}[\Bew{$\AlgIso$ \CAlgHom}]Für alle $a \in \A$ und $f \in \SpecC(\A)$ gilt:
+	\[\Big(\AlgIso(a)\Big)^*(f) = (\tau_a^*)(f) = \overline{\tau_a(f)} = \overline{f(a)} \overset{\ref{prop:Stern-zu-Konjugation}}{=} f(a^*) = \tau_{a^*}(f) = \AlgIso(a^*)(f) \]
+	Damit ist $\AlgIso$ ein \CAlgHom.
+\let\qed\relax
+\end{proof}

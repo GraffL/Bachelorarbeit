@@ -1,0 +1,80 @@
+\begin{landscape}
+
+\include{Diagramm-Header}
+  
+\begin{footnotesize}
+
+\begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+	\node [Text] (satz) {Die Abbildung $\A \to \stetig(\SpecC\A,\CC): a \mapsto \left(f_a:\varphi \mapsto \varphi(a)\right)$ ist ein};
+	\node [below of=satz, node distance=.8cm] (hilf-satz) {};
+    
+    \node [Text, left of=hilf-satz, node distance=15em] (isometrisch) {isometrischer};    
+    \node [below of=isometrisch](hilf-isometrisch) {}; 
+    \node [below of=hilf-isometrisch](hilf-isometrisch2) {};     
+    \node [Text, below of=hilf-isometrisch2, text width=10em] (isometrie) {Isometrie: \\ $\forall a \in \A: || f_a || = || a ||$};
+    \node [below of=isometrie](hilf-isometrie) {};    
+       
+    \node [Prop, left of=hilf-isometrie, text width=7em] (prop2) {\cref{Prop:R-gleich-Norm}: \\ $\sup |\lambda| = || a ||$};    
+    \node [Text, below of=prop2, text width=7em] (text-prop2) {\ref{proof:R-gleich-Norm:leq} Hallo \\ (2.1.13d) \\ (2.1.16.3)};  
+    
+    \node [Prop, right of=hilf-isometrie, text width=13em] (prop1) {\cref{Prop:Spektrum-von-a}: \\ $\{\varphi(a)|\varphi\in\SpecC\A\} = \sigma_\A(a)$};
+    \node [Text, below of=prop1, text width=7em] (text-prop1) {$\dots$};    
+    
+    \node [Text, right  of=hilf-satz, node distance=15em] (iso) {Isomorphismus};
+    \node [below of=iso] (hilf-iso) {}; 
+       
+    \node [Text, left of=hilf-iso, node distance=15em] (bijektiv) {bijektiv};
+    \node [below of=bijektiv](hilf-bijektiv) {};  
+    \node [Text, left of=hilf-bijektiv] (injektiv) {injektiv};   
+    \node [Text, right of=hilf-bijektiv] (surjektiv) {surjektiv};
+    \node [below of=surjektiv] (hilf-surjektiv) {};    
+    \node [Text, left of=hilf-surjektiv] (bild-abg) {Bild abg.};    
+    \node [Def, below of=bild-abg] (def-vollst) {Definition \\ $\A$ vollständig}; 
+    \node [Text, right of=hilf-surjektiv] (bild-dicht) {Bild dicht};     
+    \node [Prop, below of=bild-dicht] (spec-komp) {$\SpecC\A$ kompakt};   
+    
+    \node [Text, right of=hilf-iso, node distance=13em] (calghom) {C*Algebren-Homomorphismus};    
+    \node [below of=calghom](hilf-calghom) {};
+    \node [Text, left of=hilf-calghom] (alghom) {Algebrenhom.}; 
+    \node [Def, below of=alghom] (def-alghom) {Definition};     
+    \node [Text, right of=hilf-calghom] (sternhom) {*-Hom.};
+    \node [Prop, below of=sternhom, text width=13em] (prop-sternhom) {Proposition: \\ $\varphi: \A \to \CC$ stet. Alghom. \\ $\Rightarrow \varphi(a*) = \overline{\varphi(a)}$}; 
+    \node [below of=prop-sternhom](hilf-sternhom) {};    
+    \node [Prop, left of=hilf-sternhom, text width=5em] (prop3) {Proposition: \\ 2.1.25};
+    \node [Prop, right of=hilf-sternhom, text width=5em] (prop4) {Proposition: \\ 2.1.16 6)};
+                                
+    % Draw edges
+    \path [line] (isometrie) -- (isometrisch);
+    \path [line] (prop1) -- (isometrie);
+    \path [line] (text-prop1) -- (prop1);
+    \path [line] (prop2) -- (isometrie);
+    \path [line] (text-prop2) -- (prop2);
+    
+    \path [line] (bijektiv) -- (iso); 
+    \path [line] (injektiv) -- (bijektiv);
+    \path [line] (isometrie) -- (injektiv);
+        
+    \path [line] (surjektiv) -- (bijektiv); 
+    \path [line] (bild-abg) -- (surjektiv);
+    \path [line] (def-vollst) -- (bild-abg);
+    \path [line] (isometrie) -- (bild-abg);
+    \path [line] (bild-dicht) -- (surjektiv);          
+    \path [line] (spec-komp) -- node[text width=5em]{Stone \\ Weiher- \\ straß} (bild-dicht);
+    
+    \path [line] (calghom) -- (iso);        
+    \path [line] (alghom) -- (calghom); 
+    \path [line] (def-alghom) -- (alghom);     
+    \path [line] (sternhom) -- (calghom);  
+    \path [line] (prop-sternhom) -- (sternhom);   
+    \path [line] (prop3) -- (prop-sternhom);   
+    \path [line] (prop4) -- (prop-sternhom);   
+       
+\end{tikzpicture}
+
+
+
+\end{footnotesize}
+\end{landscape}
+
+\newpage

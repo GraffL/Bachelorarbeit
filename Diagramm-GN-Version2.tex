@@ -1,0 +1,155 @@
+{\crefname{prop}{Prop.}{Prop.}
+\crefname{section}{Absch.}{Absch.}
+\crefname{kor}{Kor.}{Kor.}
+\input{Diagramm-Header}
+
+\begin{tikzpicture}[node distance = 6em, auto]
+
+\node [Text] (satz) {\large $\AlgIso: \A \to \stetig(\SpecC(\A)): a \mapsto \left(\tau_a:f \mapsto f(a)\right)$};
+	\node [BewTeil, left of=satz, node distance=40em] (legende) {\large Legende:};
+		\node [keinBeweis, below of=legende, node distance=2em, text width=1em, text height=1em] (grau) {};
+		\node [BewTeil, right of=grau, node distance=10em, text width=17em] (grau-erk) {= ohne Beweis verwendete Aussage};
+		\node [Absch, below of=grau, node distance=2em, text width=1em, text height=1em] (viereck) {};
+		\node [BewTeil, right of=viereck, node distance=10em, text width=17em] (viereck-erk) {= wesentlicher Beweisschritt};
+		\node [Prop, below of=viereck, node distance=2em, text width=1em, text height=1em] (rund) {};
+		\node [BewTeil, right of=rund, node distance=10em, text width=17em] (rund-erk) {= Hilfsaussage};
+	\node [below of=satz, node distance=3em] (hilf-satz) {};
+    
+    %Bijektiv-Block
+    \node [Absch, left of=hilf-satz, node distance=16em, text width=8em] (bi) {\cref{sec:Bijektiv} \\ $\AlgIso$ bijektiv};    
+    	\node [below of=bi](hilf-bi) {}; 
+    	\node [Text, left of=hilf-bi, node distance=8em] (inj) {$\AlgIso$ injektiv};
+    			\node [left of=inj, node distance=18em] (links-inj) {};
+       		%Isomometrisch
+    		\node [Absch, below of=inj, text width=8em] (iso) {\cref{sec:isometrisch} \\ $\AlgIso$ isometrisch};
+				\node [below of=iso](hilf-iso) {};     
+    			\node [Prop, left of=hilf-iso, node distance=13em, text width=8em] (RAnorm) 
+    			{\cref{prop:R-gleich-Norm} \\ $R_\A(a) = \norm{a}$};
+    					\node [below of=RAnorm, node distance=3em, text width=4em] (unter-RAnorm) {};
+    				\node [Text, below of=RAnorm] (hilf-RAnorm) {};    				
+    				\node [Prop, below of=hilf-RAnorm, text width=8em] (RAlima) 
+    				{\cref{prop:R-groesser-lima} \\ in Banachalg.: \\ $R\!_\A(a)\!\!\geq\!\!\lim\!\norm{\!a^k\!}^\frac{1}{k}$}; 
+    				\node [Prop, below of=RAlima, text width=8em] (konv)
+    				{\cref{prop:Konvergenz} \\ $\alpha_n \to \epsilon < 1$ \\ $\Rightarrow (\alpha_n)^n \to 0$};
+       			\node [Prop, right of=hilf-iso, node distance=10em, text width=15em] (fasigma) 
+       			{\cref{prop:Spektrum-von-a} \\ $\{f(a)|f\in\SpecC(\A)\}=\sigma_\A(a)$};
+					\node [BewTeil, below of=fasigma] (bew-fasigma) 
+					{\qquad für $\lambda \in \sigma_\A(a)$:};
+					\node [BewTeil, below of=bew-fasigma, text width=10em, node distance=1.5em] (bew-fasigma1) 
+					{\ref{proof:Spektrum-von-a:maxIdeal} $(\lambda e-a)\A \subseteq I_\lambda$ \\ \qquad\!\!\!\!\! max. Ideal};
+						\node [keinBeweis, left of=bew-fasigma1, node distance=12em] (zorn) 
+						{Lemma v. Zorn (\ref{satz:LZ})};						
+					\node [BewTeil, below of=bew-fasigma1, text width=10em, node distance=2.5em] (bew-fasigma2) 
+					{\ref{proof:Spektrum-von-a:I-abg} $I_\lambda$ abg.};										    		
+							\node [left of=bew-fasigma2, node distance=6.5em] (links-bew-fasigma2) {};
+					\node [BewTeil, below of=bew-fasigma2, text width=10em, node distance=2em] (bew-fasigma3) 
+					{\ref{proof:Spektrum-von-a:AI-BA} $^\A/_{I_\lambda}$ BA \& Körper};	
+						\node [keinBeweis, left of=bew-fasigma3, node distance=12em] (quotient) 
+						{Quatientenalg. (\ref{satz:Quotient})};						
+					\node [BewTeil, below of=bew-fasigma3, text width=10em, node distance=2em] (bew-fasigma4) 
+					{\ref{proof:Spektrum-von-a:Projektion} $f:\A \to {}^\A/_{I_\lambda} \cong \CC$};
+						\node [Prop, left of=bew-fasigma4, node distance=12em] (nichtleer) 
+						{\cref{kor:spektrum-nicht-leer}: $\sigma_\A(a) \neq \emptyset$};						
+				    
+    	\node [Text, right of=hilf-bi, node distance=8em] (sur) {$\AlgIso$ surjektiv};
+			\node [below of=sur](hilf-sur) {};     
+    		\node [Text, left of=hilf-sur, node distance=5em] (HAabg) {$\AlgIso(\A)$ abg.};
+    		\node [Text, right of=hilf-sur, node distance=5em] (HAdicht) {$\AlgIso(\A)$ dicht};
+				\node [below of=HAdicht] (hilf-HAdicht) {};
+					\node [keinBeweis, right of=hilf-HAdicht, text width=7em, node distance=4.3em] (SW) 
+					{Satz v. Stone-Weiherstraß (\ref{satz:SW})};   
+				\node [BewTeil, below of=hilf-HAdicht] (bew-HAdicht) {$\SpecC(\A) \dots$};
+				\node [BewTeil, below of=bew-HAdicht, text width=8.4em, node distance=2em] (bew-HAdicht1) 
+				{$\bullet$ ist kompakt};
+						\node [right of=bew-HAdicht1, node distance=7em] (rechts-bew-HAdicht1) {};	
+				\node [BewTeil, below of=bew-HAdicht1, text width=8.4em, node distance=2em] (bew-HAdicht2) 
+				{$\bullet$ enth. konst. Fkt.};
+						\node [right of=bew-HAdicht2, node distance=5em] (rechts-bew-HAdicht2) {};
+				\node [BewTeil, below of=bew-HAdicht2, text width=8.4em, node distance=2em] (bew-HAdicht3) 
+				{$\bullet$ trennt Pkte.};	
+				\node [BewTeil, below of=bew-HAdicht3, text width=8.4em, node distance=2em] (bew-HAdicht4) 
+				{$\bullet$ ist selbstadj.};	
+
+	% Sternhom-Block
+    \node [Absch, right of=hilf-satz, node distance=11em, text width=10em] (sternhom) 
+    {\cref{sec:CAlgHom} \\ $\AlgIso$ \CAlgHom}; 
+    		\node [right of=sternhom] (rechts-sternhom) {}; 
+    	\node [Text, below of=sternhom] (stern) {$\AlgIso(a^*) = (\AlgIso(a))^*$};    
+    			\node [left of=stern, node distance=5.5em] (links-stern) {}; 
+      	\node [Prop, below of=stern, text width=8em] (sternkonj) 
+    	{\cref{prop:Stern-zu-Konjugation} \\ für $f: \A \to \CC$ \\ Alghom.: \\ $f(a^*) = \overline{f(a)}$};
+    	\node [Prop, below of=sternkonj, text width=8em] (selbstadj) 
+    	{\cref{prop:Spektrum-reell} \\ für $a$ selbstadj.: \\ $\sigma_\A(a) \subseteq \RR$};
+    			\node [below of=selbstadj, node distance=3em, text width=4em] (unter-selbstadj) {};    	
+    	\node [Prop, below of=selbstadj, text width=8em] (eEig) 
+    	{\cref{lemma:CAlg-Eigenschaften} \\ $\norm{e} = 1$, $e^* = e$};
+    	%Lemma 1.15 (Spec komp.)
+    	\node [Absch, below of=eEig, text width=8em] (Speckomp) {\cref{lemma:MA} \\ $\SpecC(\A)$ komp. HD-Raum}; 
+    	\node [keinBeweis, below of=Speckomp, text width=8em] (alaoglu) {Satz v. Banach-Alaoglu (\ref{satz:BA})};     	
+    	
+    %Alghom	
+	\node [Absch, below of=bew-HAdicht4, text width=15em, node distance=6.6em] (Alghom) 
+	{\cref{sec:Algebrenhomomorphismus} \\ $\AlgIso$ Algebrenhomomorphismus};    	
+
+	%stetig
+	\node [Absch, below of=nichtleer, text width=8em, node distance=4em] (stetig) 
+	{\cref{lemma:BAlg-Eigenschaften} \\ $+$, $\cdot$, $^{-1}$ stetig}; 
+
+
+%Pfade:
+	%Zu bijektiv:
+	\path [line] (inj) -- (bi);
+		\path [line] (iso) -- (inj);
+			\path [line] (RAnorm) -- (iso);
+				\path [line] (RAlima) -- (RAnorm);
+					\path [line] (konv) -- (RAlima);
+			\path [line] (fasigma) -- (iso);
+				\path [line] (bew-fasigma) -- (fasigma);
+					\path [line] (zorn) -- (bew-fasigma1);
+					\path [line] (quotient) -- (bew-fasigma3);
+					\path [line] (nichtleer) -- (bew-fasigma4);
+						\path [line] (RAlima.east) -- (nichtleer.west);
+	\path [line] (sur) -- (bi);
+		\path [line] (HAabg) -- (sur);
+			\path [line] (iso) -- (HAabg);
+		\path [line] (HAdicht) -- (sur);
+			\path [line] (bew-HAdicht) -- (HAdicht);
+				\path [line2] (Speckomp) -| (rechts-bew-HAdicht1.center);
+					\path [line] (rechts-bew-HAdicht1.center) -- (bew-HAdicht1);
+					\path [line] (alaoglu) -- (Speckomp);
+	%Zu Sternhom:
+	\path [line] (stern) -- (sternhom);
+	\path [line] (sternkonj) -- (stern);
+		\path [line] (fasigma) -- (sternkonj.west);
+	\path [line] (selbstadj) -- (sternkonj);
+	\path [line] (eEig) -- (selbstadj);	
+	
+    %Von Algebrenhomomorphismus:
+    \path [line2] (Alghom.east) -| (rechts-sternhom.east);
+        \path [line] (rechts-sternhom.east) -- (sternhom);
+    \path [line2] (Alghom.north -| rechts-bew-HAdicht2.east) -- (rechts-bew-HAdicht2.east);
+    	\path [line] (rechts-bew-HAdicht2.east) -- (bew-HAdicht2);
+    \path [line2] (Alghom.west) -| (links-inj.west);
+	    \path [line] (links-inj.west) -- (inj);
+	\path [line2] (Alghom.north -| hilf-sur) -- (fasigma.south -| hilf-sur);
+		\path [line] (fasigma.north -| hilf-sur) |- (HAabg);
+	
+	%Von stetig:
+	\path [line] (stetig.west) -- (RAlima);
+	\path [line2] (stetig.east) -| (links-bew-fasigma2.center);
+		\path [line] (links-bew-fasigma2.center) -- (bew-fasigma2);
+	    
+	%Von stern zu selbstadj    
+    \path [line2] (stern.west) -- (links-stern.east);
+	    \path [line] (links-stern.east) |- (bew-HAdicht4);
+	    
+	%Von SW:
+	\path [line2] (SW) -- (hilf-HAdicht.center);	
+	
+	%RAlima nach selbstadj
+	\path [line2] (RAnorm.south -| unter-RAnorm.east) -- (unter-RAnorm.east);
+		\path [line2] (unter-RAnorm) -- (unter-selbstadj);
+		\path [line] (unter-selbstadj.west) -- (selbstadj.south -| unter-selbstadj.west);    
+	          
+\end{tikzpicture}
+}

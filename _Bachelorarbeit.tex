@@ -1,0 +1,201 @@
+\documentclass[a4paper,ngerman,bibtotoc]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[ngerman]{babel}
+
+\usepackage{amsmath,amsthm,amssymb,stmaryrd,color,graphicx,extarrows,multirow,subcaption}
+\usepackage{bussproofs}
+\usepackage{array}
+\usepackage{comment}
+
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+\usepackage{lmodern}
+\usepackage{tabto}
+
+\usepackage[backend=bibtex,style=alphabetic]{biblatex}
+\usepackage[babel]{csquotes}
+\bibliography{literatur}
+
+\usepackage[all]{xy}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+\usepackage{lscape}				%Querformat
+\usepackage{rotating}
+
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+%\usepackage[colorlinks=true, linkcolor=black, urlcolor=black, citecolor=black]{hyperref}
+\usepackage{cleveref}			%Referenzen mit Name
+
+
+\allowdisplaybreaks
+
+
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{bsp}[defn]{Beispiel}
+
+\theoremstyle{plain}
+\newtheorem{prop}[defn]{Proposition}
+\crefname{prop}{Proposition}{Prop.}
+\newtheorem{lemma}[defn]{Lemma}
+\newtheorem{kor}[defn]{Korollar}
+\newtheorem{satz}[defn]{Satz}
+
+\theoremstyle{remark}
+\newtheorem{bem}[defn]{Bemerkung}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\renewcommand{\exp}[1]{\textup{exp}\left(#1\right)}
+\newcommand{\A}{A}
+\newcommand{\B}{B}
+\newcommand{\C}{C}
+\newcommand{\D}{D}
+\newcommand{\KatC}{\mathbf{C}}
+\newcommand{\KatD}{\mathbf{D}}
+\newcommand{\stetig}{\mathfrak{C}}
+\newcommand{\SpecC}{\mathfrak{Spec}}
+\newcommand{\kommentar}{\color[rgb]{1,0,0}}
+
+
+\newcommand{\TopMan}{\mathrm{TopMan_c}}
+\newcommand{\CMan}{\mathrm{C\text{*}Man}}
+\newcommand{\tpsii}{\widetilde{\psi_i}}
+\newcommand{\hpsii}{\widehat{\psi_i}}
+
+
+\newcommand{\CAlg}{C*-Algebra}
+\newcommand{\CAlgn}{C*-Algebren}
+\newcommand{\CAlgMan}{C*-Algebra-Mannigfaltigkeit}
+\newcommand{\CAlgMann}{C*-Algebra-Mannigfaltigkeiten}
+\newcommand{\komTopMan}{kompakte topologische Mannigfaltigkeit}
+\newcommand{\komTopMann}{kompakte topologische Mannigfaltigkeiten}
+\newcommand{\komenTopMan}{kompakten topologischen Mannigfaltigkeit}
+\newcommand{\CAlgHom}{$*$-Homomorphismus}
+\newcommand{\CAlgHomn}{$*$-Homomorphismen}
+\newcommand{\ssTop}{schwach-$*$-Topologie}
+\newcommand{\Beh}{\underline{Behauptung:} }
+\newcommand{\Ann}{\underline{Annahme:} }
+\newcommand{\Fall}[1]{\underline{#1. Fall:} }
+\newcommand{\Bew}[1]{Beweis (Satz v. GN - #1)}
+
+\newcommand{\eval}{\varepsilon}						%Evaluationsabbildung
+\newcommand{\lima}{L(a)}							%lim ||a^k||^(1/k)
+\newcommand{\AlgIso}{H}								%Der Isomorphismus im Satz von Gelfand-Neumark
+\newcommand{\Homoeo}{\Phi}							%Standardhomöomorphismus
+\newcommand{\dual}[1]{\widetilde{#1}}				%Der Dualraum des Raumes "1"
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}	% ||#1|| (passt sich der Größe an)
+
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\id}{id}
+\newcommand{\Id}{\mathfrak{Id}}
+\newcommand{\Funk}{\mathfrak{F}}
+\newcommand{\Gunk}{\mathfrak{G}}
+
+\newcommand{\KatCAlg}{\mathbf{C^*Alg}}
+\newcommand{\KatCAlgMan}{\mathbf{C^*AlgMan}}
+\newcommand{\KatTop}{\mathbf{Top}}
+\newcommand{\KatTopMan}{\mathbf{TopMan}}
+\newcommand{\op}{\mathrm{op}}
+
+%Eine eigene Liste für Listen in Propositionen, deren Punkte direkt referenziert werden sollen ( http://tex.stackexchange.com/questions/156049/how-can-i-get-cleveref-enumitem-to-print-not-item-e-but-proposition-1 )
+\usepackage{enumitem}
+\newlist{propenum}{enumerate}{1} 					% also creates a counter called 'propenumi'
+%label=... definiert die Form der Numerierung, ref=... die Form der Referenzierung (theprop für Umgebung prop)
+\setlist[propenum]{label=\textup{\alph*)}, ref=\theprop~(\alph*)}
+\crefalias{propenumi}{prop} 
+
+%Analog für Beweise:
+\newlist{proofenum}{enumerate}{1} 					
+\setlist[proofenum]{label=\textup{\alph*)}, ref=\alph*)}
+\crefalias{proofenumi}{proof}
+
+%und für Definitionen:
+\newlist{defenum}{enumerate}{1} 					
+\setlist[defenum]{label=\textup{\arabic*.}, ref=Eigenschaft~\arabic*}
+\crefalias{defenumi}{defn}
+
+\newcounter{temp}									% Eigener Counter für Fortsetzung von Zählungen 
+
+
+
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+\newenvironment{indentblock}{%
+  \list{}{\leftmargin\leftmargin}%
+  \item\relax
+}{%
+  \endlist
+}
+
+
+\title{Bachelorarbeit}
+\author{Lukas Graf}
+
+
+
+\begin{document}
+
+\begin{titlepage}\center
+\textsc{\LARGE Universität Augsburg}\\[1.5cm]
+
+\textsc{\Large Institut für Mathematik}\\[2.5cm]
+
+% Title
+{ \huge \bfseries Bachelorarbeit \\[1.5cm]
+\Large Der Satz von Gelfand-Neumark und eine Erweiterung für topologische Mannigfaltigkeiten \\[6cm] }
+
+
+
+\vfill
+
+% Author and supervisor
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Vorgelegt von:}\\
+ Lukas \textsc{Graf}
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Betreut von:} \\
+ Prof. Dr. Kai \textsc{Cieliebak}
+\end{flushright}
+\end{minipage}
+
+\end{titlepage}
+
+
+\tableofcontents
+
+\newpage
+
+\input{Einleitung}
+\newpage
+\input{Kapitel1}
+\newpage
+\input{Kapitel2}
+\newpage
+\input{Kapitel3}
+\newpage
+\input{Ausblick}
+
+\newpage
+\input{Anhang}
+
+
+\newpage
+\nocite{*}
+\printbibliography
+
+\end{document}

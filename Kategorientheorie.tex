@@ -1,0 +1,113 @@
+\subsection{Grundbegriffe der Kategorientheorie}\label{sec:Kategorientheorie}
+
+Um die Gelfand-Dualität formal aufschreiben zu können, benötigen wir einige Grundbegriffe der Kategorientheorie. In Anlehnung an \cite[S. 2-23]{Pizza2013} und \cite[S. 1-6]{Ambrogio2009} werden diese im Folgenden kurz definiert sowie die im anschließenden Kapitel benötigten Beispiele genannt.
+
+\begin{defn}[Kategorie]
+Eine \emph{Kategorie} $\KatC$ besteht aus einer Klasse von Objekten, zu je zwei Objekten $X, Y$ einer Klasse von \emph{Morphismen} $\Hom_\KatC(X,Y)$, einer assoziativen Komposition $\circ$ von Morphismen und zu jedem Objekt $Y$ einen \emph{Identitätsmorphismus} $\id_Y$ Dabei muss für alle Objekte $X, Y, Z$ und Morphismen $f \in \Hom_\KatC(X,Y), g \in \Hom_\KatC(Y,Z)$ gelten:
+	\[g \circ f \in \Hom_\KatC(X,Z),\qquad \id_Y \circ f = f \qquad\text{und}\qquad g \circ \id_Y = g\]
+Zwei Objekte $X, Y$ aus $\KatC$ heißen \emph{isomorph}, wenn es Morphismen $f \in \Hom_\KatC(X,Y)$ und $f^{-1} \in\Hom_\KatC(Y,X)$ gibt, sodass
+	\[f^{-1} \circ f = \id_X \qquad\text{und}\qquad f \circ f^{-1} = \id_Y.\]
+	$f$ heißt dann \emph{Isomorphismus}.
+\end{defn}
+
+\begin{bsp}
+Mit kompakten Hausdorffräumen als Objekten und den stetigen Abbildungen als Morphismen erhalten wir $\KatTop$, die \emph{Kategorie der kompakten Hausdorffräume}. Zwei kompakte Hausdorffräume sind genau dann isomorph im obigen Sinne, wenn es einen Homöomorphismus zwischen ihnen gibt.
+\end{bsp}
+
+\begin{bsp}
+Nehmen wir als Objekte die \CAlgn{} und als Morphismen die \CAlgHomn{}, so erhalten wir $\KatCAlg$, die \emph{Kategorie der kommutativen \CAlgn{} mit Eins}. Zwei \CAlgn{} sind genau dann isomorph im obigen Sinne, wenn es einen Isomorphismus im Sinne von \cref{defn:CAlgIso} zwischen ihnen gibt.
+\end{bsp}
+
+\begin{bsp}
+Ist $\KatC$ eine Kategorie, so ist $\KatC^\op$ die dazu \emph{duale Kategorie}. Diese besteht aus den gleichen Objekten, aber den \glqq umgedrehten\grqq{} Morphismen. Das heißt zu zwei Objekten $X, Y$ aus $\KatC$ bzw. $\KatC^\op$ ist 
+	\[\Hom_{\KatC^\op}(X,Y) := \{f^\op ~|~ f \in \Hom_\KatC(Y,X)\}.\]
+Die Komposition in $\KatC^\op$ ist dabei definiert als $f^\op \circ g^\op := (g \circ f)^\op$. Somit ist $f^\op$ genau dann ein Isomorphismus in $\KatC^\op$, wenn $f$ ein Isomorphismus in $\KatC$ ist.
+\end{bsp}
+
+
+\begin{defn}[Funktor]
+Seien $\KatC, \KatD$ zwei Kategorien. Dann ist ein Funktor $\Funk: \KatC \to \KatD$ eine Vorschrift, die jedem Objekt $X$ aus $\KatC$ ein Objekt $\Funk(X)$ aus $\KatD$ zuordnet und jedem Morphismus $f \in \Hom_\KatC(X,Y)$ einen Morphismus $\Funk(f) \in \Hom_\KatD(\Funk(X), \Funk(Y))$. Dabei muss gelten:
+\begin{itemize}
+	\item Für alle Objekte $X$ aus $\KatC$ ist: $\Funk(\id_X) = \id_{\Funk(X)}$.
+	\item Für alle komponierbaren Morphismen $f, g$ aus $\KatC$ gilt: $\Funk(g\circ f) = \Funk(g)\circ \Funk(f)$
+\end{itemize}
+\end{defn}
+
+\begin{bsp}\label{bsp:FunktorSpec}
+In \cref{sec:SpecCA} haben wir gesehen wie wir einer \CAlg{} einen kompakten Hausdorffraum zuordnen können. Dadurch erhalten wir einen Funktor $\SpecC$:
+\[ \begin{array}{@{}rrcl@{}}
+	\SpecC: 	&\KatCAlg^\op		&\to 		&\KatTop													\\
+				&\A					&\mapsto 	&\SpecC(\A)													\\				
+				&\underbrace{(h:\B \to \A)^\op}_{\in \Hom_{\KatCAlg^\op}(\A,\B)} 	&\mapsto	
+				&\underbrace{(\varphi_h: \SpecC(\A) \to \SpecC(\B): f \mapsto f \circ h)}_{\in \Hom_{\KatTop}(\SpecC(\A),\SpecC(\B))}
+\end{array} \]
+\end{bsp}
+
+\begin{proof}$\varphi_h$ ist tatsächlich ein Morphismus von $\KatTop$, d h. eine stetige Abbildung. Denn ist 
+	\[U(\varphi_h(f_0), b, \epsilon) := \{g \in \SpecC(B) ~|~ |\varphi_h(f_0)(b)-g(b)| < \epsilon\}\]
+eine offene Umgebung von $\varphi_h(f_0) \in \SpecC(\B)$, so gilt für alle $f \in U(f_0,h(b),\epsilon)$:
+	\[\left|\varphi_h(f_0)(b)-\varphi_h(f)(b)\right| = \left|f_0\circ h(b) - f\circ h(b)\right| = \left|f_0(h(b))-f(h(b))\right| < \epsilon\]
+Also $f \in U(\varphi_h(f_0), b, \epsilon)$.
+
+Seien ferner $\A, \B$ und $\C$ \CAlgn{}, $g \in \Hom_{\KatCAlg^\op}(\B,\C)$, $h \in \Hom_{\KatCAlg^\op}(\A,\B)$ sowie $f \in \SpecC(\A)$, dann gilt:
+\begin{itemize}
+	\item $\SpecC(\id_\A^\op)(f) = \varphi_{\id_\A}(f) = f \circ \id_\A = f =  \id_{\SpecC(\A)}(f)$
+	\item $\SpecC(g^\op \circ h^\op)(f) = \SpecC((h \circ g)^\op)(f) = \varphi_{h \circ g}(f) = f \circ h \circ g = \varphi_g(f \circ h) =$ \newline $ = \SpecC(g^\op)(f \circ h) = \SpecC(g^\op)\left(\varphi_h(f)\right) = \left(\SpecC(g^\op)\circ\SpecC(h^\op)\right)(f)$
+\end{itemize}
+\end{proof}
+
+\begin{bsp}\label{bsp:FunktorC}
+Analog können wir aus der Zuordnung von \CAlgn{} zu kompakten Hausdorffräumen aus  \cref{sec:CX} einen Funktor $\stetig$ konstruieren:
+\[ \begin{array}{@{}rrcl@{}}
+	\stetig: 	&\KatTop			&\to 		&\KatCAlg^\op													\\
+				&X					&\mapsto 	&\stetig(X)													\\				
+				&\underbrace{(\varphi:X \to Y)}_{\in \Hom_{\KatTop}(X,Y)} 	&\mapsto	
+				&\underbrace{(h_\varphi: \stetig(Y) \to \stetig(X): \tau \mapsto \tau \circ \varphi)^\op}_{\in \Hom_{\KatCAlg^\op}(\stetig(X),\stetig(Y))}
+\end{array} \]
+\end{bsp}
+
+\begin{proof}Dass $h_\varphi^\op$ tatsächlich ein Morphismus in $\KatCAlg^\op$ ist, d.h. $h_\varphi$ ein \CAlgHom{}, ergibt sich durch Nachrechnen der Axiome direkt aus der Definition der \CAlg-Struktur auf $\stetig(X)$ und $\stetig(Y)$ (siehe \cref{lemma:CX}).
+
+Außerdem gilt für kompakte Hausdorffräume $X, Y, Z$ sowie $\varphi \in \Hom_\KatTop(X,Y)$, $\psi \in \Hom_\KatTop(Y,Z)$ und $\tau \in \stetig(Z)$:
+\begin{itemize}
+	\item $h_{\id_Z}(\tau) = \tau \circ \id_Z = \tau = \id_{\stetig(Z)}(\tau)$, also $\stetig(\id_Z) = (h_{\id_Z})^\op = (\id_{\stetig(Z)})^\op$ und
+	\item $h_{\psi\circ \varphi}(\tau) = \tau\circ \psi \circ \varphi = h_\varphi(\tau\circ\psi) = h_\varphi \circ h_\psi(\tau)$, also 
+		\[\stetig(\psi \circ \varphi) = h_{\psi \circ \varphi}^\op = (h_\varphi \circ h_\psi)^\op = h_\psi^\op \circ h_\varphi^\op.\]
+\end{itemize}
+\end{proof}
+
+\begin{defn}[Kategorienäquivalenz]\label{defn:KatAEquiv}
+Zwei Kategorien $\KatC, \KatD$ heißen \emph{äquivalent}, kurz $\KatC \simeq \KatD$, wenn es 
+\begin{itemize}
+	\item zwei Funktoren $\Funk: \KatC \to \KatD$ und $\Gunk:\KatD \to \KatC$ gibt sowie
+	\item für jedes Objekt $X$ aus $\KatC$ einem Isomorphismus $F_X \in \Hom_\KatC(X, \Gunk(\Funk(X)))$, sodass
+		\[\forall f \in \Hom_\KatC(X,Y): \Gunk(\Funk(f))\circ F_X = F_Y \circ f,\]
+	 und
+	\item für jedes Objekt $A$ aus $\KatD$ einem Isomorphismus $G_X \in \Hom_\KatD(\Funk(\Gunk(A)), A)$, sodass	
+		\[\forall g \in \Hom_\KatD(A,B): g\circ G_A = G_B \circ \Funk(\Gunk(g)).\]
+\end{itemize}
+
+Sind $\KatC$ und $\KatD^\op$ äquivalent, so heißen $\KatC$ und $\KatD$ \emph{dual} zueinander.
+\end{defn}
+
+\begin{bem}
+Üblicherweise wird die Äquivalenz von Kategorien mit Hilfe des Begriffs der natürlichen Transformationen definiert (siehe dazu \cite[Kapitel 4]{Pizza2013} bzw. \cite[Defintionen 7 \& 10]{Ambrogio2009}). Diesen entspricht in obiger Definition die Gesamtheit aller $F_X$ bzw. $G_X$.
+\end{bem}
+
+Ist für zwei Kategorien erst einmal gezeigt, dass sie äquivalent sind, so genügt es häufig eine Aussage in einer der beiden zu zeigen und sie gilt dann automatisch auch analog in der anderen Kategorie. Ein Beispiel für eine derartige Aussage ist die Isomorphie von zwei Objekten:
+
+\begin{lemma}\label{kor:KatIso2}
+Seien $\KatC, \KatD$ zwei äquivalente Kategorien und $\Funk: \KatC \to \KatD$ und $\Gunk:\KatD \to \KatC$ die beiden Funktoren aus \cref{defn:KatAEquiv}. Dann sind zwei Objekte $X, Y$ aus $\KatC$ genau dann isomorph, wenn $\Funk(X)$ und $\Funk(Y)$ isomorph in $\KatD$ sind.
+\end{lemma}
+
+\begin{proof}\begin{itemize}
+\item[\glqq$\Rightarrow$\grqq]Seien zunächst $X$ und $Y$ zwei isomorphe Opjekte aus $\KatC$. Dann gibt es also Morphismen  $f \in \Hom_\KatC(X,Y), f^{-1} \in \Hom_\KatC(Y,X)$, sodass $f^{-1} \circ f = \id_X$ und $f \circ f^{-1} = \id_Y$. Daraus folgt
+	\[\Funk(f^{-1})\circ \Funk(f) = \Funk(f^{-1}\circ f) = \Funk(\id_X) = \id_{\Funk(X)}\]
+und analog $\Funk(f)\circ \Funk(f^{-1}) = \id_{\Funk(Y)}$. Also sind $\Funk(X)$ und $\Funk(Y)$ isomorph.
+
+\item[\glqq$\Leftarrow$\grqq]Für die Rückrichtung seien $\Funk(X)$ und $\Funk(Y)$ isomorph. Dann sind mit den gleichen Argumenten wie in \glqq$\Rightarrow$\grqq{} auch $\Gunk(\Funk(X))$ und $\Gunk(\Funk(Y))$ isomorph. 
+
+Seien nun $F_X$, $F_Y$ die Isomorphismen aus \cref{defn:KatAEquiv} und $f \in \Hom_\KatC(\Gunk(\Funk(X)),\Gunk(\Funk(Y)))$ der Isomorphismus zwischen $\Gunk(\Funk(X))$ und $\Gunk(\Funk(Y))$. Dann ist $F_Y^{-1} \circ f \circ F_X \in \Hom_\C(X,Y)$ ebenfalls ein Isomorphismus, denn
+	\[(F_Y^{-1} \circ f \circ F_X) \circ (F_X^{-1} \circ f^{-1} \circ F_Y) = F_Y^{-1} \circ f \circ \id_{\Gunk(\Funk(X))} \circ f^{-1} \circ F_Y = \dots = \id_Y\]
+und analog $(F_X^{-1} \circ f^{-1} \circ F_Y)\circ(F_Y^{-1} \circ f \circ F_X)  = \id_X$. Somit sind $X$ und $Y$ isomorph.
+\end{itemize}\end{proof}

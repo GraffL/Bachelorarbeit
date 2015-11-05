@@ -1,0 +1,93 @@
+\section{Die Gelfand-Dualität}\label{sec:GD}
+
+Im vorangegangenen Kapitel haben wir gezeigt, dass jede \CAlg{} $\A$ (isometrisch) isomorph zu einem Funktionenraum über einem kompakten Hausdorffraum ist (nämlich der Algebra $\stetig(\SpecC\A)$). 
+
+In diesem Kapitel werden wir nun sehen, dass umgekehrt auch jeder kompakte Hausdorffraum $X$ homöomorph zu einem bestimmten Funktionenraum über  einer \CAlg{} ist (nämlich dem Raum $\SpecC(\stetig(X))$). Damit zeigt sich, dass \CAlgn{} und kompakte Hausdorffräume in gewisser Weise äquivalent zueinander sind, was die Aussage der Gelfand-Dualität sein wird.
+
+\subsection{Der \glqq umgekehrte\grqq{} Satz von Gelfand-Neumark}
+
+Ganz analog zum Satz von Gelfand-Neumark wollen wir zeigen, dass jeder kompakte Hausdorffraum bis auf Homöomorphie der Raum aller stetigen Algebrenhomomorphismen von einer \CAlg{} nach $\CC$ ist.
+
+\begin{lemma}\label{lemma:NG}
+Sei $X$ ein kompakter Hausdorffraum, dann ist die Abbildung
+	\[\Homoeo: X \to \SpecC(\stetig(X)): x \mapsto (f_x: \tau \mapsto \tau(x))\]
+ein Homöomorphismus.
+\end{lemma}
+
+\begin{proof}Die wesentlichen Teile dieses Beweises entstammen \cite[Bemerkung 2.1.33]{Baer2003}.
+
+Zunächst ist die Abbildung wohldefiniert, denn sind $x \in X$, $\tau_0 \in \stetig(X)$ und $\epsilon > 0$, so gilt für alle $\tau \in \stetig(X)$ mit $\norm{\tau_0 - \tau} < \epsilon$:
+	\[\left|f_x(\tau_0) - f_x(\tau)\right| = \left|\tau_0(x) - \tau(x)\right| \leq \underset{y \in X}{\sup} \left|\tau_0(y) - \tau(y)\right| = \norm{\tau_0 - \tau} < \epsilon \]
+Also ist $f_x$ stetig. Aus der Definition der Algebra-Struktur auf $\stetig(X)$ (siehe \cref{lemma:CX}) ergibt sich außerdem direkt, dass $f_x$ ein Algebrenhomomorphismus ist. Insgesamt ist somit tatsächlich $f_x \in \SpecC(\stetig(X))$.
+
+Weiterhin ist $\Homoeo$ stetig, denn sind $x \in X$ und 
+	\[U(\Homoeo(x), \tau, \epsilon) := \{g \in \SpecC(\stetig(X)) ~|~ |\Homoeo(x)(\tau) - g(\tau)| < \epsilon\}\]
+eine offene Umgebung von $\Homoeo(x)$ (siehe \cref{defn:schwachSternTop}), so gilt für alle $y \in \tau^{-1}(B_\epsilon(x))$ (eine offene Menge, da $\tau \in \stetig(X)$, also stetig):
+	\[\left|\Homoeo(x)(\tau) - \Homoeo(y)(\tau)\right| = \left|f_x(\tau) - f_y(\tau)\right| = \left|\tau(x) - \tau(y)\right| < \epsilon \]
+Das heißt $\Homoeo(y) \in U(\Homoeo(x), \tau, \epsilon)$ und somit ist $\Homoeo$ stetig.
+
+$\Homoeo$ ist außerdem injektiv, denn sind $x, y \in X$ mit $x \neq y$, so gibt es dem Lemma von Urysohn (\ref{satz:Ury}) zu Folge eine stetige Funktion $\varphi: X \to \CC$ mit $\varphi(x) = 0$ und $\varphi(y) = 1$. Somit ist 
+	\[\Homoeo(x)(\varphi) = f_x(\varphi) = \varphi(x) \neq \varphi(y) = f_y(\varphi) = \Homoeo(y)(\varphi)\]
+und daher $\Homoeo(x) \neq \Homoeo(y)$, also $\Homoeo$ injektiv.
+
+Somit ist $\Homoeo: X \to \Homoeo(X)$ stetig und injektiv. Ferner ist $X$ kompakt und $\Homoeo(X) \subseteq \SpecC(\stetig(X))$ hausdorffsch (\cref{lemma:MA}). Damit ist $\Homoeo: X \to \Homoeo(X)$ nach \cref{lemma:komHDHomoeo} bereits ein Homöomorphismus.
+
+Schließlich ist $\Homoeo(X) = \SpecC(\stetig(X))$, denn gäbe es ein $g \in \SpecC(\stetig(X)) \backslash \Homoeo(X)$, so wären $\Homoeo(X)$ und $\{g\}$ disjunkte, abgeschlossene Teilmengen in einem kompakten Hausdorffraum. Wiederum erhalten wir durch Anwendung des Lemmas von Urysohn eine stetige Funktion $\psi: \SpecC(\stetig(X)) \to \CC$ mit $\psi|_{\Homoeo(X)} \equiv 0$ und $\psi(g) = 1$. 
+
+Da nach dem Satz von Gelfand-Neumark $\stetig(\SpecC(\stetig(X)))$ und $\stetig(X)$ isomorph sind, gibt es ein $\varphi \in \stetig(X)$ mit $\AlgIso(\varphi) = \psi$, d.h. für alle $x \in X$ gilt:
+	\[0 = \psi(\Homoeo(x)) = \psi(f_x) = \AlgIso(\varphi)(f_x) = \tau_\varphi(f_x) = f_x(\varphi) = \varphi(x)\]
+Also ist $\varphi \equiv 0$ und damit auch $\psi \equiv \AlgIso(\varphi) \equiv 0$, was ein Wiederspruch zur Definition von $\psi$ ist. Somit war die Annahme falsch und es gilt tatsächlich $\Homoeo(X) = \SpecC(\stetig(X))$.
+\end{proof}
+
+\input{Kategorientheorie}
+
+\subsection{Beweis der Gelfand-Dualität}
+
+Mit Hilfe der soeben eingeführten Begriffe können wir nun die Gelfand-Dualität formal fassen:
+
+\begin{satz}[Gelfand-Dualität]\label{satz:GD}
+Die Kategorie der kompakten Hausdorffräume $\KatTop$ ist dual zur Kategorie der kommutativen \CAlgn{} mit Eins $\KatCAlg$.
+\end{satz}
+
+
+\begin{proof}Als Funktoren werden wir $\stetig$ und $\SpecC$ aus \cref{bsp:FunktorC} und \ref{bsp:FunktorSpec} verwenden:
+	\[\begin{array}{@{}rrcl@{}}
+	 			&\KatTop			&\simeq		&\KatCAlg^\op 												\\
+	\stetig: 	&X					&\mapsto	&\stetig(X)													\\
+				&(\varphi:X \to Y)	&\mapsto	&(h_\varphi: \stetig(Y) \to \stetig(X): \tau \mapsto \tau \circ \varphi)^\op 		\\
+	\SpecC:		&\SpecC(\A)													&\mapsfrom	&\A				\\
+				&(\varphi_h: \SpecC(\A) \to \SpecC(\B): f \mapsto f \circ h)	&\mapsfrom	&(h: \B \to \A)^\op
+	\end{array}\]
+
+\begin{itemize}
+	\item	
+Aus \cref{lemma:NG} wissen wir, dass für jeden kompakten Hausdorffraum $X$ die Abbildung $\Homoeo_X: X \to \SpecC(\stetig(X)): x \mapsto (f_x: \tau \mapsto \tau(x))$ ein Isomorphismus in der Kategorie $\KatTop$ ist.
+
+Sei nun $\psi \in \Hom_\KatTop(X,Y)$, dann gilt für alle $x \in X$:
+	\[\SpecC(\stetig(\psi)) \circ \Homoeo_X(x) = \SpecC((h_\psi)^\op)(f_x) = \varphi _{h_\psi}(f_x) = f_x \circ h_\psi: \tau \mapsto f_x(\tau \circ \psi)\]
+und
+ 	\[\Homoeo_Y \circ \psi(x) = \Homoeo_Y(\psi(x)) = f_{\psi(x)}: \tau \mapsto \tau(\psi(x)) = (\tau \circ \psi)(x) = f_x(\tau \circ \psi).\]
+Also ist: 
+	\[\SpecC(\stetig(\psi)) \circ \Homoeo_X = \Homoeo_Y \circ \psi\]
+
+
+\item
+Analog dazu kennen wir aus dem Satz von Gelfand-Neumark (\cref{satz:GN}) zu jeder \CAlg{} $\A$ den Isomorphismus $\AlgIso_\A: \A \to \stetig(\SpecC(\A)): a \mapsto (\tau_a: f \mapsto f(a))$. Folglich ist auch $\AlgIso_\A^\op \in \Hom_{\KatCAlg^\op}(\stetig(\SpecC(\A)),\A)$ ein Isomorphismus. 
+
+Ferner gilt für alle $g^\op \in \Hom_{\KatCAlg^\op}(\A,\B)$ (also $g \in \Hom_\KatCAlg(\B,\A)$):
+	\[g^\op\circ\AlgIso_\A^\op = (\AlgIso_\A\circ g)^\op \]
+und
+	\[\AlgIso_\B^\op \circ \stetig(\SpecC(g^\op)) = \AlgIso_\B^\op \circ \stetig(\varphi_g) = \AlgIso_\B^\op \circ (h_{\varphi_g})^\op = (h_{\varphi_g}\circ\AlgIso_\B)^\op\]
+Es genügt also $\AlgIso_\A\circ g = h_{\varphi_g}\circ\AlgIso_\B$ zu zeigen.
+
+Sei dazu $b \in \B$, dann ist
+	\[\AlgIso_\A\circ g (b) = \AlgIso_\A(g(b)) = \tau_{g(b)}: f \mapsto f(g(b)) = (f \circ g)(b) = \tau_b(f\circ g)\]
+und 
+	\[h_{\varphi_g}\circ\AlgIso_\B (b) = h_{\varphi_g}(\tau_b) = \tau_b \circ \varphi_g: f \mapsto \tau_b(\varphi_g(f)) = \tau_b(f\circ g).\]
+Damit ist $\AlgIso_\A\circ g = h_{\varphi_g}\circ\AlgIso_\B$ gezeigt und somit ist:
+	\[g^\op\circ\AlgIso_\A^\op = (\AlgIso_\A\circ g)^\op = (h_{\varphi_g}\circ\AlgIso_\B)^\op = \AlgIso_\B^\op \circ \stetig(\SpecC(g^\op))\]
+\end{itemize}
+\end{proof}
+
+
+\input{Anwendungen}

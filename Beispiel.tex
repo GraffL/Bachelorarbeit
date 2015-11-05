@@ -1,0 +1,34 @@
+\subsection{$\CC^n$ als Beispiel einer \CAlg}\label{sec:BeispielCn}
+
+Bevor wir zum eigentlichen Satz von Gelfand-Neumark kommen, werden wir ihn in diesem Abschnitt zunächst am Spezialfall des $\CC^n$ betrachten. Dieser wird mit komponentenweiser Multiplikation, der Maximumsnorm $||.||_\infty$ und der Involutionsabbildung
+\[*: 
+\left(\begin{matrix}
+ c_1 \\ \vdots \\ c_n 
+\end{matrix}\right)
+\mapsto 
+\left(\begin{matrix}
+\overline{c_1} \\ \vdots \\ \overline{c_n}
+\end{matrix}\right) \qquad (\overline{c_k} \text{ sei die komplexe Konjugation von } c_k  \text{ in } \CC).\]
+eine ($n$-dimensionale) \CAlg{}. Die Einheitsvektoren $e_k = \left( \delta_{1k} \  \dots \ \delta_{nk} \right)^T$ bilden dann eine Basis dieser \CAlg{} und $e := (1,\dots,1)^T = \sum_{k=1}^ne_k$ ist ihr Einselement.
+
+Als erstes wollen wir einen kompakten Hausdorffraum zu dieser \CAlg{} konstruieren. Betrachten wir dazu die Menge
+	\[\SpecC(\CC^n) := \{f: \CC^n \to \CC ~|~ f \text{ stetiger Algebrenhomomorphismus}\},\]
+so gilt für jeden Algebrenhomomorphismus $f \in \SpecC(\CC^n)$:
+	\[f(e_k) = f(e_k \cdot e_k) \overset{Alg.hom.}{=} f(e_k) \cdot f(e_k) \in \CC\]
+Also $f(e_k) \in \{0, 1\}$. Gleichzeitig gilt aber auch:
+	\[1 = f(e) = f\left(\sum_{k=1}^n e_k\right) \overset{Alg.hom.}{=} \sum_{k=1}^n f(e_k)\]
+Insgesamt gibt es daher genau ein $k_f \in \{1, \dots, n\}$ mit $f(e_{k_f}) = 1$. Und durch dieses ist $f$ bereits eindeutig festgelegt, denn es gilt:
+	\[\forall c \in \CC^n: f(c) = f\left(\sum_{k=1}^n c_k e_k\right) \overset{Alg.hom.}{=} \sum_{k=1}^n c_k f(e_k) = c_{k_f} \]
+Einfaches Nachrechnen zeigt, dass die so definierten $n$ verschiedenen Abbildungen tatsächlich stetige Algebrenhomomorphismen sind. Also ist $\SpecC(\CC^n)$ eine Menge aus $n$ Elementen $\{f_1, \dots, f_n\}$. Versehen mit der diskreten Topologie (jede Teilmenge ist eine offene Menge) wird $\SpecC(\CC^n)$ so offensichtlich zu einem kompakter Hausdorffraum.
+
+Betrachten wir auf diesem Raum nun die Menge der stetigen Abbildungen nach $\CC$:
+	\[\stetig(\SpecC(\CC^n)) := \{\tau: \SpecC(\CC^n) \to \CC ~|~ \tau \text{ stetig}\}\]
+Versehen wir diese auf natürliche Weise mit der Struktur einer Algebra, der Maximumsnorm $\norm{\tau} := \max \{|\tau(f)| ~|~ f \in \SpecC(\CC^n)\}$ und der komplexen Konjugation als Involution, so wird $\stetig(\SpecC(\CC^n))$ eine \CAlg. 
+
+Da $\SpecC(\CC^n)$ aus genau $n$ verschiedenen Elementen besteht, ist eine Funktion $\tau$ auf diesem Raum definiert durch die Werte von $\tau$ auf diesen $n$ Punkten von $\SpecC(\CC^n)$. Außerdem ist aufgrund der diskreten Topologie \emph{jede} Funktion auf $\SpecC(\CC^n)$ auch stetig. Damit ist die folgende Abbildung bijektiv:
+	\[\AlgIso: \CC^n  \to \stetig(\SpecC(\CC^n)): \left(\begin{matrix} c_1 \\ \vdots \\ c_n \end{matrix}\right) \mapsto (\tau_c: \SpecC(\CC^n) \to \CC: f_k \mapsto c_k) \]
+Es ist jetzt leicht zu zeigen, dass $\AlgIso$ ein isometrischer Isomorphismus ist.
+
+Insgesamt haben wir also einen kompakten Hausdorffraum gefunden (nämlich $\SpecC(\CC^n)$), dessen Funktionenraum isometrisch isomorph zu unserer ursprünglichen \CAlg{} $\CC^n$ ist.
+
+Eine vergleichbare Konstruktion wollen wir im Folgenden auch für allgemeine \CAlgn{} finden. Dazu werden wir als erstes die Konstruktionen von $\SpecC(\CC^n)$ und $\stetig(\SpecC(\CC^n))$ verallgemeinern:

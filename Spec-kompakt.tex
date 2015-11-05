@@ -1,0 +1,85 @@
+\subsection{$\SpecC(\A)$ als kompakter Hausdorffraum}\label{sec:SpecCA}
+
+Analog zum obigen Beispiel soll auch für eine beliebige \CAlg{} $\A$ die Menge der stetigen Algebrenhomomorphismen von $\A$ nach $\CC$ als zugehörigen topologischen Raum verwendet werden. Da dieser im Allgemeinen nicht endlich sein muss, wäre die diskrete Topologie hierfür jedoch zu fein und der Raum damit nicht mehr kompakt. Stattdessen werden wir die folgende Topologie verwenden:
+
+\begin{defn}[\ssTop]\label{defn:schwachSternTop}
+Sei $(A, ||.||)$ ein $\CC$-Vektorraum und $\dual{A} := \{f: A \to \CC ~|~ f \text{ stetig, linear}\}$ der zugehörige Dualraum. Die von der Subbasis
+\[ U(f_0, a, \epsilon) := \{f \in \A ~|~ |f_0(a)-f(a)| < \epsilon\} ~,~ f_0 \in \dual{\A}, a \in \A, \epsilon > 0\]
+erzeugte Topologie auf $\A$ heißt dann \emph{\ssTop}.
+\end{defn}
+
+\begin{kor}\label{bem:Einsetz-stetig}
+Die \ssTop{} ist gerade so definiert, dass die \emph{Einsetzungsabbildungen} $\eval_a: \dual{\A} \to \CC: f \mapsto f(a)$ für alle $a\in \A$ stetig sind.
+\end{kor}
+
+\begin{proof}
+Zu $f_0 \in \dual{\A}$, $\epsilon > 0$ betrachte die offene Menge $U(f_0, a, \epsilon) \subseteq \dual{\A}$.
+\end{proof}
+
+\begin{bem}
+Da $\SpecC(\CC^n)$ aus \cref{sec:BeispielCn} eine Teilmenge von $\dual{\CC^n}$ ist, können wir auch diesen Raum mit der \ssTop{} versehen. Es ist leicht zu sehen, dass sie in diesem Spezialfall der diskreten Topologie entspricht (betrachte die Umgebungen $U(f_k, e_k, {}^1/_2)$.
+\end{bem}
+
+\begin{lemma}\label{lemma:MA}
+Sei $\A$ eine \CAlg. Dann ist
+\[\SpecC(\A) := \{f: \A \to \CC ~|~ f \text{ stetiger Algebrenhomomorphismus}\} \subset \dual{\A}\]
+mit der \ssTop{} ein kompakter Hausdorffraum.
+\end{lemma}
+
+\begin{proof}
+Die Hausdorffeigenschaft für $\SpecC(\A)$ folgt bereits direkt aus der Definition der \ssTop{} (vgl. \cite[Lemma 2.1.27 b)]{Baer2003}): Sind nämlich $f, g \in \SpecC(\A)$ mit $f \neq g$, d.h. $\exists a\in A: f(a) \neq g(a)$, so setzen wir $\epsilon := \frac{1}{2} |f(a) - g(a)| > 0$. Dann sind $U(f, a, \epsilon), U(g, a, \epsilon)$ disjunkte offene Umgebungen von $f$ bzw. $g$. Also ist $\SpecC(\A)$ hausdorffsch.
+
+Für den Beweis der Kompaktheit benötigen wir dagegen einige Hilfsaussagen:
+
+\begin{figure}[h]
+	\input{Diagramm-Spec-komp}
+	\caption{Der Aufbau des Beweises zu \cref*{lemma:MA}}
+\end{figure}
+
+
+\begin{prop}
+Sei $\A$ eine \CAlg{} und $\dual{\A}$ der Dualraum dazu, versehen mit der schwach-*-Topologie. Sei $0$ die Nullabbildung in $\dual{\A}$ und $\dual{B_1}(0) \subseteq \dual{\A}$ die abgeschlossene Einheitskugel bezüglich der induzierten Norm. Dann gilt:
+\begin{propenum}
+	\item $\SpecC(\A) \cup \{0\} \subseteq \dual{\A}$ ist abgeschlossen. 		\label{prop:Spec0-abg} 
+	\item $\SpecC(\A) \subseteq \SpecC(\A) \cup \{0\}$ ist abgeschlossen.		\label{prop:Spec-abg} 
+	\item $\SpecC(\A) \subseteq \dual{B_1}(0)$							\label{prop:Spec-in-B0} 
+\end{propenum}
+\end{prop}
+
+\begin{proof}Der Beweis zu \ref*{prop:Spec0-abg} und \ref*{prop:Spec-abg} folgt dem zu \cite[Lemma 2.1.27 a), d)]{Baer2003}.
+\begin{proofenum} 
+	\item %Folgt 2.1.27a
+	Für beliebige $a, b \in \A$ definieren wir die folgende Abbildung:
+	\[\Phi_{a,b} := \eval_{ab}-\eval_a \eval_b : \dual{\A} \to \CC: f \mapsto f(ab)-f(a)f(b)\]
+	Für $f \in \SpecC(\A) \cup \{0\}$ gilt $f(ab) = f(a)f(b)$, die Abbildung $\Phi_{a,b}$ ist also gleich 0 auf $\SpecC(\A) \cup \{0\}$. Da $\Phi_{a,b}$ nach \cref{bem:Einsetz-stetig} stetig ist, muss $\Phi_{a,b}$ auch auf dem Abschluss von $\SpecC(\A) \cup \{0\}$ identisch Null sein. 
+	
+Sei nun $f \in \dual{\A} \backslash \{0\}$ eine Abbildung, sodass für alle $a, b \in \A$ gilt: $0 = \Phi_{a,b}(f) = f(ab) - f(a)f(b)$. Damit ist $f$ insbesondere multiplikativ. Außerdem ist $f(e) \neq 0$, denn sonst würde für alle $a \in \A$ gelten $f(a) = f(ea) = f(e)f(a) = 0f(a) = 0$, es wäre also $f = 0$. Daraus wiederum folgt nun, dass $f$ einserhaltend ist, denn es gilt:
+	\[f(e) = f(ee) = f(e)f(e) \overset{f(e) \in \CC}{\Longrightarrow} 1 = f(e).\]
+Somit ist $f \in \SpecC(\A)$ und es gilt:
+	\[\overline{\SpecC(\A) \cup \{0\}} \subseteq \big\{f \in \dual{\A} ~|~ \forall a,b \in \A: \Phi_{a,b}(f) = 0 \big\} \subseteq \SpecC(\A) \cup \{0\} \]
+	Also $\overline{\SpecC(\A) \cup \{0\}} = \SpecC(\A) \cup \{0\}$
+	
+	\item %Folgt 2.1.27d
+	Die Abbildung 
+	\[\eval_e: \SpecC(\A) \cup \{0\} \to \CC: f \mapsto f(e) = \begin{cases} 1 &, f \in \SpecC(\A) \\ 0 &, f \equiv 0 \end{cases}\]
+	ist nach \cref{bem:Einsetz-stetig} stetig. Also ist $\SpecC(\A) = \eval_1^{-1}(\{1\})$ als Urbild einer abgeschlossenen Menge selbst abgeschlossen.
+	
+	\item Dieser Beweis folgt dem zu \cite[Lemma IX.2.2]{Werner2011}
+	
+	\Ann Es gibt ein $f \in \SpecC(\A)$ mit $\norm{f} := \sup\{|f(a)| ~|~ a\in\A, \norm{a} = 1\} > 1$. 
+	
+	Dann gibt es also ein $a \in \A$ mit $\norm{a} = 1$ und $|f(a)| > 1$, d.h. für $b := \frac{a}{f(a)}$ gilt
+	\[ \norm{b} = \norm{\frac{a}{f(a)}} = \frac{\norm{a}}{|f(a)|} < 1 \]
+	und
+	\[ f(b) = f\left(\frac{a}{f(a)}\right) = \frac{f(a)}{f(a)} = 1.\]
+	Setzen wir nun $c := \sum_{k=1}^\infty b^n$ (konvergent, da $||b|| < 1$ und $\A$ vollständig), dann gilt $c = \sum_{k=1}^\infty b^n = b + b\sum_{k=1}^\infty b^n = b+bc$ und damit folgt der Widerspruch:
+	\[f(c) = f(b+bc) = f(b) + f(b)f(c) = 1 + f(c)\]
+	Also gilt für alle $f \in \SpecC(\A): \norm{f} \leq 1$ und somit ist:
+	\[\SpecC(\A) \subseteq \dual{B_1}(0)\]\end{proofenum}
+\end{proof}
+
+Mit Hilfe dieser Proposition können wir nun die Kompaktheit von $\SpecC(\A)$ zeigen:
+
+Nach dem Satz von Banach-Alaoglu (\cref{satz:BA}) ist $\dual{B_1}(0) \subseteq \dual\A$ kompakt. Damit ist $\SpecC(\A)\cup\{0\}$ als abgeschlossene Teilmenge von $\dual{B_1}(0)$ kompakt und ebenso $\SpecC(\A)$ als abgeschlossene Teilmenge von $\SpecC(\A)\cup\{0\}$.
+\end{proof}
+

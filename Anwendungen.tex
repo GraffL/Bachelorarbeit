@@ -1,0 +1,25 @@
+\subsection{Anwendung (endlich dimensionale \CAlgn)}\label{sec:Anwendung}
+
+Im einführenden Beispiel in \cref{sec:BeispielCn} haben wir gesehen, dass der $\CC^n$ mit komponentenweiser Multiplikation ein Beispiel für eine \CAlg{} ist. Mit Hilfe der Gelfand-Dualität können wir nun zeigen, dass wir mit diesem Beispiel tatsächlich schon \emph{alle} endlich-dimensionalen \CAlgn{} gesehen haben (bis auf Isomorphie).
+
+\begin{lemma}
+Ist $\A$ ein n-dimensionale C*-Algebra, dann ist $\A$ isomorph zu $\CC^n$.
+\end{lemma}
+
+\begin{proof}Aus \cref{sec:BeispielCn} wissen wir, dass $\SpecC(\CC^n)$ eine $n$-elementige Menge ist. Können wir nun zeigen, dass $\SpecC(\A)$ ebenfalls eine $n$-elementige Menge ist, dann müssen $\SpecC(\CC^n)$ und $\SpecC(\A)$ homöomorph sein. Aus \cref{satz:GD} folgt dann mit \cref{kor:KatIso2} bereits, dass auch $\CC^n$ und $\A$ isomorph sind.
+
+Angenommen es wäre $|\SpecC(\A)| > n$. Dann wähle $h_1, \dots, h_{n+1} \in \SpecC(\A)$ paarweise verschieden. 
+
+Aus dem Lemma von Urysohn (\ref{satz:Ury}) folgt, dass es für je zwei $k, l \in \{1, \dots, n+1\}$ mit $k \neq l$ eine stetige Funktion $\psi_{kl}: \SpecC(\A) \to \CC$ gibt, sodass $\psi_{kl}(h_k) = 1$ und $\psi_{kl}(h_l) = 0$. Wir setzen zusätzlich $\psi_{kk} \equiv 1$ für alle $k$ und definieren die Abbildung:
+	\[\psi_k: \SpecC(\A) \to \CC: h \mapsto \prod_{l=1}^{n+1}\psi_{kl}(h)\]
+Diese ist als Produkt stetiger Funktionen ebenfalls stetig und es gilt für alle $k$:
+	\[\psi_k(h_j) = \begin{cases} 1 &, k=j \\ 0 &, k\neq j \end{cases}\]
+Damit sind $\{\psi_1, \dots, \psi_{n+1}\} \subset \stetig(\SpecC(\A))$ linear unabhängig, denn:
+	\begin{align*}
+							 0 &= \lambda_1\psi_1 + \dots + \lambda_{n+1}\psi_{n+1}, &\text{ für } \lambda_k \in \CC \\
+	\Rightarrow \forall k:   0 &= \lambda_1\psi_1(h_k) + \dots + \lambda_{n+1}\psi_{n+1}(h_k) = \lambda_k &
+	\end{align*}
+Also müsste die Dimension von $\stetig(\SpecC(\A)) \geq n+1$ sein. Das jedoch steht im Widerspruch dazu, dass $\stetig(\SpecC(\A))$ dem Satz von Gelfand-Neumark zufolge isomorph zu $\A$ ist, welches nach Voraussetzung Dimension $n$ hat.
+
+Also ist $m := |\SpecC(\A)| \leq n$ und daher $\SpecC(\A)$ isomorph zu $\SpecC(\CC^m)$. Somit ist $\A$ isomorph zu $\CC^m$ und folglich $m = n$.
+\end{proof}

@@ -1,0 +1,21 @@
+\subsubsection{$\AlgIso$ ist ein Algebrenhomomorphismus}\label{sec:Algebrenhomomorphismus}
+
+\begin{proof}[\Bew{$\AlgIso$ Algebrenhomomorphismus}]Als erstes gilt es zu zeigen, dass die in \cref{satz:GN} definierte Abbildung $\AlgIso: \A \to \stetig(\SpecC(\A)): a \mapsto \left(\tau_a: f \mapsto f\left(a\right)\right)$ überhaupt wohldefiniert ist, d.h. dass die $\tau_a$ tatsächlich in $\stetig(\SpecC(\A))$ liegen.
+
+Sei also $a \in \A$. Dann gilt für alle $f \in \SpecC(\A)$:
+\begin{itemize}
+	\item $f: \A \to \CC \Rightarrow \tau_a(f) = f(a) \in \CC$, also $\tau_a: \SpecC(\A) \to \CC$
+	\item Für $\epsilon > 0$ ist $U(f, a, \epsilon)$ eine offene Umgebung von $f$ und es gilt:
+		\[\forall g \in U(f, a, \epsilon): |\tau_a(f) - \tau_a(g)| = |f(a) - g(a)| < \epsilon\]
+\end{itemize}
+Also ist wie gewünscht $\tau_a \in \stetig(\SpecC(\A))$.
+
+Leicht zu sehen ist ferner, dass $\AlgIso$ ein Algebrenhomomorphismus ist, denn für alle $a, b \in \A$, $\lambda \in \CC$ und $f \in \SpecC(\A)$ gilt:
+	\[\tau_{\lambda a + b}(f) = f(\lambda a + b) = \lambda f(a) + f(b) = \lambda \tau_a(f) + \tau_b(f) = \left(\lambda \tau_a + \tau_b\right)(f),\]
+	\[\tau_{ab}(f) = f(ab) = f(a)f(b) = \tau_a(f)\tau_b(f) = (\tau_a\tau_b)(f)\]
+und
+	\[\AlgIso(e)(f) = \tau_e(f) = f(e) = 1.\]
+Also ist $\AlgIso(\lambda a + b) = \tau_{\lambda a + b} = \lambda \tau_a + \tau_b = \lambda \AlgIso(a) + \AlgIso(b)$, $\AlgIso(ab) = \tau_{ab} = \tau_a\tau_b = \AlgIso(a)\AlgIso(b)$ und $\AlgIso(e) = \tau_e = e$. Damit ist gezeigt, dass die Abbildung $\AlgIso$ ein Algebrenhomomorphismus ist.
+
+\let\qed\relax
+\end{proof}

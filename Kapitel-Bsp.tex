@@ -1,0 +1,263 @@
+\section[Was sollen Kategorien?]{Was sollen Kategorien? \hfill \small Ingo
+Blechschmidt}
+
+\subsection{Beispiele für kategorielles Verständnis}
+
+\subsubsection*{Beispiel: Produkte}
+
+Von manchen Konstruktionen in verschiedenen Teilgebieten der Mathematik wird
+man das Gefühl nicht los, dass sie einem gemeinsamen Ursprung entstammen: Etwa
+kennt man\ldots
+\begin{itemize}
+  \item das kartesische Produkt von Mengen: $X \times Y$,
+  \item das kartesische Produkt von Vektorräumen: $V \times W$,
+  \item das kartesische Produkt von Gruppen: $G \times H$,
+  \item das kartesische Produkt von Garben: $\mathcal{F} \times \mathcal{G}$,
+  \item das kartesische Produkt von Vektorbündeln: $\mathcal{E} \times \mathcal{F}$,
+  \item das Minimum von Zahlen: $\min\{n,m\}$,
+  \item den größten gemeinsamen Teiler von Zahlen: $\ggT(n,m)$,
+  \item den Paartyp in Programmiersprachen: \texttt{(a,b)},
+  \item den Produktautomat zweier endlicher Automaten,
+  \item den Mutterknoten zweier Knoten in einem Graph.
+\end{itemize}
+Die Ähnlichkeit untereinander ist mal mehr, mal weniger deutlich. Nur mit
+Kategorientheorie versteht man: All dies sind Spezialfälle des allgemeinen
+\emph{kategoriellen Produkts}. Ferner erfüllen all diese Konstruktionen sehr
+ähnliche Gesetze, etwa gilt
+\begin{align*}
+  X \times (Y \times Z) &\cong (X \times Y) \times Z, \\
+  U \times (V \times W) &\cong (U \times V) \times W, \\
+  \min\{m,\min\{n,p\}\} &= \min\{\min\{m,n\},p\}, \\
+  \ggT(m,\ggT(n,p)) &= \ggT(\ggT(m,n),p),
+\end{align*}
+wobei in der ersten Zeile~$X$, $Y$ und~$Z$ Mengen sein und das
+Isomorphiezeichen für Gleichmächtigkeit stehen soll und in der zweiten
+Zeile~$U$, $V$ und~$W$ Vektorräume sein und das Isomorphiezeichen für
+Vektorraumisomorphie stehen soll. Mit Kategorientheorie versteht man:
+All dies sind Spezialfälle der allgemeinen Assoziativität des kategoriellen
+Produkts.
+
+\subsubsection*{Beispiel: Isomorphie}
+
+Ferner fällt auf, dass in vielen Teilgebieten der Mathematik jeweils ein
+speziell zugeschnittener Isomorphiebegriff vorkommt: Etwa können\ldots
+\begin{itemize}
+  \item zwei Mengen $X,Y$ \tabto{4.63cm} gleichmächtig sein,
+  \item zwei Vektorräume $V,W$ \tabto{4.63cm} isomorph sein,
+  \item zwei Gruppen $G,H$ \tabto{4.63cm} isomorph sein,
+  \item zwei top. Räume $X,Y$ \tabto{4.63cm} homöomorph sein,
+  \item zwei Zahlen $n,m$ \tabto{4.63cm} gleich sein,
+  \item zwei endliche Automaten \tabto{4.63cm} isomorph sein,
+  \item zwei Typen \texttt{a}, \texttt{b} \tabto{4.63cm} sich verlustfrei ineinander umwandeln lassen.
+\end{itemize}
+All dies sind Spezialfälle des allgemeinen \emph{kategoriellen
+Isomorphiekonzepts}.
+
+\subsubsection*{Beispiel: Dualität}
+
+Von folgenden Konzepten hat man im Gefühl, dass sie in einem gewissen Sinn
+\emph{zueinander dual} sein sollten:
+\begin{center}
+  \setlength{\extrarowheight}{0.3em}
+  \begin{tabular}{r|l}
+    $f \circ g$ & $g \circ f$ \\
+    $\leq$ & $\geq$ \\
+    injektiv & surjektiv \\
+    $\{\star\}$ & $\emptyset$ \\
+    $\times$ & $\amalg$ \\
+    ggT & kgV \\
+    $\cap$ & $\cup$ \\
+    Teilmenge & Faktormenge
+  \end{tabular}
+\end{center}
+Mit Kategorientheorie versteht man: All dies sind Spezialfälle eines allgemeinen
+\emph{kategoriellen Dualitätsprinzips} -- und diese Erkenntnis kann man nutzen,
+um Ergebnisse für jeweils eines der Konzepte auf sein duales Gegenstück zu
+übertragen.
+
+\subsection{Grundlagen}
+
+\begin{defn}
+Eine \emph{Kategorie}~$\C$ besteht aus
+\begin{enumerate}
+  \item einer Klasse von \emph{Objekten} $\Ob \C$,
+  \item zu je zwei Objekten $X,Y \in \Ob \C$ einer Klasse $\Hom_\C(X,Y)$ von
+  \emph{Morphismen} zwischen ihnen und
+  \item einer Kompositionsvorschrift:
+  \begin{align*}
+    \text{zu }\ & f \in \Hom_\C(X,Y) &
+    \text{zu }\ & f : X \to Y \\
+    \text{und }\ & g\in\Hom_\C(Y,Z) &
+    \text{und }\ & g : Y \to Z \\
+    \text{habe }\ & g\circ f\in\Hom_\C(X,Z), &
+    \text{habe }\ & g\circ f : X \to Z,
+  \end{align*}
+\end{enumerate}
+sodass
+\begin{enumerate}
+  \item die Komposition $\circ$ assoziativ ist und
+  \item es zu jedem $X \in \Ob\C$ einen \emph{Identitätsmorphismus} $\id_X
+  \in \Hom_\C(X,X)$ mit
+  \[ f \circ \id_X = f, \quad \id_X \circ g = g \]
+  für alle Morphismen $f,g$ gibt.
+\end{enumerate}
+\end{defn}
+
+Die Morphismen von Kategorien müssen nicht unbedingt Abbildungen
+sein, die Schreibweise "`$f:X \to Y$"' missbraucht also Notation. Die genaue
+Bedeutung von \emph{Klassen} im Gegensatz zu \emph{Mengen} hängt von der
+persönlich gewählten logischen Fundierung der Mathematik ab. Für uns genügt
+folgende naive Sichtweise: Klassen können (im Gegensatz zu Mengen) beliebige
+mathematische Objekte enthalten, sind aber selbst nicht mathematische Objekte.
+Daher gibt es etwa widerspruchsfrei die Klasse aller Mengen, von einer Klasse
+aller Klassen kann man aber nicht sprechen.
+
+\begin{bsp}\begin{enumerate}
+  \item Archetypisches Beispiel ist $\Set$, die Kategorie der Mengen und Abbildungen:
+  \begin{align*}
+    \Ob \Set &:= \{ M \,|\, \text{$M$ ist eine Menge} \} \\
+    \Hom_\Set(X,Y) &:= \{ f:X \to Y \,|\, \text{$f$ ist eine Abbildung} \}
+  \end{align*}
+  \item Die meisten Teilgebiete der Mathematik studieren jeweils eine bestimmte
+  Kategorie: Gruppentheoretiker beschäftigen sich etwa mit der Kategorie
+  $\Grp$ der Gruppen und Gruppenhomomorphismen:
+  \begin{align*}
+    \Ob \Grp &:= \text{Klasse aller Gruppen} \\
+    \Hom_\Grp(G,H) &:= \{ f:G \to H \,|\, \text{$f$ ist ein Gruppenhomo} \}
+  \end{align*}
+  \item Es gibt aber auch wesentlich kleinere Kategorien. Etwa kann man aus
+  jeder Quasiordnung~$(P,\preceq)$ eine Kategorie~$\C$ basteln:
+  \begin{align*}
+    \Ob \C &:= P \\
+    \Hom_\C(x,y) &:= \begin{cases}
+      \text{einelementige Menge}, & \text{falls $x \preceq y$,} \\
+      \text{leere Menge}, & \text{sonst}
+    \end{cases}
+  \end{align*}
+  \item Auch sind gewisse endliche Kategorien bedeutsam, etwa die durch
+  folgende Skizze gegebene:
+
+  \[ \xymatrix{
+    & \bullet \ar[d] \ar@(ur,ul) \\
+    \bullet \ar[r] \ar@(ul,dl) & \bullet \ar@(dr,ur)
+  } \]
+\end{enumerate}\end{bsp}
+
+\begin{motto}[fundamental]Kategorientheorie stellt \emph{Beziehungen zwischen
+Objekten} statt etwaiger innerer Struktur in den Vordergrund.\end{motto}
+
+\begin{defn}Eine Kategorie~$\C$ heißt \emph{lokal klein}, wenn ihre Hom-Klassen
+jeweils schon Mengen (statt echte Klassen) sind. Eine Kategorie~$\C$ heißt
+\emph{klein}, wenn zusätzlich auch ihre Klasse von Objekten schon eine Menge
+bildet.\end{defn}
+
+
+\subsubsection*{Initiale und terminale Objekte}
+
+In Kategorien sind folgende zwei Arten von Objekten aufgrund ihrer
+ausgezeichneten Beziehungen zu allen (anderen) Objekten besonders wichtig:
+\begin{defn}
+Ein Objekt~$X$ einer Kategorie~$\C$ heißt genau dann
+\begin{itemize}
+  \item \emph{initial}, wenn
+    \[ \forall Y \in \Ob \C{:}\ \exists! f : X \to Y. \]
+  \item \emph{terminal}, wenn
+    \[ \forall Y \in \Ob \C{:}\ \exists! f : Y \to X. \]
+\end{itemize}
+\end{defn}
+Diese Definitionen geben ein erstes Beispiel für sog. \emph{universellen
+Eigenschaften}.
+
+\begin{bsp}\begin{enumerate}
+\item In der Kategorie der Mengen ist genau die leere Menge initial und
+genau jede einelementige Menge terminal. Diese Erkenntnis ist ein erstes
+Beispiel dafür, wie das fundamentale Motto gemeint ist: Eine Definition der
+leeren bzw. einer einelementigen Menge über eine Aufzählung ihrer Elemente
+betont ihre innere Struktur, während eine Definition als initiales bzw.
+terminales Objekt die besonderen Beziehungen zu allen Mengen hervorhebt.
+\item In der Kategorie der $K$-Vektorräume ist der Nullvektorraum $K^0$ initial
+und terminal.
+\end{enumerate}\end{bsp}
+Viele kategorielle Konstruktionen realisiert man als initiales oder
+terminales Objekt in einer geeigneten Kategorie von Möchtegern-Konstruktionen.
+Ein erstes Beispiel dazu werden wir im folgenden Kapitel über Produkte finden.
+
+
+\subsubsection*{Mono-, Epi- und Isomorphismen}
+
+\begin{defn}
+Ein Morphismus $f:X \to Y$ einer Kategorie~$\C$ heißt genau dann
+\begin{itemize}
+  \item \emph{Monomorphismus}, \tabto{3.35cm}wenn für alle Objekte~$A \in \Ob \C$
+  und $p,q:A \to X$ gilt:
+  \[ f \circ p = f \circ q \quad\Longrightarrow\quad p = q. \]
+  \item \emph{Epimorphismus}, \tabto{3.35cm}wenn für alle Objekte~$A \in \Ob \C$
+  und $p,q:Y \to A$ gilt:
+  \[ p \circ f = q \circ f \quad\Longrightarrow\quad p = q. \]
+\end{itemize}
+\end{defn}
+
+\begin{bsp}\begin{enumerate}
+\item In den Kategorien der Mengen, Gruppen und $K$-Vektorräumen sind die
+Monomorphismen genau die injektiven und die Epimorphismen genau die
+surjektiven Abbildungen. Das ist jeweils eine interessante Erkenntnis über die
+Struktur dieser Kategorien und nicht ganz leicht zu zeigen.
+\item In der Kategorie der metrischen Räume mit stetigen Abbildungen gibt es
+Epimorphismen, die nicht surjektiv sind: nämlich alle stetigen Abbildungen mit
+dichtem Bild.
+\end{enumerate}\end{bsp}
+
+\begin{defn}
+Ein \emph{Isomorphismus} $f:X \to Y$ in einer Kategorie ist ein
+Morphismus, zu dem es einen Morphismus $g:Y \to X$ mit
+\[ g \circ f = \id_X, \quad f \circ g = \id_Y \]
+gibt. Statt "`$g$"' schreibt man auch "`$f^{-1}$"'. Existiert zwischen
+Objekten~$X$ und~$Y$ ein Isomorphismus, so heißen die Objekte \emph{zueinander
+isomorph}:
+$X \cong Y$.
+\end{defn}
+
+\begin{bem}\label{gleichheitobj}In den meisten Kategorien ist die Frage, ob
+Objekte~$X,Y$ tatsächlich gleich (statt nur isomorph) sind, keine interessante
+Frage: Denn für alle praktischen Belange sind schon zueinander isomorphe
+Objekte "`gleich gut"'. Diesen Gedanken werden wir noch manche Male aufgreifen
+und weiter entwickeln.\end{bem}
+
+\begin{aufg}Zeige, dass in jeder Kategorie~$\C$ die Klasse der Isomorphismen die
+\emph{2-aus-3-Eigenschaft} hat: Sind~$f:X \to Y$ und~$g:Y \to Z$ komponierbare
+Morphismen in~$\C$ und sind zwei der drei Morphismen~$f$, $g$ und~$g \circ f$
+Isomorphismen, so auch der dritte.\end{aufg}
+
+
+\subsubsection*{Die duale Kategorie}
+
+Aus jeder Kategorie~$\C$ kann man durch "`Umdrehen aller Pfeile"' eine weitere
+Kategorie erhalten, die sogenannte duale Kategorie von~$\C$:
+
+\begin{defn}
+Die zu einer Kategorie~$\C$ zugehörige \emph{duale Kategorie} $\C^\op$ ist
+folgende:
+\begin{align*}
+  \Ob \C^\op &:= \Ob \C \\
+  \Hom_{\C^\op}(X,Y) &:= \Hom_\C(Y,X)
+\end{align*}
+\end{defn}
+
+Das ist ein rein formaler Prozess, der mit dem Invertieren bijektiver
+Abbildungen nichts zu tun hat. Die duale Kategorie ist nützlich, um sich der
+Dualität mancher kategorieller Konzepte gewahr zu werden:
+
+\begin{bsp}\begin{enumerate}
+\item Ein initiales Objekt in~$\C^\op$ ist ein terminales Objekt in~$\C$ und
+umgekehrt.
+\item Ein Epimorphismus in~$\C^\op$ ist ein Monomorphismus in~$\C$ und
+umgekehrt.
+\item Zwei Objekte sind genau dann in~$\C^\op$ zueinander isomorph, wenn sie es
+in~$\C$ sind. Isomorphie ist also ein \emph{selbstduales} Konzept.
+\end{enumerate}\end{bsp}
+
+Spannend ist es, wenn duale Kategorien durch andere, natürlich
+auftretende Kategorien beschrieben werden können.
+
+
+% XXX: verallgemeinertes "the"

@@ -1,0 +1,199 @@
+\section{Die Gelfand-Dualität für topologische Mannigfaltigkeiten}\label{sec:GD2}
+
+Mit dem Wissen, dass die Kategorie der kompakten Hausdorffräume dual zu der der \CAlgn{} ist, stellt sich nun die Frage, was passiert, wenn wir nur spezielle kompakte Hausdorffräume betrachten (also eine Unterkategorie). Konkret werden wir im Folgenden topologische Mannigfaltigkeiten betrachten und der Frage nachgehen, was wir über die zugehörigen \CAlgn{} sagen können.
+
+\input{Vorueberlegung}
+
+\subsection{Satz und Beweis}
+
+Der Versuch die in den Vorüberlegungen aufgetauchten Probleme zu beseitigen, führt uns zu der folgenden Charakterisierung von \CAlgMann.
+
+\begin{defn}[kompakte Konvergenz]\label{defn:komKonv}
+Sei $X$ ein topologischer Raum und $(\psi_l: X \to \CC)_{l \in \NN}$ eine Folge von Funktionen. Diese Folge \emph{konvergiert kompakt} gegen eine Funktion $\psi: X \to \CC$, wenn die Folge auf jeder kompakten Teilmenge von $X$ gleichmäßig gegen $\psi$ konvergiert.
+\end{defn}
+
+\begin{defn}[\CAlgMann]\label{defn:CAM}
+Eine \CAlg{} $\A$ heißt \emph{\CAlgMan{} der Dimension $m$}, wenn es stetige Algebrenhomomorphismen
+	\[k_i: \A \to \stetig^b(B^m), ~i = 1, \dots , N\]
+gibt (für ein $N \in N$), sodass gilt:
+\begin{defenum}
+	\item \label{defn:CAM:surj}
+	Zu allen $i \leq N$ und $\psi \in \stetig(\overline{B^m})$ mit $\psi|_{\partial B^m} \equiv \mathrm{const.}$ gibt es ein $a \in \A$, sodass $k_i(a) = \psi|_{B^n}$.
+	\item \label{defn:CAM:kompkonv}
+	Sind $(a_l)_{l \in \mathbb{N}} \subset \A$ und $\psi_i \in \stetig(B^m)$ mit
+	\[\forall i: k_i(a_l) \overset{l \to \infty}{\longrightarrow} \psi_i \text{ konvergiert kompakt,}\]
+	dann $\exists a \in \A: a_l \overset{l \to \infty}{\longrightarrow} a$ (Konvergenz in $\A$).
+\end{defenum}
+Diese Abbildungen bezeichnen wir als \emph{Algebrenkarten}.
+\end{defn}
+
+\begin{bem}
+\ref{defn:CAM:surj} ist eine Art abgeschwächte Surjektivität: Es muss nämlich nur eine bestimmte Teilmenge der stetigen Abbildungen auf $\overline{B^m}$ getroffen werden. Die Einschränkung auf Abbildungen, die auf dem Rand konstant sind, verhindert gerade das Problem aus \cref{bsp:ohneNS}.
+
+Entsprechend unterbindet \ref{defn:CAM:kompkonv} das Problem aus \cref{bsp:keine-Ueberdeckung} (wähle dazu eine Folge von Abbildungen in $\stetig(S^1)$, die gegen eine Abbildung konvergiert, die gerade an den beiden Äquatorpunkten Polstellen besitzt). Diese Eigenschaft ist dabei eine stärkere Forderung als die bloße Injektivität von $K$, d.h. die Injektivität dieser Abbildung folgt aus \ref*{defn:CAM:kompkonv}: Sind nämlich $a,b \in \A$, sodass für alle $i \leq N$ gilt $k_i(a) = k_i(b)$, dann ist $(k_i(a), k_i(b), k_i(a), k_i(b), \dots)$ eine konstante Folge und damit (kompakt) konvergent. Nach \ref*{defn:CAM:kompkonv} konvergiert dann auch $(a, b, a, b, \dots)$ in $\A$ und somit muss $a = b$ gelten.
+\end{bem}
+
+\begin{bem}
+Die Dimension $m$ einer \CAlgMan{} $\A$ ist nicht identisch zu der Dimension $n$, die $\A$ als Vektorraum bzw. \CAlg{} besitzt. Allerdings werden wir sehen, dass sowieso immer nur einer der beiden Dimensionsbegriffe von Interesse ist. 
+
+Ist nämlich die Dimension einer \CAlgMan{} $\A$ größer als $0$, so auch die der zugehörigen topologischen Mannigfaltigkeit $\SpecC(\A)$ (siehe den Beweis zu \cref{satz:GD2}). Dann kann $\SpecC(\A)$ aber keine endliche Menge sein und daher $\A$ nach \cref{sec:Anwendung} als \CAlg{} nicht mehr endlich dimensional. Ist umgekehrt die Dimension von $\A$ als \CAlg{} endlich, so muss die Dimension von $\A$ als \CAlgMan{} bereits $0$ sein.
+\end{bem}
+
+\begin{satz}[Gelfand-Dualität für \komenTopMan]\label{satz:GD2}
+Die Kategorie der kompakten topologischen Mannigfaltigkeiten $\KatTopMan$ ist dual zu der der \CAlgMann{} $\KatCAlgMan$.
+\end{satz}
+
+\begin{proof}Wir verwenden hier die gleichen Funktoren wie in der gewöhnlichen Gelfand-Dualität (\cref{satz:GD}):
+	\[\begin{array}{@{}rrcl@{}}
+	 			&\KatTopMan			&\simeq		&\KatCAlgMan^\op 												\\
+	\stetig: 	&X					&\mapsto	&\stetig(X)													\\
+				&(\varphi:X \to Y)	&\mapsto	&(h_\varphi: \stetig(Y) \to \stetig(X): \tau \mapsto \tau \circ \varphi)^\op 		\\
+	\SpecC:		&\SpecC(\A)													&\mapsfrom	&\A				\\
+				&(\varphi_h: \SpecC(\A) \to \SpecC(\B): f \mapsto f \circ h)	&\mapsfrom	&(h: \B \to \A)^\op
+	\end{array}\]
+Nun ist jede \komTopMan{} auch ein kompakter Hausdorffraum und zwei \komenTopMan{} sind isomorph genau dann, wenn sie es als kompakte Hausdorffräume sind (da beide Kategorien die gleichen Morphismen besitzen). Analog ist jede \CAlgMan{} auch eine \CAlg{} und zwei \CAlgMann{} sind isomorph genau dann, wenn sie es als \CAlgn{} sind. Die Dualität der Kategorien folgt also im Wesentlichen schon aus der gewöhnlichen Gelfand-Dualität (\cref{satz:GD}).
+
+Zu zeigen ist allerdings noch, dass die Funktoren in obiger Form überhaupt wohldefiniert sind, das heißt, dass $\stetig$ jeder \komenTopMan{} eine \CAlgMan{} zuordnet und umgekehrt $\SpecC$ jeder \CAlgMan{} eine \komTopMan{}.
+
+Sei dazu zunächst $X$ eine \komTopMan{}. Dann gibt es nach \cref{prop:topManAlt} Karten $\theta_i: B^m \to X$, sodass $(\theta_i(\overline{B_{0,5}^m}))_{i=1,\dots,N}$ eine Überdeckung von $X$ bilden. Daraus  definieren wir uns wie folgt Algebrenkarten:
+	\[k_i: \stetig(X) \to \stetig^b(B^m): \tau \mapsto \tau \circ \theta_i \]
+Zu zeigen ist nun also:
+\begin{proofenum}
+	\item \label{proof:GD2:kAlghom}
+		Die $k_i$ sind stetige Algebrenhomomorphismen.
+	\item \label{proof:GD2:schwachsurj}
+		Zu allen $i \leq N$ und $\psi \in \stetig(\overline{B^m})$ mit $\psi|_{\partial B^m} \equiv \mathrm{const.}$ gibt es ein $\tau \in \stetig(B^m)$, sodass $k_i(\tau) = \psi|_{B^m}$.
+	\item \label{proof:GD2:komkonv}
+		Sind $(\tau_l)_{l \in \NN} \subset \stetig(X)$ und $\psi_i \in \stetig(B^m)$ so, dass
+			\[\forall i: k_i(\tau_l) \overset{l \to \infty}{\longrightarrow} \psi_i \text{ kompakt konvergiert,}\]
+		dann $\exists \tau \in \stetig(X): \tau_l \overset{l \to \infty}{\longrightarrow} \tau$.
+	\setcounter{temp}{\value{proofenumi}}
+\end{proofenum}
+
+Zu \ref{proof:GD2:kAlghom}: Dass $k_i$ ein Algebrenhomomorphismus ist, zeigt sich durch einfaches Nachrechnen der entsprechenden Axiome. Für die Stetigkeit sei $\tau \in \stetig(X), ~\epsilon > 0$, dann gilt für alle $\psi \in \stetig(X)$ mit $\norm{\tau - \psi} < \epsilon $:
+\begin{align*}
+\norm{k_i(\tau)-k_i(\psi)} &= \norm{\tau \circ \theta_i - \psi \circ \theta_i} = \underset{r \in B^m}{\sup} |\tau \circ \theta_i(r) - \psi \circ \theta_i(r)| \\
+ &\leq \underset{x \in X}{\sup} |\tau (x) - \psi (x)| = \norm{\tau- \psi} < \epsilon
+\end{align*}
+Also ist $k_i$ ein stetiger Algebrenhomomorphismus.
+
+Zu \ref{proof:GD2:schwachsurj}: Sei $\psi \in \stetig(\overline{B^m} )$ mit $\psi|_{\partial B^m} \equiv \lambda \in \mathbb{C}$ und $i \leq N$. Dann definiere:
+\[\tau: X \to \CC: x \mapsto \begin{cases} \psi(\theta_i^{-1}(x) &, x \in \theta_i(B^m) \\ \lambda &, \text{ sonst} \end{cases} \]
+Diese Abbildung hat die gewünschte Eigenschaft:
+\[k_i(\tau) = \tau \circ \theta_i = \psi \circ \theta_i^{-1} \circ \theta_i = \psi|_{B^m}\]
+Noch zu zeigen ist, dass $\tau$ auch tatsächlich stetig ist. Dazu sei $x \in X$ und $\epsilon > 0$ beliebig.
+\Fall{1} $x \in \theta_i(B^m)$ bzw. $\theta^{-1}(x) \in B^m$
+
+Da $\psi$ stetig ist, existiert ein $\delta > 0$, sodass gilt: 
+	\[\forall r \in B^m: \norm{r - \theta_i^{-1}(x)} <\delta \Rightarrow \left|\psi(r) - \psi(\theta_i^{-1}(x))\right| < \epsilon \]
+Dann ist $\theta_i\left(B_\delta^m(\theta_i^{-1}(x)) \cap B^m\right) \subset X$ eine offene Umgebung von $x$ und es gilt für alle $y \in \theta_i\left(B_\delta^m(\theta_i^{-1}(x)) \cap B^m\right)$, dass $\theta_i^{-1}(y) \in B_\delta^m(\theta_i^{-1}(x))$, also
+	\[\left|\tau(y) - \tau(x)\right| = \left|\psi(\theta_i^{-1}(y)) - \psi(\theta_i^{-1}(x))\right| < \epsilon.\]
+
+\Fall{2} $x \notin \theta_i(B^m)$, d.h. $\tau(x) = \lambda$.
+
+Da $\psi \in \stetig(\overline{B^m})$ ist, gibt es insbesondere für alle $r \in \partial B^m$ ein $\delta_r > 0 $, sodass
+	\[\forall s \in B_{\delta_r}^m(r) \cap \overline{B^m}: |\psi(s) - \lambda| = |\psi(s) - \psi(r)| < \epsilon.\]
+Nun ist $U := \bigcup_{r \in \partial B^m}B_{\delta_r}^m(r) \supseteq \partial B^m$ offen und daher $\overline{B^m} \backslash U$ und $\theta_i\left(\overline{B^m} \backslash U\right)$ abgeschlossen. Folglich ist $X \backslash \theta_i\left(\overline{B^m} \backslash U\right) \supset X \backslash \theta_i(\overline{B^m})$ eine offene Umgebung von $x$ und es gilt:
+	\[\forall y \in X \backslash \theta_i\left(\overline{B^m} \backslash U\right): \left|\psi(y) - \psi(x)\right| = \begin{cases} |\psi(\theta_i^{-1}(y)) - \lambda| < \epsilon &, y \in U \cap \overline{B^m} \\ |\lambda - \lambda| = 0 < \epsilon &, \text{ sonst}\end{cases}\]
+In beiden Fällen ist $\tau$ also stetig.
+
+Zu \ref{proof:GD2:komkonv}: Seien $ (\tau_l)_{l\in \mathbb{N}} \subset \stetig(X), ~\psi_i \in \stetig(B^m)$ so, dass
+\[\forall i: k_i(\tau_l) \overset{l \to \infty}{\longrightarrow} \psi_i ~\text{kompakt konvergiert.}\]
+Dann definiere:
+\[\tau: X \to \mathbb{C}: x \mapsto \psi_i(r), \text{ mit } r\in B^m \text{ und } i\in \{1,\dots,N\} \text{ so, dass } \theta_i(r) = x \]
+Dies ist wohldefiniert, denn
+\begin{itemize}
+  \item $(\theta_i(B^m))_{i\in\{1,\dots,N\}}$ ist Überdeckung von $X$, also können $i$ und $r$ wie verlangt gewählt werden.
+  \item Seien $i,j \in \{1,\dots,N\}$ und $r,s \in B^m$ so, dass $\theta_i(r) = x = \theta_j(s)$. Dann gilt (da $\{r\}, \{s\} \subset B^m$ kompakt):
+  \[\psi_i(r) = \underset{l \to \infty}{\lim} \tau_l\circ\theta_i(r) = \underset{l \to \infty}{\lim} \tau_l (x) = \underset{l \to \infty}{\lim} \tau_l\circ\theta_j(s) = \psi_j(s)\]
+\end{itemize}
+
+Ferner ist $\tau$ stetig, denn für jedes $x \in X$ gibt es eine offene Umgebung $B_\epsilon^m(\theta_i^{-1}(x)) \subseteq B^m$ von $\theta_i^{-1}(x)$ und damit eine offene Umgebung $\theta_i(B_\epsilon^m(\theta_i^{-1}(x)))$ von $x$. Auf dieser ist $\tau$ identisch zu $\psi \circ \theta_i^{-1}$, welches eine stetige Abbildung ist. Also ist $\tau$ stetig in $x$ und entsprechend auf ganz $X$.
+
+Noch zu zeigen ist, dass die $\tau_l$ gleichmäßig gegen $\tau$ konvergieren. Da für jedes $i \leq N$ die $k_i(\tau_l)$ kompakt gegen $\psi_i$ konvergieren, konvergieren diese auf der kompakten Menge $\overline{B_{0,5}^m}$ gleichmäßig. Das heißt für jedes $\epsilon > 0$ gibt es ein $L_i \in \NN$, sodass
+	\[\forall l \geq L_i, r \in \overline{B_{0,5}^m}: \left| k_i(\tau_l)(r) - \psi_i(r) \right| < \epsilon.\]
+Also gilt für $L := \max\{L_1, \dots, L_N\}$ und alle $i \leq N$:
+	\[\forall l \geq L, r \in \overline{B_{0,5}^m}: \left|\tau_l(\theta_i(r)) - \tau(\theta_i(r))\right| = \left|k_i(\tau_l)(r) - \psi(r)\right|  < \epsilon\]
+Aus $\bigcup_{i=1}^N\theta_i(\overline{B_{0,5}^m}) = X$ folgt damit, dass die $\tau_l$ auf ganz $X$ gleichmäßig gegen $\tau$ konvergieren. Also ist $\tau \in \stetig(X)$ und $\tau_l \overset{l \to \infty}{\longrightarrow} \tau$.
+
+Insgesamt folgt aus \ref{proof:GD2:kAlghom}, \ref{proof:GD2:schwachsurj} und \ref{proof:GD2:komkonv}, dass die $k_i$ tatsächlich Algebrenkarten sind und $\stetig(X)$ somit eine \CAlgMan{} ist.
+
+
+Bleibt noch die andere Richtung: Sei dazu $\A$ eine \CAlgMan{}. Dann gibt es Algebrenkarten $k_i: \A \to \stetig^b(B^m)$. Daraus  definieren wir uns nun Karten für $\SpecC(\A)$:
+	\[\theta_i: B^m \to \SpecC(\A): r \mapsto (f_r^i: \A \to \CC: a \mapsto k_i(a)(r)) \]
+Zu zeigen ist jetzt:
+\begin{proofenum}
+	\setcounter{proofenumi}{\value{temp}}
+	\item \label{proof:GD2:fAlghom}
+		Die $f_r^i$ sind stetige Algebrenhomomorphismen.
+	\item \label{proof:GD2:Homoeo}
+		Die $\theta_i$ sind Homöomorphismen auf ihr Bild.
+	\item \label{proof:GD2:Ueberdeckung}
+		$(\theta_i(B^m))_{i\in\{1,\dots,N\}}$ ist eine Überdeckung von $\SpecC(\A)$.
+\end{proofenum}
+Dann ist $\SpecC(\A)$ nach \cref{prop:topManAlt} eine \komTopMan.
+
+Zu \ref{proof:GD2:fAlghom}: Dass $f_r^i$ ein Algebrenhomomorphismus ist, ergibt sich wieder durch Nachrechnen der Axiome. Zum Beweis der Stetigkeit sei $a \in \A$ und $\epsilon > 0$. Dann gibt es, da $k_i$ stetig, ein $\delta>0$ sodass 
+\[\forall b \in \A: \norm{a-b} < \delta \Rightarrow \norm{k_i(a)-k_i(b)} < \epsilon\]
+Damit gilt $\forall b \in \A$ mit $\norm{a-b} < \delta$
+\[ |f_r^i(a) - f_r^i(b)| = |k_i(a)(r)-k_i(b)(r)| \leq \underset{s \in B^m}{\sup} |k_i(a)(s)-k_i(b)(s)| = \norm{k_i(a)-k_i(b)} < \epsilon\]
+Also ist $f_r^i$ ein stetiger Algebrenhomomorphismus.
+
+Zu \ref{proof:GD2:Homoeo}: \begin{itemize}
+	\item $\theta_i$ ist injektiv, denn:
+	
+	Seien $r, s \in B^m$ mit $\theta_i(r) = \theta_i(s)$, d.h. 
+	\begin{align*}
+		\forall a \in \A: k_i(a)(r) = f_r^i(a) = \theta_i(r)(a) = \theta_i(s)(a) = f_s^i(a)  = k_i(a)(s)
+	\end{align*}
+	Angenommen es wäre $r \neq s$. Dann gäbe es nach dem Lemma von Urysohn ein stetiges $\psi: \overline{B^m} \to \mathbb{C}$ mit
+	\[\psi|_{\partial B^m \cup \{r\}} \equiv 0, ~\psi(s) = 1\]
+	Da $\A$ eine \CAlgMan{} ist, gibt es ein $a \in \A: k_i(a) = \psi|_{B^m}$. Also gilt 
+	\[\theta_i(r)(a) = k_i(a)(r) = \psi(r) = 0 \neq 1 = \psi(s) = k_i(a)(s) = \theta_i(s)(a),\]
+	was im Widerspruch zur Voraussetzung $\theta_i(r) = \theta_i(s)$ steht. Daher ist doch $r = s$.
+	
+	\item $\theta_i$ ist stetig, denn:
+	
+	Seien $r \in B^m, \epsilon > 0$ und $a \in \A$, also
+	\[U_i(f_r^i, a, \epsilon) := \{f_s^i \in \theta_i(B^m) ~\big|~ |f_r^i(a) - f_s^i(a)| < \epsilon\}\]
+	eine offene Umgebung von $f_r^i$. Dann ist $k_i(a) \in \stetig^b(B^m)$, d.h. 
+	\[\exists \delta >0: \forall s \in B^m: |r-s| <\delta \Rightarrow |k_i(a)(r) - k_i(a)(s)| < \epsilon\]
+	Damit gilt für alle $s \in B^m$ mit $|r-s| < \delta$:
+	\[ |f_r^i(a) - f_s^i(a)| = |k_i(a)(r) - k_i(a)(s)| < \epsilon \]
+	also $\theta_i(s) = f_s^i \in U_i(f_r^i, a, \epsilon)$.
+	
+	\item $(\theta_i|_{\theta_i(B^m)})^{-1}$ ist stetig, denn:
+	
+	Sei $f_r^i \in \theta_i(B^m), \epsilon>0$ (oBdA sei $\epsilon$ so klein, dass $B_\epsilon^m(r) \subset B^m$). Dann gibt es nach dem Lemma von Urysohn eine stetige Funktion
+	\[\psi: \overline{B^m} \to \mathbb{C} \text{ mit } \psi|_{\overline{B^m}\backslash B_\epsilon^m(r)} \equiv 0, ~\psi(r) = 1\]
+	Da $\A$ eine \CAlgMan{} ist, gibt es ein $a \in \A$ mit $k_i(a) = \psi|_{B^m}$.
+	
+	Damit gilt für alle $f_s^i \in U_i(f_r^i, a, 1)$:
+	\[|1 - \psi(s)| = |\psi(r) - \psi(s)| = |\theta_i(a)(r) - \theta_i(a)(s)| = |f_r^i(a) - f_s^i(a)| < 1\]
+	Also $\psi(s) \neq 0$ und damit nach Definition von $\psi$:
+	\[s \notin \overline{B^m}\backslash B_\epsilon(r) \Rightarrow s \in B_\epsilon^m(r) \Rightarrow |r-s| < \epsilon\]
+\end{itemize}
+Damit ist $\theta_i$ ein Homöomorphismus auf ihr Bild.
+
+Zu \ref{proof:GD2:Ueberdeckung}: \Ann $\exists f \in \SpecC(\A) \backslash \bigcup_{i=1}^N \theta_i(B^m)$.
+
+Dann definiere 
+\[W_l := \bigcup_{i=1}^N \theta_i(\overline{B_{1-\frac{1}{l}}(0)}) \subset \bigcup_{i=1}^N \theta_i(B^m)\]
+Die $W_l$ sind als endliche Vereinigung abgeschlossener Mengen ebenfalls abgeschlossen. Damit existieren dem Lemma von Urysohn zu Folge ($\SpecC(\A)$ ist ein kompakter Hausdorffraum) stetige Funktionen
+\[\psi_l: \SpecC(\A) \to \mathbb{C} \text{ mit } \psi_l|_{W_l} \equiv 0, ~\psi_l(f) = l.\]
+Nun sind die $\psi_l \in \stetig(\SpecC(\A))$, welcher laut Satz von Gelfand-Neumark (\cref{satz:GN}) isometrisch isomorph zu $\A$ ist. Nach Definition des Isomorphismuses $\AlgIso: \A \to  \stetig(\SpecC(\A))$ gibt es damit $a_l \in \A$, sodass:
+\[\psi_l = \AlgIso(a_l) = \tau_{a_l}: f \mapsto f(a_l)\]
+Ferner gilt für $r \in \overline{B_{1-\frac{1}{l}}^m(0)}$:
+\[k_i(a_l)(r) = f_r^i(a_l) = \tau_{a_l}(f_r^i) = \psi_l(f_r^i) = \psi_l(\theta_i(r)) = 0\]
+Sei $W \subset B^m$ kompakt, dann gibt es ein $L \in \mathbb{N}$, sodass $W \subset \overline{B_{1-\frac{1}{L}}^m(0)}$ und damit:
+\[\forall l \geq L: W \subset \overline{B_{1-\frac{1}{l}}^m(0)} \text{, d.h. } k_i(a_l)|_W \equiv 0\]
+Also konvergiert $k_i(a_l)$ kompakt gegen die Nullfunktion auf $\stetig(B^m)$ und es gibt ein $a \in \A$ mit $a_l \overset{l \to \infty}{\longrightarrow} a$. Folglich muss es auch ein $\psi \in \stetig(\SpecC(\A))$ geben, sodass $\psi_l \overset{l \to \infty}{\longrightarrow} \psi$. Für dieses gilt dann:
+\[|l - \psi(f)| = |\psi_l(f) - \psi(f)| \leq \underset{g \in \SpecC(\A)}{\sup}|\psi_l(g) - h(g)| \overset{l \to \infty}{\longrightarrow} 0 \]
+Also $|l - \psi(f)| \overset{l \to \infty}{\longrightarrow} 0$ und damit $\psi(f) = \infty ~\lightning$
+
+Daher muss die Annahme falsch sein und doch $\SpecC(\A) = \bigcup_{i=1}^N \theta_i(B^m)$ gelten, d.h. $(\theta_i(B^m))_{i=1,\dots,N}$ eine Überdeckung von $\SpecC(\A)$ sein.
+
+Aus \ref{proof:GD2:fAlghom}, \ref{proof:GD2:Homoeo} und \ref{proof:GD2:Ueberdeckung} folgt jetzt, dass $\SpecC(\A)$ eine topologische Mannigfaltigkeit ist. Damit ist die Wohldefiniertheit der Funktoren $\stetig$ und $\SpecC$ für \cref{satz:GD2} gezeigt.
+\end{proof}
+
+Diese Erweiterung der Gelfand-Dualität für \komTopMann{} bestätigt nun, dass wir mit den in \cref{defn:CAM} definierten \CAlgMann{} tatsächlich eine Klassifikation der zu $\KatTopMan$ dualen Kategorie $\KatCAlgMan$ gefunden haben. Können wir also für eine \CAlg{} zeigen, dass sie zusätzlich die Eigenschaften einer \CAlgMan{} besitzt (d.h. es entsprechende Algebrenkarten gibt), dann wissen wir bereits, dass der ihr durch die Gelfand-Dualität zugeordnete kompakte Hausdorffraum eine topologische Mannigfaltigkeit ist.

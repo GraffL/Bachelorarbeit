@@ -1,0 +1,35 @@
+\input{Diagramm-Header}
+  
+\begin{footnotesize}
+
+\begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+	\node [Text] (satz) {$\SpecC(\A)$ ist kompakt};
+	\node [below of=satz, node distance=1cm] (hilf-satz) {};
+    
+    \node [Text, left of=hilf-satz] (Spec0-komp) {$\SpecC(\A)\cup\{0\}$ komp.};    
+    \node [keinBeweis, below of=Spec0-komp, text width=10em, node distance=1.5cm] (B0-komp) 
+    	{\cref{satz:BA} \\ $\dual{B_1}(0) \subseteq \dual\A$ komp.}; 
+    \node [Prop, left of=B0-komp, text width=10em, node distance=4cm] (Spec-in-B0) {\cref{prop:Spec-in-B0} \\ $\SpecC(\A)\cup\{0\} \subseteq \dual{B_1}(0)$};
+    \node [Prop, right of=B0-komp, text width=10em, node distance=4cm] (Spec0-abg) {\cref{prop:Spec0-abg} \\ $\SpecC(\A) \cup \{0\} \subseteq \dual{\A}$ abg.};
+         
+	\node [Prop, right of=hilf-satz, text width=13em, node distance=5cm] (Spec-abg) {\cref{prop:Spec-abg} \\ $\SpecC(\A) \subseteq \SpecC(\A)\cup\{0\}$ abg.};   
+	
+	\node [Text, below of=Spec0-abg, text width=13em, node distance=1.5cm] (Einsetz-stetig) {\cref{bem:Einsetz-stetig} \\ $\eval_a: \dual{A} \to \CC: \varphi \mapsto \varphi(a)$ stetig};
+                                
+    % Draw edges
+	\path [line] (Spec0-komp) -- (satz);
+	\path [line] (B0-komp) -- (Spec0-komp);
+	\path [line] (Spec-in-B0) -- (Spec0-komp);
+	\path [line] (Spec0-abg) -- (Spec0-komp);
+	
+	\path [line] (Spec-abg) -- (satz);	
+	
+	\path [line] (Einsetz-stetig) -| (Spec-abg);      
+	\path [line] (Einsetz-stetig) -- (Spec0-abg);      
+		
+\end{tikzpicture}
+
+
+
+\end{footnotesize}
