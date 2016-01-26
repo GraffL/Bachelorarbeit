@@ -28,22 +28,22 @@ Diese Abbildungen bezeichnen wir als \emph{Algebrenkarten}.
 \end{defn}
 
 \begin{bem}
-\ref{defn:CAM:surj} ist eine Art abgeschwächte Surjektivität: Es muss nämlich nur eine bestimmte Teilmenge der stetigen Abbildungen auf $\overline{B^m}$ getroffen werden. Die Einschränkung auf Abbildungen, die auf dem Rand konstant sind, verhindert gerade das Problem aus \cref{bsp:ohneNS}.
+\ref{defn:CAM:surj} ist eine Art abgeschwächte Surjektivität: Es muss nämlich nur eine bestimmte Teilmenge der stetigen Abbildungen auf $\overline{B^m}$ getroffen werden. Die Einschränkung auf Abbildungen, die auf dem Rand konstant sind, verhindert gerade das Problem aus \Cref{bsp:ohneNS}.
 
-Entsprechend unterbindet \ref{defn:CAM:kompkonv} das Problem aus \cref{bsp:keine-Ueberdeckung} (wähle dazu eine Folge von Abbildungen in $\stetig(S^1)$, die gegen eine Abbildung konvergiert, die gerade an den beiden Äquatorpunkten Polstellen besitzt). Diese Eigenschaft ist dabei eine stärkere Forderung als die bloße Injektivität von $K$, d.h. die Injektivität dieser Abbildung folgt aus \ref*{defn:CAM:kompkonv}: Sind nämlich $a,b \in \A$, sodass für alle $i \leq N$ gilt $k_i(a) = k_i(b)$, dann ist $(k_i(a), k_i(b), k_i(a), k_i(b), \dots)$ eine konstante Folge und damit (kompakt) konvergent. Nach \ref*{defn:CAM:kompkonv} konvergiert dann auch $(a, b, a, b, \dots)$ in $\A$ und somit muss $a = b$ gelten.
+Entsprechend unterbindet \ref{defn:CAM:kompkonv} das Problem aus \Cref{bsp:keine-Ueberdeckung} (wähle dazu eine Folge von Abbildungen in $\stetig(S^1)$, die gegen eine Abbildung konvergiert, die gerade an den beiden Äquatorpunkten Polstellen besitzt). Diese Eigenschaft ist dabei eine stärkere Forderung als die bloße Injektivität von $K$, d.h. die Injektivität dieser Abbildung folgt aus \ref*{defn:CAM:kompkonv}: Sind nämlich $a,b \in \A$, sodass für alle $i \leq N$ gilt $k_i(a) = k_i(b)$, dann ist $(k_i(a), k_i(b), k_i(a), k_i(b), \dots)$ eine konstante Folge und damit (kompakt) konvergent. Nach \ref*{defn:CAM:kompkonv} konvergiert dann auch $(a, b, a, b, \dots)$ in $\A$ und somit muss $a = b$ gelten.
 \end{bem}
 
 \begin{bem}
 Die Dimension $m$ einer \CAlgMan{} $\A$ ist nicht identisch zu der Dimension $n$, die $\A$ als Vektorraum bzw. \CAlg{} besitzt. Allerdings werden wir sehen, dass sowieso immer nur einer der beiden Dimensionsbegriffe von Interesse ist. 
 
-Ist nämlich die Dimension einer \CAlgMan{} $\A$ größer als $0$, so auch die der zugehörigen topologischen Mannigfaltigkeit $\SpecC(\A)$ (siehe den Beweis zu \cref{satz:GD2}). Dann kann $\SpecC(\A)$ aber keine endliche Menge sein und daher $\A$ nach \cref{sec:Anwendung} als \CAlg{} nicht mehr endlich dimensional. Ist umgekehrt die Dimension von $\A$ als \CAlg{} endlich, so muss die Dimension von $\A$ als \CAlgMan{} bereits $0$ sein.
+Ist nämlich die Dimension einer \CAlgMan{} $\A$ größer als $0$, so auch die der zugehörigen topologischen Mannigfaltigkeit $\SpecC(\A)$ (siehe den Beweis zu \Cref{satz:GD2}). Dann kann $\SpecC(\A)$ aber keine endliche Menge sein und daher $\A$ nach \Cref{sec:Anwendung} als \CAlg{} nicht mehr endlich dimensional. Ist umgekehrt die Dimension von $\A$ als \CAlg{} endlich, so muss die Dimension von $\A$ als \CAlgMan{} bereits $0$ sein.
 \end{bem}
 
 \begin{satz}[Gelfand-Dualität für \komenTopMan]\label{satz:GD2}
 Die Kategorie der kompakten topologischen Mannigfaltigkeiten $\KatTopMan$ ist dual zu der der \CAlgMann{} $\KatCAlgMan$.
 \end{satz}
 
-\begin{proof}Wir verwenden hier die gleichen Funktoren wie in der gewöhnlichen Gelfand-Dualität (\cref{satz:GD}):
+\begin{proof}Wir verwenden hier die gleichen Funktoren wie in der gewöhnlichen Gelfand-Dualität (\Cref{satz:GD}):
 	\[\begin{array}{@{}rrcl@{}}
 	 			&\KatTopMan			&\simeq		&\KatCAlgMan^\op 												\\
 	\stetig: 	&X					&\mapsto	&\stetig(X)													\\
@@ -51,11 +51,11 @@ Die Kategorie der kompakten topologischen Mannigfaltigkeiten $\KatTopMan$ ist du
 	\SpecC:		&\SpecC(\A)													&\mapsfrom	&\A				\\
 				&(\varphi_h: \SpecC(\A) \to \SpecC(\B): f \mapsto f \circ h)	&\mapsfrom	&(h: \B \to \A)^\op
 	\end{array}\]
-Nun ist jede \komTopMan{} auch ein kompakter Hausdorffraum und zwei \komenTopMan{} sind isomorph genau dann, wenn sie es als kompakte Hausdorffräume sind (da beide Kategorien die gleichen Morphismen besitzen). Analog ist jede \CAlgMan{} auch eine \CAlg{} und zwei \CAlgMann{} sind isomorph genau dann, wenn sie es als \CAlgn{} sind. Die Dualität der Kategorien folgt also im Wesentlichen schon aus der gewöhnlichen Gelfand-Dualität (\cref{satz:GD}).
+Nun ist jede \komTopMan{} auch ein kompakter Hausdorffraum und zwei \komenTopMan{} sind isomorph genau dann, wenn sie es als kompakte Hausdorffräume sind (da beide Kategorien die gleichen Morphismen besitzen). Analog ist jede \CAlgMan{} auch eine \CAlg{} und zwei \CAlgMann{} sind isomorph genau dann, wenn sie es als \CAlgn{} sind. Die Dualität der Kategorien folgt also im Wesentlichen schon aus der gewöhnlichen Gelfand-Dualität (\Cref{satz:GD}).
 
 Zu zeigen ist allerdings noch, dass die Funktoren in obiger Form überhaupt wohldefiniert sind, das heißt, dass $\stetig$ jeder \komenTopMan{} eine \CAlgMan{} zuordnet und umgekehrt $\SpecC$ jeder \CAlgMan{} eine \komTopMan{}.
 
-Sei dazu zunächst $X$ eine \komTopMan{}. Dann gibt es nach \cref{prop:topManAlt} Karten $\theta_i: B^m \to X$, sodass $(\theta_i(\overline{B_{0,5}^m}))_{i=1,\dots,N}$ eine Überdeckung von $X$ bilden. Daraus  definieren wir uns wie folgt Algebrenkarten:
+Sei dazu zunächst $X$ eine \komTopMan{}. Dann gibt es nach \Cref{prop:topManAlt} Karten $\theta_i: B^m \to X$, sodass $(\theta_i(\overline{B_{0,5}^m}))_{i=1,\dots,N}$ eine Überdeckung von $X$ bilden. Daraus  definieren wir uns wie folgt Algebrenkarten:
 	\[k_i: \stetig(X) \to \stetig^b(B^m): \tau \mapsto \tau \circ \theta_i \]
 Zu zeigen ist nun also:
 \begin{proofenum}
@@ -131,7 +131,7 @@ Zu zeigen ist jetzt:
 	\item \label{proof:GD2:Ueberdeckung}
 		$(\theta_i(B^m))_{i\in\{1,\dots,N\}}$ ist eine Überdeckung von $\SpecC(\A)$.
 \end{proofenum}
-Dann ist $\SpecC(\A)$ nach \cref{prop:topManAlt} eine \komTopMan.
+Dann ist $\SpecC(\A)$ nach \Cref{prop:topManAlt} eine \komTopMan.
 
 Zu \ref{proof:GD2:fAlghom}: Dass $f_r^i$ ein Algebrenhomomorphismus ist, ergibt sich wieder durch Nachrechnen der Axiome. Zum Beweis der Stetigkeit sei $a \in \A$ und $\epsilon > 0$. Dann gibt es, da $k_i$ stetig, ein $\delta>0$ sodass 
 \[\forall b \in \A: \norm{a-b} < \delta \Rightarrow \norm{k_i(a)-k_i(b)} < \epsilon\]
@@ -181,7 +181,7 @@ Dann definiere
 \[W_l := \bigcup_{i=1}^N \theta_i(\overline{B_{1-\frac{1}{l}}(0)}) \subset \bigcup_{i=1}^N \theta_i(B^m)\]
 Die $W_l$ sind als endliche Vereinigung abgeschlossener Mengen ebenfalls abgeschlossen. Damit existieren dem Lemma von Urysohn zu Folge ($\SpecC(\A)$ ist ein kompakter Hausdorffraum) stetige Funktionen
 \[\psi_l: \SpecC(\A) \to \mathbb{C} \text{ mit } \psi_l|_{W_l} \equiv 0, ~\psi_l(f) = l.\]
-Nun sind die $\psi_l \in \stetig(\SpecC(\A))$, welcher laut Satz von Gelfand-Neumark (\cref{satz:GN}) isometrisch isomorph zu $\A$ ist. Nach Definition des Isomorphismuses $\AlgIso: \A \to  \stetig(\SpecC(\A))$ gibt es damit $a_l \in \A$, sodass:
+Nun sind die $\psi_l \in \stetig(\SpecC(\A))$, welcher laut Satz von Gelfand-Neumark (\Cref{satz:GN}) isometrisch isomorph zu $\A$ ist. Nach Definition des Isomorphismuses $\AlgIso: \A \to  \stetig(\SpecC(\A))$ gibt es damit $a_l \in \A$, sodass:
 \[\psi_l = \AlgIso(a_l) = \tau_{a_l}: f \mapsto f(a_l)\]
 Ferner gilt für $r \in \overline{B_{1-\frac{1}{l}}^m(0)}$:
 \[k_i(a_l)(r) = f_r^i(a_l) = \tau_{a_l}(f_r^i) = \psi_l(f_r^i) = \psi_l(\theta_i(r)) = 0\]
@@ -193,7 +193,7 @@ Also $|l - \psi(f)| \overset{l \to \infty}{\longrightarrow} 0$ und damit $\psi(f
 
 Daher muss die Annahme falsch sein und doch $\SpecC(\A) = \bigcup_{i=1}^N \theta_i(B^m)$ gelten, d.h. $(\theta_i(B^m))_{i=1,\dots,N}$ eine Überdeckung von $\SpecC(\A)$ sein.
 
-Aus \ref{proof:GD2:fAlghom}, \ref{proof:GD2:Homoeo} und \ref{proof:GD2:Ueberdeckung} folgt jetzt, dass $\SpecC(\A)$ eine topologische Mannigfaltigkeit ist. Damit ist die Wohldefiniertheit der Funktoren $\stetig$ und $\SpecC$ für \cref{satz:GD2} gezeigt.
+Aus \ref{proof:GD2:fAlghom}, \ref{proof:GD2:Homoeo} und \ref{proof:GD2:Ueberdeckung} folgt jetzt, dass $\SpecC(\A)$ eine topologische Mannigfaltigkeit ist. Damit ist die Wohldefiniertheit der Funktoren $\stetig$ und $\SpecC$ für \Cref{satz:GD2} gezeigt.
 \end{proof}
 
-Diese Erweiterung der Gelfand-Dualität für \komTopMann{} bestätigt nun, dass wir mit den in \cref{defn:CAM} definierten \CAlgMann{} tatsächlich eine Klassifikation der zu $\KatTopMan$ dualen Kategorie $\KatCAlgMan$ gefunden haben. Können wir also für eine \CAlg{} zeigen, dass sie zusätzlich die Eigenschaften einer \CAlgMan{} besitzt (d.h. es entsprechende Algebrenkarten gibt), dann wissen wir bereits, dass der ihr durch die Gelfand-Dualität zugeordnete kompakte Hausdorffraum eine topologische Mannigfaltigkeit ist.
+Diese Erweiterung der Gelfand-Dualität für \komTopMann{} bestätigt nun, dass wir mit den in \Cref{defn:CAM} definierten \CAlgMann{} tatsächlich eine Klassifikation der zu $\KatTopMan$ dualen Kategorie $\KatCAlgMan$ gefunden haben. Können wir also für eine \CAlg{} zeigen, dass sie zusätzlich die Eigenschaften einer \CAlgMan{} besitzt (d.h. es entsprechende Algebrenkarten gibt), dann wissen wir bereits, dass der ihr durch die Gelfand-Dualität zugeordnete kompakte Hausdorffraum eine topologische Mannigfaltigkeit ist.

@@ -16,23 +16,23 @@
 	\node [below of=satz, node distance=3em] (hilf-satz) {};
     
     %Bijektiv-Block
-    \node [Absch, left of=hilf-satz, node distance=16em, text width=8em] (bi) {\cref{sec:Bijektiv} \\ $\AlgIso$ bijektiv};    
+    \node [Absch, left of=hilf-satz, node distance=16em, text width=8em] (bi) {\Cref{sec:Bijektiv} \\ $\AlgIso$ bijektiv};    
     	\node [below of=bi](hilf-bi) {}; 
     	\node [Text, left of=hilf-bi, node distance=8em] (inj) {$\AlgIso$ injektiv};
     			\node [left of=inj, node distance=18em] (links-inj) {};
        		%Isomometrisch
-    		\node [Absch, below of=inj, text width=8em] (iso) {\cref{sec:isometrisch} \\ $\AlgIso$ isometrisch};
+    		\node [Absch, below of=inj, text width=8em] (iso) {\Cref{sec:isometrisch} \\ $\AlgIso$ isometrisch};
 				\node [below of=iso](hilf-iso) {};     
     			\node [Prop, left of=hilf-iso, node distance=13em, text width=8em] (RAnorm) 
-    			{\cref{prop:R-gleich-Norm} \\ $R_\A(a) = \norm{a}$};
+    			{\Cref{prop:R-gleich-Norm} \\ $R_\A(a) = \norm{a}$};
     					\node [below of=RAnorm, node distance=3em, text width=4em] (unter-RAnorm) {};
     				\node [Text, below of=RAnorm] (hilf-RAnorm) {};    				
     				\node [Prop, below of=hilf-RAnorm, text width=8em] (RAlima) 
-    				{\cref{prop:R-groesser-lima} \\ in Banachalg.: \\ $R\!_\A(a)\!\!\geq\!\!\lim\!\norm{\!a^k\!}^\frac{1}{k}$}; 
+    				{\Cref{prop:R-groesser-lima} \\ in Banachalg.: \\ $R\!_\A(a)\!\!\geq\!\!\lim\!\norm{\!a^k\!}^\frac{1}{k}$}; 
     				\node [Prop, below of=RAlima, text width=8em] (konv)
-    				{\cref{prop:Konvergenz} \\ $\alpha_n \to \epsilon < 1$ \\ $\Rightarrow (\alpha_n)^n \to 0$};
+    				{\Cref{prop:Konvergenz} \\ $\alpha_n \to \epsilon < 1$ \\ $\Rightarrow (\alpha_n)^n \to 0$};
        			\node [Prop, right of=hilf-iso, node distance=10em, text width=15em] (fasigma) 
-       			{\cref{prop:Spektrum-von-a} \\ $\{f(a)|f\in\SpecC(\A)\}=\sigma_\A(a)$};
+       			{\Cref{prop:Spektrum-von-a} \\ $\{f(a)|f\in\SpecC(\A)\}=\sigma_\A(a)$};
 					\node [BewTeil, below of=fasigma] (bew-fasigma) 
 					{\qquad für $\lambda \in \sigma_\A(a)$:};
 					\node [BewTeil, below of=bew-fasigma, text width=10em, node distance=1.5em] (bew-fasigma1) 
@@ -49,7 +49,7 @@
 					\node [BewTeil, below of=bew-fasigma3, text width=10em, node distance=2em] (bew-fasigma4) 
 					{\ref{proof:Spektrum-von-a:Projektion} $f:\A \to {}^\A/_{I_\lambda} \cong \CC$};
 						\node [Prop, left of=bew-fasigma4, node distance=12em] (nichtleer) 
-						{\cref{kor:spektrum-nicht-leer}: $\sigma_\A(a) \neq \emptyset$};						
+						{\Cref{kor:spektrum-nicht-leer}: $\sigma_\A(a) \neq \emptyset$};						
 				    
     	\node [Text, right of=hilf-bi, node distance=8em] (sur) {$\AlgIso$ surjektiv};
 			\node [below of=sur](hilf-sur) {};     
@@ -72,28 +72,28 @@
 
 	% Sternhom-Block
     \node [Absch, right of=hilf-satz, node distance=11em, text width=10em] (sternhom) 
-    {\cref{sec:CAlgHom} \\ $\AlgIso$ \CAlgHom}; 
+    {\Cref{sec:CAlgHom} \\ $\AlgIso$ \CAlgHom}; 
     		\node [right of=sternhom] (rechts-sternhom) {}; 
     	\node [Text, below of=sternhom] (stern) {$\AlgIso(a^*) = (\AlgIso(a))^*$};    
     			\node [left of=stern, node distance=5.5em] (links-stern) {}; 
       	\node [Prop, below of=stern, text width=8em] (sternkonj) 
-    	{\cref{prop:Stern-zu-Konjugation} \\ für $f: \A \to \CC$ \\ Alghom.: \\ $f(a^*) = \overline{f(a)}$};
+    	{\Cref{prop:Stern-zu-Konjugation} \\ für $f: \A \to \CC$ \\ Alghom.: \\ $f(a^*) = \overline{f(a)}$};
     	\node [Prop, below of=sternkonj, text width=8em] (selbstadj) 
-    	{\cref{prop:Spektrum-reell} \\ für $a$ selbstadj.: \\ $\sigma_\A(a) \subseteq \RR$};
+    	{\Cref{prop:Spektrum-reell} \\ für $a$ selbstadj.: \\ $\sigma_\A(a) \subseteq \RR$};
     			\node [below of=selbstadj, node distance=3em, text width=4em] (unter-selbstadj) {};    	
     	\node [Prop, below of=selbstadj, text width=8em] (eEig) 
-    	{\cref{lemma:CAlg-Eigenschaften} \\ $\norm{e} = 1$, $e^* = e$};
+    	{\Cref{lemma:CAlg-Eigenschaften} \\ $\norm{e} = 1$, $e^* = e$};
     	%Lemma 1.15 (Spec komp.)
-    	\node [Absch, below of=eEig, text width=8em] (Speckomp) {\cref{lemma:MA} \\ $\SpecC(\A)$ komp. HD-Raum}; 
+    	\node [Absch, below of=eEig, text width=8em] (Speckomp) {\Cref{lemma:MA} \\ $\SpecC(\A)$ komp. HD-Raum}; 
     	\node [keinBeweis, below of=Speckomp, text width=8em] (alaoglu) {Satz v. Banach-Alaoglu (\ref{satz:BA})};     	
     	
     %Alghom	
 	\node [Absch, below of=bew-HAdicht4, text width=15em, node distance=6.6em] (Alghom) 
-	{\cref{sec:Algebrenhomomorphismus} \\ $\AlgIso$ Algebrenhomomorphismus};    	
+	{\Cref{sec:Algebrenhomomorphismus} \\ $\AlgIso$ Algebrenhomomorphismus};    	
 
 	%stetig
 	\node [Absch, below of=nichtleer, text width=8em, node distance=4em] (stetig) 
-	{\cref{lemma:BAlg-Eigenschaften} \\ $+$, $\cdot$, $^{-1}$ stetig}; 
+	{\Cref{lemma:BAlg-Eigenschaften} \\ $+$, $\cdot$, $^{-1}$ stetig}; 
 
 
 %Pfade:

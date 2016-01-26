@@ -17,7 +17,7 @@ Zu $f_0 \in \dual{\A}$, $\epsilon > 0$ betrachte die offene Menge $U(f_0, a, \ep
 \end{proof}
 
 \begin{bem}
-Da $\SpecC(\CC^n)$ aus \cref{sec:BeispielCn} eine Teilmenge von $\dual{\CC^n}$ ist, können wir auch diesen Raum mit der \ssTop{} versehen. Es ist leicht zu sehen, dass sie in diesem Spezialfall der diskreten Topologie entspricht (betrachte die Umgebungen $U(f_k, e_k, {}^1/_2)$.
+Da $\SpecC(\CC^n)$ aus \Cref{sec:BeispielCn} eine Teilmenge von $\dual{\CC^n}$ ist, können wir auch diesen Raum mit der \ssTop{} versehen. Es ist leicht zu sehen, dass sie in diesem Spezialfall der diskreten Topologie entspricht (betrachte die Umgebungen $U(f_k, e_k, {}^1/_2)$.
 \end{bem}
 
 \begin{lemma}\label{lemma:MA}
@@ -51,7 +51,7 @@ Sei $\A$ eine \CAlg{} und $\dual{\A}$ der Dualraum dazu, versehen mit der schwac
 	\item %Folgt 2.1.27a
 	Für beliebige $a, b \in \A$ definieren wir die folgende Abbildung:
 	\[\Phi_{a,b} := \eval_{ab}-\eval_a \eval_b : \dual{\A} \to \CC: f \mapsto f(ab)-f(a)f(b)\]
-	Für $f \in \SpecC(\A) \cup \{0\}$ gilt $f(ab) = f(a)f(b)$, die Abbildung $\Phi_{a,b}$ ist also gleich 0 auf $\SpecC(\A) \cup \{0\}$. Da $\Phi_{a,b}$ nach \cref{bem:Einsetz-stetig} stetig ist, muss $\Phi_{a,b}$ auch auf dem Abschluss von $\SpecC(\A) \cup \{0\}$ identisch Null sein. 
+	Für $f \in \SpecC(\A) \cup \{0\}$ gilt $f(ab) = f(a)f(b)$, die Abbildung $\Phi_{a,b}$ ist also gleich 0 auf $\SpecC(\A) \cup \{0\}$. Da $\Phi_{a,b}$ nach \Cref{bem:Einsetz-stetig} stetig ist, muss $\Phi_{a,b}$ auch auf dem Abschluss von $\SpecC(\A) \cup \{0\}$ identisch Null sein. 
 	
 Sei nun $f \in \dual{\A} \backslash \{0\}$ eine Abbildung, sodass für alle $a, b \in \A$ gilt: $0 = \Phi_{a,b}(f) = f(ab) - f(a)f(b)$. Damit ist $f$ insbesondere multiplikativ. Außerdem ist $f(e) \neq 0$, denn sonst würde für alle $a \in \A$ gelten $f(a) = f(ea) = f(e)f(a) = 0f(a) = 0$, es wäre also $f = 0$. Daraus wiederum folgt nun, dass $f$ einserhaltend ist, denn es gilt:
 	\[f(e) = f(ee) = f(e)f(e) \overset{f(e) \in \CC}{\Longrightarrow} 1 = f(e).\]
@@ -62,7 +62,7 @@ Somit ist $f \in \SpecC(\A)$ und es gilt:
 	\item %Folgt 2.1.27d
 	Die Abbildung 
 	\[\eval_e: \SpecC(\A) \cup \{0\} \to \CC: f \mapsto f(e) = \begin{cases} 1 &, f \in \SpecC(\A) \\ 0 &, f \equiv 0 \end{cases}\]
-	ist nach \cref{bem:Einsetz-stetig} stetig. Also ist $\SpecC(\A) = \eval_1^{-1}(\{1\})$ als Urbild einer abgeschlossenen Menge selbst abgeschlossen.
+	ist nach \Cref{bem:Einsetz-stetig} stetig. Also ist $\SpecC(\A) = \eval_1^{-1}(\{1\})$ als Urbild einer abgeschlossenen Menge selbst abgeschlossen.
 	
 	\item Dieser Beweis folgt dem zu \cite[Lemma IX.2.2]{Werner2011}
 	
@@ -80,6 +80,6 @@ Somit ist $f \in \SpecC(\A)$ und es gilt:
 
 Mit Hilfe dieser Proposition können wir nun die Kompaktheit von $\SpecC(\A)$ zeigen:
 
-Nach dem Satz von Banach-Alaoglu (\cref{satz:BA}) ist $\dual{B_1}(0) \subseteq \dual\A$ kompakt. Damit ist $\SpecC(\A)\cup\{0\}$ als abgeschlossene Teilmenge von $\dual{B_1}(0)$ kompakt und ebenso $\SpecC(\A)$ als abgeschlossene Teilmenge von $\SpecC(\A)\cup\{0\}$.
+Nach dem Satz von Banach-Alaoglu (\Cref{satz:BA}) ist $\dual{B_1}(0) \subseteq \dual\A$ kompakt. Damit ist $\SpecC(\A)\cup\{0\}$ als abgeschlossene Teilmenge von $\dual{B_1}(0)$ kompakt und ebenso $\SpecC(\A)$ als abgeschlossene Teilmenge von $\SpecC(\A)\cup\{0\}$.
 \end{proof}
 

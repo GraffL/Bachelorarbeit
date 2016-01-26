@@ -126,18 +126,18 @@ und somit die Abschätzung
 
 Also ist $(\lambda e - a)^{-1}$ auf $\{\lambda \in \CC ~|~ |\lambda| \geq 2\norm{a}\}$ durch $\frac{1}{\norm{a}}$ beschränkt.
 
-Da die Abbildung $\lambda \mapsto (\lambda e - a)^{-1}$ stetig ist(als Verknüpfung der stetigen Abbildungen Skalarmultiplikation, Addition und Inversenbildung (siehe \cref{lemma:BAlg-Eigenschaften})), ist sie auch auf dem verbleibenden Kompaktum $\{\lambda \in \CC ~|~ 2\norm{a} \geq |\lambda| \geq \lima\}$ beschränkt. 
+Da die Abbildung $\lambda \mapsto (\lambda e - a)^{-1}$ stetig ist(als Verknüpfung der stetigen Abbildungen Skalarmultiplikation, Addition und Inversenbildung (siehe \Cref{lemma:BAlg-Eigenschaften})), ist sie auch auf dem verbleibenden Kompaktum $\{\lambda \in \CC ~|~ 2\norm{a} \geq |\lambda| \geq \lima\}$ beschränkt. 
 
 Somit ist $\sup_{|\lambda| \geq \lima}\norm{(\lambda e - a)^{-1}}$ tatsächlich endlich.
 
 
 zu \ref{proof:R-groesser-lima:nach0}:
-Aufgrund der Stetigkeit von Inversenbildung und Addition (\cref{lemma:BAlg-Eigenschaften}) gilt für eine Folge $(a_n)_{n\in\NN} \subset \A$ mit $e - a_n \in \A^\times$ für alle $n$:
+Aufgrund der Stetigkeit von Inversenbildung und Addition (\Cref{lemma:BAlg-Eigenschaften}) gilt für eine Folge $(a_n)_{n\in\NN} \subset \A$ mit $e - a_n \in \A^\times$ für alle $n$:
 	\[a_n \xlongrightarrow{n\to\infty} 0 \iff e - a_n  \xlongrightarrow{n\to\infty} e \iff (e-a_n)^{-1} \xlongrightarrow{n\to\infty} e\]
 
 Für beliebiges $l \in \NN$ ist nun 
 	\[\underset{n\to \infty}{\lim}\frac{\norm{a^n}^\frac{1}{n}}{\lima+\frac{1}{l}} = \frac{\underset{n\to \infty}{\lim}\norm{a^n}^\frac{1}{n}}{\underset{k\to\infty}{\lim}\norm{a^k}^\frac{1}{k}+\frac{1}{l}} < 1\]
-und es folgt mit \cref{prop:Konvergenz}
+und es folgt mit \Cref{prop:Konvergenz}
 	\[\norm{\frac{a^n}{\left(\lima+\frac{1}{l}\right)^n}} = \frac{\norm{a^n}}{\left|\lima+\frac{1}{l}\right|^n} = \left(\frac{\norm{a^n}^\frac{1}{n}}{\lima+\frac{1}{l}}\right)^n \xlongrightarrow{n\to\infty} 0.\]
 Also gilt auch
 	\[\frac{a^n}{\left(\lima+\frac{1}{l}\right)^n} \xlongrightarrow{n\to\infty} 0 \qquad \text{und damit} \qquad \left(e - \frac{a^n}{(\lima+\frac{1}{l})^n}\right)^{-1} \xlongrightarrow{n\to\infty} e.\]
@@ -166,7 +166,7 @@ Sei $\A$ eine Banach-Algebra, $a \in \A$. Dann ist $\sigma_\A(a) \neq \emptyset$
 \end{kor}
 
 \begin{proof}
-Im Beweis zu \cref{prop:R-groesser-lima} haben wir gezeigt, dass es ein $\lambda \in \sigma_\A(a)$ gibt, welches größer als $\lima$ ist. Damit ist $\sigma_\A(a)$ insbesondere auch nicht-leer.
+Im Beweis zu \Cref{prop:R-groesser-lima} haben wir gezeigt, dass es ein $\lambda \in \sigma_\A(a)$ gibt, welches größer als $\lima$ ist. Damit ist $\sigma_\A(a)$ insbesondere auch nicht-leer.
 \end{proof}
 
 \begin{prop}\label{prop:R-gleich-Norm}
@@ -177,7 +177,7 @@ Ist $\A$ eine \CAlg{} und $a \in \A$, so gilt:
 \begin{proof}
 
 \begin{itemize}
-	\item[\glqq$\geq$\grqq] Aus \cref{prop:R-groesser-lima} wissen wir bereits, dass $R_\A(a) \geq \lima = \underset{k\to\infty}{\lim}\norm{a^k}^\frac{1}{k}$ gilt. Also genügt es zu zeigen, dass $\underset{k\to\infty}{\lim}\norm{a^k}^\frac{1}{k} = \norm{a}$ ist.
+	\item[\glqq$\geq$\grqq] Aus \Cref{prop:R-groesser-lima} wissen wir bereits, dass $R_\A(a) \geq \lima = \underset{k\to\infty}{\lim}\norm{a^k}^\frac{1}{k}$ gilt. Also genügt es zu zeigen, dass $\underset{k\to\infty}{\lim}\norm{a^k}^\frac{1}{k} = \norm{a}$ ist.
 	
 Zunächst gilt $\norm{a^{2^k}}^\frac{1}{2^k} = \norm{a}$, denn für $k \in \NN$ ist
 	\begin{align*}
@@ -190,7 +190,7 @@ und damit (unter wiederholter Anwendung dieser Aussage)
 	&= \norm{a*a}^{2^k} = \left(\norm{a}^2\right)^{2^k} = \norm{a}^{2^{k+1}}. \quad (\#)
 	\end{align*}	
 	
-Nachdem wir im Beweis zu \cref{prop:R-groesser-lima} in \ref{proof:R-groesser-lima:limaexists} bereits gezeigt haben, dass die $\norm{a^k}^\frac{1}{k}$ eine absteigende Folge bilden, ergibt sich hieraus
+Nachdem wir im Beweis zu \Cref{prop:R-groesser-lima} in \ref{proof:R-groesser-lima:limaexists} bereits gezeigt haben, dass die $\norm{a^k}^\frac{1}{k}$ eine absteigende Folge bilden, ergibt sich hieraus
 	\[\norm{a} \overset{(\#)}{=} \norm{a^{2^k}}^\frac{1}{2^k} \overset{\ref*{prop:R-groesser-lima}\ref*{proof:R-groesser-lima:limaexists}}{\leq} \norm{a^{k}}^\frac{1}{k} \overset{\ref*{prop:R-groesser-lima}\ref*{proof:R-groesser-lima:limaexists}}{\leq} \norm{a^1}^1 = \norm{a}\]
 und folglich gilt
 	\[R_\A(a) \geq \underset{k\to\infty}{\lim}\norm{a^k}^\frac{1}{k} = \underset{k\to\infty}{\lim}\norm{a} = \norm{a}.\]	
@@ -294,7 +294,7 @@ Also liegt $J$ in $M$ und ist offensichtlich eine obere Schranke für $N$, was d
 Damit sind die Voraussetzung des Lemmas von Zorn erfüllt. Es folgt daher, dass $M$ ein maximales Element enthält, welches also gerade die in \ref{proof:Spektrum-von-a:maxIdeal} gewünschte Eigenschaft hat. Wir nennen es daher $I_\lambda$.
 
 Zu \ref{proof:Spektrum-von-a:I-abg}:
-Da Addition und Multiplikation in $\A$ nach \cref{lemma:BAlg-Eigenschaften} stetig ist, ist auch $\overline{I_\lambda}$, der Abschluss von $I_\lambda$, ein Ideal. $\overline{I_\lambda}$ enthält aber mit $I_\lambda$ ein maximales Ideal und es                        muss folglich $\overline{I_\lambda} = I_\lambda$ oder $\overline{I_\lambda} = \A$ gelten.
+Da Addition und Multiplikation in $\A$ nach \Cref{lemma:BAlg-Eigenschaften} stetig ist, ist auch $\overline{I_\lambda}$, der Abschluss von $I_\lambda$, ein Ideal. $\overline{I_\lambda}$ enthält aber mit $I_\lambda$ ein maximales Ideal und es                        muss folglich $\overline{I_\lambda} = I_\lambda$ oder $\overline{I_\lambda} = \A$ gelten.
 
 Wäre $\overline{I_\lambda} = \A$, so läge $I_\lambda$ dicht in $\A$ und folglich wäre $I_\lambda \cap \{b \in \A ~|~ \norm{b-e} < 1\} \neq \emptyset$. Sei also $b$ aus $I_\lambda \cap \{b \in \A ~|~ \norm{b-e} < 1\}$, dann ist $\sum_{k=0}^\infty(e-b)^k$ absolut konvergent und das Inverse zu $b$, denn:
 	\[b\sum_{k=0}^\infty(e-b)^k = (b-e)\sum_{k=0}^\infty(e-b)^k + e\sum_{k=0}^\infty(e-b)^k = -\sum_{k=0}^\infty(e-b)^{k+1} +\sum_{k=0}^\infty(e-b)^k = 1\]
@@ -304,7 +304,7 @@ Das jedoch steht im Widerspruch zu \ref{proof:Spektrum-von-a:maxIdeal} ($I_\lamb
 
 
 Zu \ref{proof:Spektrum-von-a:AI-BA}:
-Da $I_\lambda$ also abgeschlossen ist, ist $^\A/_{I_\lambda}$ mit der Norm $\norm{[b]} := \underset{x \in I_\lambda}{\inf}\norm{b+x}$ nach \cref{satz:Quotient} ein vollständiger normierter Vektorraum. Außerdem erhalten wir durch $[b]\cdot [c] := [bc]$ eine Multiplikation (mit Einselement $[e]$). Da $I_\lambda$ als Ideal auch unter Multiplikation abgeschlossen ist, ist diese Operation auf $^\A/_{I_\lambda}$ wohldefiniert. Ferner ist die Norm submultiplikativ, denn:
+Da $I_\lambda$ also abgeschlossen ist, ist $^\A/_{I_\lambda}$ mit der Norm $\norm{[b]} := \underset{x \in I_\lambda}{\inf}\norm{b+x}$ nach \Cref{satz:Quotient} ein vollständiger normierter Vektorraum. Außerdem erhalten wir durch $[b]\cdot [c] := [bc]$ eine Multiplikation (mit Einselement $[e]$). Da $I_\lambda$ als Ideal auch unter Multiplikation abgeschlossen ist, ist diese Operation auf $^\A/_{I_\lambda}$ wohldefiniert. Ferner ist die Norm submultiplikativ, denn:
 	\begin{align*}
 		\norm{[b]} \cdot \norm{[c]} &= \underset{x \in I_\lambda}{\inf}\norm{b+x} \cdot \underset{y \in I_\lambda}{\inf}\norm{c+y} = \underset{x,y \in I_\lambda}{\inf}(\norm{b+x} \cdot \norm{c+y}) \geq \\
 		&\geq \underset{x,y \in I_\lambda}{\inf}\norm{bc+by+cx+xy} \geq \underset{z \in I_\lambda}{\inf}\norm{bc+z} = \norm{[b]\cdot[c]}
@@ -321,7 +321,7 @@ Insbesondere ist daher $e \in J$, es existieren also $c \in A, x \in I_\lambda$,
 	\[[c][b] = [cb] = [cb + x] = [e]\]
 
 zu \ref{proof:Spektrum-von-a:Projektion}:
-Ist $[b] \in {}^\A/_{I_\lambda}$, so gibt es nach \cref{kor:spektrum-nicht-leer} ein $\lambda_b \in \sigma_{^\A/_{I_\lambda}}([b])$. Also ist $\lambda_b[e] - [b] \notin \left({}^\A/_{I_\lambda}\right)^\times$ und daher mit \ref{proof:Spektrum-von-a:AI-BA} bereits $\lambda_b[e] - [b] = [0]$. Dadurch ist $[b] = \lambda_b[e]$ und $\lambda_b \in \CC$ damit eindeutig bestimmt. Wir können daher die folgende Abbildung definieren:
+Ist $[b] \in {}^\A/_{I_\lambda}$, so gibt es nach \Cref{kor:spektrum-nicht-leer} ein $\lambda_b \in \sigma_{^\A/_{I_\lambda}}([b])$. Also ist $\lambda_b[e] - [b] \notin \left({}^\A/_{I_\lambda}\right)^\times$ und daher mit \ref{proof:Spektrum-von-a:AI-BA} bereits $\lambda_b[e] - [b] = [0]$. Dadurch ist $[b] = \lambda_b[e]$ und $\lambda_b \in \CC$ damit eindeutig bestimmt. Wir können daher die folgende Abbildung definieren:
 	\[f: \A \to \CC: b \mapsto \lambda_b\]
 Diese ist ein Algebrenhomomorphismus, denn für alle $b,c \in \A, \mu \in \CC$ gilt:
 \begin{itemize}
@@ -353,9 +353,9 @@ Da diese Konstruktion für beliebige $\lambda \in \sigma_\A(a)$ möglich ist, er
 Hiermit haben wir nun die nötigen Voraussetzungen um zu zeigen, dass $\AlgIso$ isometrisch ist:
 
 \begin{proof}[\Bew{$\AlgIso$ isometrisch}]
-Sei $a \in \A$, dann ist $\{f(a) ~|~ f \in \SpecC(\A)\} = \sigma_\A(a)$ (\cref{prop:Spektrum-von-a}) und es gilt:
+Sei $a \in \A$, dann ist $\{f(a) ~|~ f \in \SpecC(\A)\} = \sigma_\A(a)$ (\Cref{prop:Spektrum-von-a}) und es gilt:
 	\[\underset{f \in \SpecC(\A)}{\sup}\left|f(a)\right| = \underset{\lambda \in \sigma_\A(a)}{\sup}\left|\lambda\right| = R_\A(a)\]
-Aus \cref{prop:R-gleich-Norm} wissen wir zudem, dass $R_\A(a) = \norm{a}$ ist, woraus insgesamt folgt, dass $\AlgIso$ isometrisch ist:
+Aus \Cref{prop:R-gleich-Norm} wissen wir zudem, dass $R_\A(a) = \norm{a}$ ist, woraus insgesamt folgt, dass $\AlgIso$ isometrisch ist:
 	\[\norm{\AlgIso(a)} = \underset{f \in \SpecC(\A)}{\sup}\left|f(a)\right| = R_\A(a) = \norm{a}.\]
 \let\qed\relax
 \end{proof}

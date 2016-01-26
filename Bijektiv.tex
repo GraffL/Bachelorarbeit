@@ -15,11 +15,11 @@ und damit $a = b$.
 
 Wir wollen hier den Satz von Stone-Weiherstraße (\ref{satz:SW}) anwenden. Zunächst ist leicht zu sehen, dass $\AlgIso(\A) \subseteq \stetig(\SpecC(\A))$ eine Unteralgebra ist ($\AlgIso$ ist ein Algebrenhomomorphismus und daher $\AlgIso(\A)$ abgeschlossen unter den Algebraoperationen). Ferner gilt:
 \begin{itemize}
-	\item In \cref{sec:Algebrenhomomorphismus} haben wir bereits gezeigt, dass $\AlgIso(e)$ die konstante Einsabbildung ist (das Einselement in $\stetig(\SpecC(\A))$. Damit sind wegen $\AlgIso(\lambda e) = \lambda \AlgIso(e)$ für $\lambda \in \CC$ bereits alle konstanten Funktionen in $\AlgIso(\A)$ enthalten.
+	\item In \Cref{sec:Algebrenhomomorphismus} haben wir bereits gezeigt, dass $\AlgIso(e)$ die konstante Einsabbildung ist (das Einselement in $\stetig(\SpecC(\A))$. Damit sind wegen $\AlgIso(\lambda e) = \lambda \AlgIso(e)$ für $\lambda \in \CC$ bereits alle konstanten Funktionen in $\AlgIso(\A)$ enthalten.
 	\item Sind $f, g \in \SpecC(\A)$ mit $f \neq g$, so gibt es also ein $a \in \A$ mit $f(a) \neq g(a)$. Damit gilt:
 		\[\AlgIso(a)(f) = \tau_a(f) = f(a) \neq g(a) = \tau_a(g) = \AlgIso(a)(g)\]
 		Also ist $\tau_a \in \AlgIso(\A)$ eine Funktion, die $f$ und $g$ trennt.
-	\item Ist $\tau_a \in \AlgIso(\A)$, so auch $\tau_{a^*}$, und es folgt nach \cref{sec:CAlgHom}:
+	\item Ist $\tau_a \in \AlgIso(\A)$, so auch $\tau_{a^*}$, und es folgt nach \Cref{sec:CAlgHom}:
 		\[\overline{\tau_a} = (\AlgIso(a))^* = \AlgIso(a^*) = \tau_{a^*} \in \AlgIso(\A)\]
 \end{itemize}
 Also liegt dem Satz von Stone-Weiherstraß zufolge $\AlgIso(\A)$ dicht in $\stetig(\SpecC(\A))$, d.h. $\overline{\AlgIso(\A)} = \stetig(\SpecC(\A))$.
