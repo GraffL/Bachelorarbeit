@@ -7,13 +7,13 @@ Als letzte Eigenschaft bleibt noch zu zeigen, dass $\AlgIso$ auch bijektiv ist.
 \begin{itemize}
 \item $\AlgIso$ ist injektiv, denn:
 
-Sind $a, b \in \A$, sodass $\AlgIso(a) = \AlgIso(b)$, dann folgt (da $\AlgIso$ ein Algebrenhomomorphismus und daher linear ist):
+Sind $a, b \in \A$, sodass $\AlgIso(a) = \AlgIso(b)$, dann folgt (da $\AlgIso$ als Algebrenhomomorphismus insbesondere linear ist):
 	\[0 = \norm{\AlgIso(a) - \AlgIso(b)} = \norm{\AlgIso(a-b)} = \norm{a-b}\]
 und damit $a = b$.
 
 \item $\AlgIso$ ist surjektiv, denn:
 
-Wir wollen hier den Satz von Stone-Weiherstraße (\ref{satz:SW}) anwenden. Zunächst ist leicht zu sehen, dass $\AlgIso(\A) \subseteq \stetig(\SpecC(\A))$ eine Unteralgebra ist ($\AlgIso$ ist ein Algebrenhomomorphismus und daher $\AlgIso(\A)$ abgeschlossen unter den Algebraoperationen). Ferner gilt:
+Wir wollen hier den Satz von Stone-Weierstraße (\ref{satz:SW}) anwenden. Zunächst ist leicht zu sehen, dass $\AlgIso(\A) \subseteq \stetig(\SpecC(\A))$ eine Unteralgebra ist ($\AlgIso$ ist ein Algebrenhomomorphismus und daher $\AlgIso(\A)$ abgeschlossen unter den Algebraoperationen). Ferner gilt:
 \begin{itemize}
 	\item In \Cref{sec:Algebrenhomomorphismus} haben wir bereits gezeigt, dass $\AlgIso(e)$ die konstante Einsabbildung ist (das Einselement in $\stetig(\SpecC(\A))$. Damit sind wegen $\AlgIso(\lambda e) = \lambda \AlgIso(e)$ für $\lambda \in \CC$ bereits alle konstanten Funktionen in $\AlgIso(\A)$ enthalten.
 	\item Sind $f, g \in \SpecC(\A)$ mit $f \neq g$, so gibt es also ein $a \in \A$ mit $f(a) \neq g(a)$. Damit gilt:
@@ -22,12 +22,12 @@ Wir wollen hier den Satz von Stone-Weiherstraße (\ref{satz:SW}) anwenden. Zunä
 	\item Ist $\tau_a \in \AlgIso(\A)$, so auch $\tau_{a^*}$, und es folgt nach \Cref{sec:CAlgHom}:
 		\[\overline{\tau_a} = (\AlgIso(a))^* = \AlgIso(a^*) = \tau_{a^*} \in \AlgIso(\A)\]
 \end{itemize}
-Also liegt dem Satz von Stone-Weiherstraß zufolge $\AlgIso(\A)$ dicht in $\stetig(\SpecC(\A))$, d.h. $\overline{\AlgIso(\A)} = \stetig(\SpecC(\A))$.
+Also liegt dem Satz von Stone-Weierstraß zufolge $\AlgIso(\A)$ dicht in $\stetig(\SpecC(\A))$, d.h. $\overline{\AlgIso(\A)} = \stetig(\SpecC(\A))$.
 
-Gleichzeitig ist $\AlgIso(\A)$ aber abgeschlossen in $\stetig(\SpecC(\A))$. Ist nämlich $(\AlgIso(a_n))_{n\in\NN}$ eine Folge in $\AlgIso(\A)$, die in $\stetig(\SpecC(\A))$ konvergiert, so konvergiert auch die Folge $(a_n)_{n\in\NN}$ in $\A$ (da $\AlgIso$ isometrisch und ein Algebrenhomomorphismus ist). Aufgrund der Vollständigkeit von $\A$ hat diese Folge einen Grenzwert $a \in \A$ und $\AlgIso(a)$ ist - wieder aufgrund der Isometrie von $\AlgIso$ - der Grenzwert von $\AlgIso(a_n)$ in $\AlgIso(\A)$. 
+Gleichzeitig ist $\AlgIso(\A)$ aber abgeschlossen in $\stetig(\SpecC(\A))$. Ist nämlich $(\AlgIso(a_n))_{n\in\NN}$ eine Folge in $\AlgIso(\A)$, die in $\stetig(\SpecC(\A))$ konvergiert, so konvergiert auch die Folge $(a_n)_{n\in\NN}$ in $\A$ (da $\AlgIso$ isometrisch und ein Algebrenhomomorphismus ist). Aufgrund der Vollständigkeit von $\A$ hat diese Folge einen Grenzwert $a \in \A$ und $\AlgIso(a)$ ist - wieder aufgrund der Isometrie von $\AlgIso$ - der Grenzwert von $(\AlgIso(a_n))_{n\in\NN}$ in $\AlgIso(\A)$. 
 
 Es ist folglich insgesamt
-	\[\stetig(\SpecC(\A)) = \overline{\AlgIso(\A)} = \AlgIso(\A)\]
+	\[\AlgIso(\A) = \overline{\AlgIso(\A)} = \stetig(\SpecC(\A))\]
 und somit ist $\AlgIso$ surjektiv.
 \end{itemize}
 

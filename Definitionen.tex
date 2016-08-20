@@ -10,11 +10,11 @@ D.h. eine kommutative komplexe Banachalgebra mit Eins ist ein $\CC$-Vektorraum $
 	\item $\forall a,b,c  \in \A: a\cdot(b+c) = a\cdot b + a\cdot c$ (Distributivität)
 	\item $\forall a,b \in A, \lambda \in \CC: \lambda(a\cdot b) = (\lambda a)\cdot b$
 	\item $\forall a,b,c \in \A: (a\cdot b)\cdot c = a \cdot (b \cdot c)$ (Assoziativität)
-	\item $\forall a, b \in \A: a\cdot b = b \cdot a$ (Kommutativität)	
+	\item $\forall a, b \in \A: a\cdot b = b \cdot a$ (Kommutativität),	
 \end{itemize}
 einem ausgezeichneten Element $e \in \A \backslash \{0\}$, sodass
 \begin{itemize}
-	\item $\forall a \in \A: e\cdot a = a$ (Einselement)
+	\item $\forall a \in \A: e\cdot a = a$ (Einselement),
 \end{itemize}
 sowie einer Normabbildung $\norm{.}: \A \to \RR_{\geq0}: a \mapsto \norm{a}$, sodass
 \begin{itemize}
@@ -64,7 +64,7 @@ Seien $a_0, b_0 \in \A, \lambda_0 \in \CC$ und $\epsilon > 0$. Dann gilt:
 		
 \item Für alle $\lambda \in \CC$ mit $|\lambda - \lambda_0| < \frac{\epsilon}{\norm{e}}$ ist
 		\[\norm{\lambda e - \lambda_0 e} = \norm{(\lambda-\lambda_0)e} = |\lambda - \lambda_0| \norm{e} < \epsilon.\]
-		Also ist die Skalarmultiplikation $(\lambda,a) \mapsto \lambda a$ als Verknüpfung der stetigen Abbildungen $\lambda \mapsto \lambda e$ und $(\lambda e, a) \mapsto \lambda e \cdot a = \lambda a$ ebenfalls stetig.
+		Also ist die Skalarmultiplikation $(\lambda,a) \mapsto \lambda a$ als Verknüpfung der stetigen Abbildungen $(\lambda,a) \mapsto (\lambda e,a)$ und $(\lambda e, a) \mapsto \lambda e \cdot a = \lambda a$ ebenfalls stetig.
 		
 \item Ist $a_0 \in \A^\times$, so ist für alle $a \in \A^\times$ mit $\norm{a-a_0}~<~\frac{\epsilon}{\norm{a_0^{-1}}^2+\norm{a_0^{-1}}\epsilon}$:
 	\begin{align*}
@@ -91,18 +91,19 @@ Also ist $\norm{a^{-1}-a_0^{-1}}< \epsilon$ und somit die Inversenbildung stetig
 \end{proof}
 
 \begin{defn}[C*-Algebra]
-Eine \emph{kommutative \CAlg{} mit Eins} ist eine Banachalgebra $(\A, +, \cdot, e, \norm{.})$ zusammen mit einer Involutionsabbildung $^*:\A \to \A$, die verträglich ist mit der Algebra-Struktur und der Norm.
+Eine \emph{kommutative \CAlg{} mit Eins} ist eine Banachalgebra $(\A, +, \cdot, e, \norm{.})$ zusammen mit einer Involutionsabbildung $(~)^*:\A \to \A$, die verträglich ist mit der Algebra-Struktur und der Norm.
 
 D.h. für die Involutionsabbildung soll gelten:
 \begin{itemize}
+	\item $\forall a  \in \A: (a^*)^* = a$ (Involutionseigenschaft)
 	\item $\forall a,b \in \A, \lambda \in \CC: (\lambda a + b)^* = \overline{\lambda}a^* + b^*$ (verträglich mit der  Vektorraumstruktur)
-	\item $\forall a,b \in \A: (a^*)^* = a, (a\cdot b)^* = b^*\cdot a^*$ (verträglich mit der Multiplikation)
+	\item $\forall a,b \in \A: (a\cdot b)^* = b^*\cdot a^*$ (verträglich mit der Multiplikation)
 	\item $\forall a \in \A: \norm{a^*\cdot a} = \norm{a}^2$ (verträglich mit der Norm)
 \end{itemize}
 \end{defn}
 
 \begin{bem}
-Auch die kommutative \CAlgn{} mit Eins werden wir ab sofort kurz als \emph{\CAlgn} bezeichnen.
+Auch die kommutativen \CAlgn{} mit Eins werden wir ab sofort kurz als \emph{\CAlgn} bezeichnen.
 \end{bem}
 
 \begin{kor}\label{lemma:CAlg-Eigenschaften}
@@ -161,7 +162,7 @@ Seien $X, Y$ zwei topologische Räume. Dann heißt eine Abbildung $\varphi: X \t
 \end{defn}
 
 \begin{lemma}\label{lemma:komHDHomoeo}
-Ist $X$ ein kompakter topologischer Raum, $Y$ ein Hausdorffraum und $\varphi: X \to Y$ eine stetige bijektive Abbildung, so ist auch $\varphi^{-1}$ stetig (also $\varphi$ ein Homöomorphismus).
+Ist $X$ ein kompakter topologischer Raum, $Y$ ein Hausdorffraum und $\varphi: X \to Y$ eine stetige bijektive Abbildung, so ist auch $\varphi^{-1}$ stetig (und damit $\varphi$ ein Homöomorphismus).
 \end{lemma}
 
 \begin{proof}Sei $U \subseteq X$ offen. Zu zeigen ist, dass dann auch $\varphi(U) \subseteq Y$ offen ist, d.h. jedes $y_0 \in \varphi(U)$ eine offene Umgebung in $\varphi(U)$ hat.

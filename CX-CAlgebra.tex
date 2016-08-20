@@ -1,11 +1,11 @@
 \subsection{$\stetig(X)$ als \CAlg}\label{sec:CX}
 
-Nachdem wir zu jeder \CAlg{} einen kompakten Hausdorffraum finden können, werden wir als nächstes aus einem solchen wieder eine \CAlg{} konstruieren.
+Nachdem wir nun zu jeder \CAlg{} einen kompakten Hausdorffraum finden können, werden wir als nächstes aus einem solchen wieder eine \CAlg{} konstruieren.
 
 \begin{lemma}\label{lemma:CX}
 Sei $X$ ein kompakter Hausdorffraum, dann ist
 \[\stetig(X) := \{\tau:X \to \CC ~|~ \tau \text{ stetig}\}\]
-mit (für $\tau,\psi \in \stetig(X), x \in X, \lambda \in \CC$):
+mit den Operationen (für $\tau,\psi \in \stetig(X), x \in X, \lambda \in \CC$):
 \[(\tau+\psi)(x) := \tau(x)+\psi(x),\qquad (\lambda\tau)(x) := \lambda \tau(x),\qquad (\tau\cdot \psi)(x) := \tau(x)\psi(x)\]
 \[e := (X \to \CC: x \mapsto 1) ,\qquad \norm{\tau} := \underset{x \in X}{\sup}|\tau(x)| ,\qquad (\tau^*)(x) := \overline{\tau(x)}\]
 eine \CAlg.
@@ -19,12 +19,12 @@ Ist nämlich $(\tau_l)_{l \in \NN}$ eine Chauchy-Folge in $\stetig(X)$, so ist i
 Sei nun $\epsilon > 0$ und $x \in X$. Da die $\tau_l$ eine Chauchy-Folge bilden, existiert dann ein $L \in \NN$, sodass für alle $l \geq L$ gilt
 	\[\sup_{y \in X}|\tau_l(y) - \tau_L(y)| = \norm{\tau_l - \tau_L} < {}^\epsilon/_3\]
 und somit auch
-	\[\norm{\tau - \tau_L} = \sup_{y \in X}|\lim_{l\to\infty}\tau_l(y) - \tau_L(y)| \leq {}^\epsilon/_3.\]
+	\[\norm{\tau - \tau_L} = \sup_{y \in X}|\lim_{l\to\infty}\tau_l(y) - \tau_L(y)| \leq \lim_{l\to\infty}\sup_{y \in X}|\tau_l(y) - \tau_L(y)| \leq {}^\epsilon/_3.\]
 Das heißt, die $\tau_l$ konvergieren gegen $\tau$. Außerdem ist $\tau_L$ nach Voraussetzung stetig und daher existiert eine offene Umgebung $U \subseteq X$ von $x$, sodass für alle $y \in U$ gilt:
 	\[|\tau_L(y) - \tau_L(x)| < {}^\epsilon/_3\]
 Damit ist für alle $y \in U$
 	\[|\tau(y) - \tau(x)| \leq |\tau(y) - \tau_L(y)| + |\tau_L(y) - \tau_L(x)| + |\tau_L(x) - \tau(x)| < {}^\epsilon/_3 + {}^\epsilon/_3 + {}^\epsilon/_3 = \epsilon\]
 und folglich $\tau \in \stetig(X)$.
 
-Schließlich lässt sich leicht nachrechnen, dass durch die oben angegebenen Operatoren ein normierter $\CC$-Vektorraum eine Banachalgebra und eine damit verträgliche Involution definiert werden.
+Schließlich lässt sich leicht nachrechnen, dass durch die oben angegebenen Operatoren ein normierter $\CC$-Vektorraum, eine Banachalgebra und eine damit verträgliche Involution definiert werden.
 \end{proof}

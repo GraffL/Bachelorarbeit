@@ -20,10 +20,10 @@ Ist $(\alpha_n)_{n\in\NN}$ eine Folge in $\RR$, die gegen ein $\alpha \in [0,1[$
 \begin{proof}
 Zunächst gibt es wegen $\alpha_n \xlongrightarrow{n\to\infty} \alpha$ ein $K \in \NN$, sodass für alle $n\geq K$ gilt:
 	\[|\alpha_n - \alpha| < \frac{1-\alpha}{2}.\]
-Außerdem ist $\frac{1+\alpha}{2} < \frac{1+1}{2} = 1$ und daher $\left(\frac{1+\alpha}{2}\right)^n \xlongrightarrow{n\to\infty} 0$. Also existiert für jedes $\epsilon > 0$ ein $N \in \NN$, sodass
+Außerdem ist $\frac{1+\alpha}{2} < \frac{1+1}{2} = 1$ und daher konvergiert $\left(\frac{1+\alpha}{2}\right)^n$ gegen $0$. Also existiert für jedes $\epsilon > 0$ ein $N \in \NN$, sodass
 	\[\forall n \geq N: \left(\frac{1+\alpha}{2}\right)^n < \epsilon.\]
 Ohne Einschränkung können wir dabei $N \geq K$ wählen. Damit gilt für alle $n \geq N$:
-	\[\left|\left(\alpha_n\right)^n\right| = \left|\alpha_n\right|^n \leq \left(\left|\alpha_n - \alpha\right| + \left|\alpha\right|\right)^n \leq \left(\frac{1-\alpha}{2} + \alpha\right)^n = \left(\frac{1-\alpha+2\alpha}{2}\right)^n = \left(\frac{1+\alpha}{2}\right)^n < \epsilon\]
+	\[\left|\left(\alpha_n\right)^n\right| = \left|\alpha_n\right|^n \leq \left(\left|\alpha_n - \alpha\right| + \left|\alpha\right|\right)^n \leq \left(\frac{1-\alpha}{2} + \alpha\right)^n = \left(\frac{1+\alpha}{2}\right)^n < \epsilon\]
 Also konvergiert $(\alpha_n)^n$ gegen $0$.
 \end{proof}
 
@@ -42,7 +42,7 @@ Im Folgenden können wir uns daher auf $a \neq 0$ beschränken. Hierfür zeigen 
 		$\lim_{k\to\infty}\norm{a^k}^\frac{1}{k}$ existiert und $L(a) \leq \norm{a^n}^\frac{1}{n}$ gilt für alle $n \in \NN$.
 \setcounter{temp}{\value{proofenumi}}
 \end{proofenum}
-Dann nehmen wir an $\lambda e - a$ wäre für alle $\lambda \in \CC$ mit $|\lambda| \geq \lima$ invertierbar und zeigen für alle solche $\lambda$, beliebige $n \in \NN$ und $\omega := \exp{\frac{2\pi i}{n}} \in \CC$ die folgenden Aussagen: 
+Dann nehmen wir an es wäre $R_\A(a) < \lima$, d.h. $\lambda e - a$ wäre für alle $\lambda \in \CC$ mit $|\lambda| \geq \lima$ invertierbar. Für alle solche $\lambda$, beliebige $n \in \NN$ und $\omega := \exp{\frac{2\pi i}{n}} \in \CC$ zeigen wir dann die folgenden Aussagen: 
 \begin{proofenum}
 \setcounter{proofenumi}{\value{temp}}
 	\item \label{proof:R-groesser-lima:invertierbar}
@@ -73,7 +73,7 @@ Wegen $\left(\omega^{k}\right)^n = \exp{\frac{2\pi i kn}{n}} = \exp{2\pi i k} = 
 	e - \frac{a^n}{\lambda^n} &= \left(\frac{\omega^k a}{\lambda}\right)^0 - \left(\frac{\omega^k a}{\lambda}\right)^n = \sum_{l=1}^n \left[\left(\frac{\omega^k a}{\lambda}\right)^{l-1} - \left(\frac{\omega^k a}{\lambda}\right)^l\right] = \\
 		&=\left(e - \frac{\omega^k a}{\lambda}\right)\sum_{l=1}^n \left(\frac{\omega^k a}{\lambda}\right)^{l-1}. \quad (\#)
 \end{align*}
-Ferner gilt $\sum_{k=1}^n \left(\omega^{l-1}\right)^k = \begin{cases}1 &,l=1 \\ 0 &,l\in\{2, \dots, n\}\end{cases}$ ($\sim$), denn (vgl. \cite[S. 10-8,10-9]{Einheitswurzeln}):
+Ferner gilt $\sum_{k=1}^n \left(\omega^{l-1}\right)^k = \begin{cases}n &,l=1 \\ 0 &,l\in\{2, \dots, n\}\end{cases}$ ($\sim$), denn (vgl. \cite[S. 10-8,10-9]{Einheitswurzeln}):
 
 Ist $l\in\{2, \dots, n\}$, so ist $\omega^{l-1} = \exp{\frac{2\pi i(l-1)}{n}} \neq 1$ und $\left(\omega^{l-1}\right)^n = 1$. Es folgt
 	\[0 = \left(\omega^{l-1}\right)^n - 1 = \left(\omega^{l-1} - 1\right)\left(\left(\omega^{l-1}\right)^{n-1} + \dots + \omega^{l-1} + 1\right)\]
@@ -83,7 +83,7 @@ und damit
 Zusammen ergibt das die Behauptung aus \ref{proof:R-groesser-lima:invertierbar}:
 \begin{align*}
 	\left(\frac{1}{n}\sum_{k=1}^n \left(e-\frac{\omega^k a}{\lambda}\right)^{-1}\right) \left(e - \frac{a^n}{\lambda^n}\right) \overset{(\#)}{=} \left(\frac{1}{n}\sum_{k=1}^n \left(e-\frac{\omega^k a}{\lambda}\right)^{-1}\right) \left(e - \frac{\omega^k a}{\lambda}\right)\sum_{l=1}^n \left(\frac{\omega^k a}{\lambda}\right)^{l-1} = \\
-	= \frac{1}{n}\sum_{k=1}^n \sum_{l=1}^n \left(\frac{\omega^k a}{\lambda}\right)^{l-1} = \frac{1}{n} \sum_{l=1}^n \left(\frac{a}{\lambda}\right)^{l-1} \sum_{k=1}^n \left(\omega^{l-1}\right)^k \overset{(\sim)}{=} \frac{1}{n} \sum_{l=1}^n \left(\frac{a}{\lambda}\right)^{1-1} = e
+	= \frac{1}{n}\sum_{k=1}^n \sum_{l=1}^n \left(\frac{\omega^k a}{\lambda}\right)^{l-1} = \frac{1}{n} \sum_{l=1}^n \left(\frac{a}{\lambda}\right)^{l-1} \sum_{k=1}^n \left(\omega^{l-1}\right)^k \overset{(\sim)}{=} \frac{1}{n} \left(\frac{a}{\lambda}\right)^{1-1}n = e
 \end{align*}
 
 zu \ref{proof:R-groesser-lima:abschaetzung}: Seien wieder $|\lambda| \geq \lima$ und $n,k \in \NN$ beliebig, dann gilt:
@@ -117,7 +117,7 @@ Daraus folgt mit Hilfe von $\left(e - \frac{a^n}{\lambda^n}\right)^{-1} = \frac{
 	= \left|\lima - \lambda\right| \cdot \norm{a} \cdot \underset{|\lambda| \geq \lima}{\sup}\norm{(\lambda e - a)^{-1}}^2	
 \end{align*}
 
-Falls $\sup_{|\lambda| \geq \lima}\norm{(\lambda e - a)^{-1}}$ endlich ist, dann wäre die Aussage \ref{proof:R-groesser-lima:abschaetzung} hiermit gezeigt (setze $r_\textup{konst} := \lima \cdot \sup_{|\lambda| \geq \lima}\norm{(\lambda e - a)^{-1}}^2$).
+Falls $\sup_{|\lambda| \geq \lima}\norm{(\lambda e - a)^{-1}}$ endlich ist, dann wäre die Aussage \ref{proof:R-groesser-lima:abschaetzung} hiermit gezeigt (setze $r_\textup{konst} := \norm{a} \cdot \sup_{|\lambda| \geq \lima}\norm{(\lambda e - a)^{-1}}^2$).
 
 Für $|\lambda| \geq 2\norm{a}$ ist $\norm{\frac{a}{\lambda}} = \frac{\norm{a}}{|\lambda|} \leq \frac{\norm{a}}{2\norm{a}} = \frac{1}{2}$ und daher $\sum_{k=0}^\infty \left(\frac{a}{\lambda}\right)^k$ absolut konvergent. Außerdem gilt
 	\[(\lambda e - a)\cdot \frac{1}{\lambda}\sum_{k=0}^\infty \left(\frac{a}{\lambda}\right)^k = \sum_{k=0}^\infty \left(\frac{a}{\lambda}\right)^k - \sum_{k=0}^\infty \left(\frac{a}{\lambda}\right)^{k+1} = 1\]
@@ -157,7 +157,7 @@ was die Behauptung \ref{proof:R-groesser-lima:nach0} ist.
 Daraus jedoch entsteht ein Widerspruch, denn aus \ref{proof:R-groesser-lima:limaexists} ergibt sich: 
 	\[\frac{\norm{a^n}}{\lima^n} \geq \frac{\norm{a^n}}{\norm{a^n}} = 1 \text{ für alle } n\in \NN\]
 Somit muss die Annahme falsch gewesen sein und es gibt doch ein $\lambda \in \CC$ mit $|\lambda| \geq \lima$ und $\lambda e - a \notin \A^\times$, d.h. $\lambda \in \sigma_\A(a)$. Daher gilt die Aussage der Proposition:
-	\[R_\A(a) = \sup\{|\lambda| ~|~ \lambda \in \sigma_\A(a)\} \geq \lima\]
+	\[R_\A(a) = \sup\{|\lambda| ~|~ \lambda \in \sigma_\A(a)\} \geq \lima \qedhere\]
 \end{proof}
 
 
@@ -187,7 +187,7 @@ Zunächst gilt $\norm{a^{2^k}}^\frac{1}{2^k} = \norm{a}$, denn für $k \in \NN$ 
 und damit (unter wiederholter Anwendung dieser Aussage)
 	\begin{align*}
 	\norm{a^{2^k}}^2 &= \norm{\left(a^{2^k}\right)^*a^{2^k}} = \norm{(a^*a)^{2^k}} = \norm{(a^*a)^{2^{k-1}}}^2 = \dots = \norm{(a^*a)^{2^{0}}}^{2^k} = \\
-	&= \norm{a*a}^{2^k} = \left(\norm{a}^2\right)^{2^k} = \norm{a}^{2^{k+1}}. \quad (\#)
+	&= \norm{a^*a}^{2^k} = \left(\norm{a}^2\right)^{2^k} = \norm{a}^{2^{k+1}}. \quad (\#)
 	\end{align*}	
 	
 Nachdem wir im Beweis zu \Cref{prop:R-groesser-lima} in \ref{proof:R-groesser-lima:limaexists} bereits gezeigt haben, dass die $\norm{a^k}^\frac{1}{k}$ eine absteigende Folge bilden, ergibt sich hieraus
@@ -206,7 +206,7 @@ und ist das Inverse zu $\lambda e - a$, denn:
 	\[(\lambda e - a)\cdot \sum_{m=0}^\infty\frac{a^m}{\lambda^{m+1}} = \sum_{m=0}^\infty\left(\frac{a^m}{\lambda^{m}}\right) - \sum_{m=0}^\infty\left(\frac{a^{m+1}}{\lambda^{m+1}}\right) = \frac{a^0}{\lambda^0} +  \sum_{m=1}^\infty\left(\frac{a^m}{\lambda^{m}}\right) - \sum_{m=1}^\infty\left(\frac{a^m}{\lambda^{m}}\right) = e\]
 	
 Insgesamt ist damit gezeigt: Für alle $\lambda \in \CC$ folgt aus $|\lambda| > \norm{a}$, dass $\lambda e - a$ invertierbar ist und daher $\lambda$ nicht in $\sigma_\A(a)$ liegt. Daraus ergibt sich die Aussage:
-	\[R_\A(a) = \sup\{|\lambda| ~|~ \lambda \in \sigma_\A(a)\} \leq \norm{a}\]
+	\[R_\A(a) = \sup\{|\lambda| ~|~ \lambda \in \sigma_\A(a)\} \leq \norm{a} \qedhere\]
 \end{itemize}	
 \end{proof}
 
@@ -231,7 +231,7 @@ dann ist $I$ ein \emph{maximales Ideal}.
 \end{defn}
 
 \begin{bem}
-Da Banachalgebren hier immer ein Einselement besitzen, folgt die Abgeschlossenheit eines Ideals unter Skalarmultiplikation bereits aus den beiden genannten Eigenschaften. Ist nämlich $\lambda \in \CC$ und $x \in I \subseteq \A$, so ist $\lambda e \in \A$ und daher $\lambda x = (\lambda e) x \in I$.
+Da Banachalgebren hier immer ein Einselement besitzen, folgt aus den beiden genannten Eigenschaften zusätzlich die Abgeschlossenheit eines Ideals unter Skalarmultiplikation. Ist nämlich $\lambda \in \CC$ und $x \in I \subseteq \A$, so ist $\lambda e \in \A$ und daher $\lambda x = (\lambda e) x \in I$. Also sind Ideale insbesondere Untervektorräume.
 \end{bem}
 
 \begin{prop}\label{prop:Spektrum-von-a}
@@ -291,7 +291,7 @@ Falls diese Menge ein maximales Element besitzt, so wäre dieses eine passende W
 \end{itemize}
 Also liegt $J$ in $M$ und ist offensichtlich eine obere Schranke für $N$, was die Behauptung zeigt.
 
-Damit sind die Voraussetzung des Lemmas von Zorn erfüllt. Es folgt daher, dass $M$ ein maximales Element enthält, welches also gerade die in \ref{proof:Spektrum-von-a:maxIdeal} gewünschte Eigenschaft hat. Wir nennen es daher $I_\lambda$.
+Damit sind die Voraussetzung des Lemmas von Zorn erfüllt. Es folgt, dass $M$ ein maximales Element enthält, welches also gerade die in \ref{proof:Spektrum-von-a:maxIdeal} gewünschte Eigenschaft hat. Wir nennen es daher $I_\lambda$.
 
 Zu \ref{proof:Spektrum-von-a:I-abg}:
 Da Addition und Multiplikation in $\A$ nach \Cref{lemma:BAlg-Eigenschaften} stetig ist, ist auch $\overline{I_\lambda}$, der Abschluss von $I_\lambda$, ein Ideal. $\overline{I_\lambda}$ enthält aber mit $I_\lambda$ ein maximales Ideal und es                        muss folglich $\overline{I_\lambda} = I_\lambda$ oder $\overline{I_\lambda} = \A$ gelten.
@@ -332,7 +332,7 @@ Diese ist ein Algebrenhomomorphismus, denn für alle $b,c \in \A, \mu \in \CC$ g
 	\item[$\bullet$]
 		 $\lambda_{bc}[e] = [bc] = [b][c] = \lambda_b[e]\lambda_c[e] = \lambda_b\lambda_c[e]$
 	
-			$\qquad f(bc) = \lambda_{bc} = \lambda_b\lambda_c  = f(b)f(c)$
+			$\qquad \Rightarrow f(bc) = \lambda_{bc} = \lambda_b\lambda_c  = f(b)f(c)$
 	\item[$\bullet$]
 		 $\lambda_e[e] = [e] = 1[e] ~ \Rightarrow ~ f(e) = \lambda_e = 1$
 \end{itemize}
@@ -346,7 +346,7 @@ Also ist $f \in \SpecC(\A)$. Weiterhin ist $\lambda e - a \in I_\lambda$, also $
 und somit ist $f$ gerade der gesuchte Algebrenhomomorphismus mit $f(a) = \lambda$.
 
 Da diese Konstruktion für beliebige $\lambda \in \sigma_\A(a)$ möglich ist, ergibt sich daraus die gesuchte Inklusion:
-	\[\sigma_\A(a) \subseteq \SpecC(\A)\]
+	\[\sigma_\A(a) \subseteq \SpecC(\A) \qedhere\]
 \end{itemize}
 \end{proof}
 

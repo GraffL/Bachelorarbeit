@@ -10,12 +10,12 @@ Sei also $a \in \A$. Dann gilt für alle $f \in \SpecC(\A)$:
 \end{itemize}
 Also ist wie gewünscht $\tau_a \in \stetig(\SpecC(\A))$.
 
-Leicht zu sehen ist ferner, dass $\AlgIso$ ein Algebrenhomomorphismus ist, denn für alle $a, b \in \A$, $\lambda \in \CC$ und $f \in \SpecC(\A)$ gilt:
-	\[\tau_{\lambda a + b}(f) = f(\lambda a + b) = \lambda f(a) + f(b) = \lambda \tau_a(f) + \tau_b(f) = \left(\lambda \tau_a + \tau_b\right)(f),\]
-	\[\tau_{ab}(f) = f(ab) = f(a)f(b) = \tau_a(f)\tau_b(f) = (\tau_a\tau_b)(f)\]
+Leicht zu sehen ist ferner, dass $\AlgIso$ ein tatsächlich Algebrenhomomorphismus ist, denn für alle $a, b \in \A$, $\lambda \in \CC$ und $f \in \SpecC(\A)$ gilt:
+	\[\AlgIso(\lambda a + b)(f) = \tau_{\lambda a + b}(f) = f(\lambda a + b) = \lambda f(a) + f(b) = \lambda \tau_a(f) + \tau_b(f) = \left(\lambda \AlgIso(a)+\AlgIso(b)\right)(f),\]
+	\[\AlgIso(ab)(f) = \tau_{ab}(f) = f(ab) = f(a)f(b) = \tau_a(f)\tau_b(f) = (\tau_a\tau_b)(f) = \left(\AlgIso(a)\AlgIso(b)\right)(f)\]
 und
 	\[\AlgIso(e)(f) = \tau_e(f) = f(e) = 1.\]
-Also ist $\AlgIso(\lambda a + b) = \tau_{\lambda a + b} = \lambda \tau_a + \tau_b = \lambda \AlgIso(a) + \AlgIso(b)$, $\AlgIso(ab) = \tau_{ab} = \tau_a\tau_b = \AlgIso(a)\AlgIso(b)$ und $\AlgIso(e) = \tau_e = e$. Damit ist gezeigt, dass die Abbildung $\AlgIso$ ein Algebrenhomomorphismus ist.
+Also ist $\AlgIso(\lambda a + b) = \lambda \AlgIso(a) + \AlgIso(b)$, $\AlgIso(ab) = \AlgIso(a)\AlgIso(b)$ und $\AlgIso(e) = \left(f \mapsto 1\right)$. Damit ist gezeigt, dass die Abbildung $\AlgIso$ ein Algebrenhomomorphismus ist.
 
 \let\qed\relax
 \end{proof}

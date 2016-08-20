@@ -9,7 +9,7 @@ Ein Element $a$ einer \CAlg{} heißt \emph{selbstadjungiert}, wenn gilt:
 
 \begin{prop}\label{prop:Spektrum-reell}
 Sei $\A$ eine \CAlg{} und $a \in \A$ selbstadjungiert. Dann ist das Spektrum von $a$ reell, d.h.
-	\[\sigma_\A(a) \subset \RR\]
+	\[\sigma_\A(a) \subseteq \RR\]
 \end{prop}
 
 \begin{proof}
@@ -50,8 +50,8 @@ Also ist:
 und analog $f(i(a^* - a)) \in \RR$. Daraus folgt (da $f$ ein Algebrenhomomorphismus ist):
 	\begin{align*}
 	f(a^*) &= \frac{1}{2}f(2a^*) = \frac{1}{2}f\Big((a^* + a) - ii(a^* - a)\Big) = \frac{1}{2}\Big(f(a^* + a) - if(i(a^* - a))\Big) = \\
-				&= \frac{1}{2}\Big(\overline{f(a^* + a) + if(i(a^* - a))}\Big) = \frac{1}{2}\overline{f\Big((a^* + a) + ii(a^* - a)\Big)} = \\
-				&= \frac{1}{2}\overline{f(a^* + a - a^* + a)} = \frac{1}{2}\overline{f(2a)} = \overline{f(a)}
+				&= \frac{1}{2}\left(\overline{f(a^* + a) + if(i(a^* - a))}\right) = \frac{1}{2}\overline{f\left((a^* + a) + ii(a^* - a)\right)} = \\
+				&= \frac{1}{2}\overline{f(a^* + a - a^* + a)} = \frac{1}{2}\overline{f(2a)} = \overline{f(a)} \qedhere
 	\end{align*}
 \end{proof}
 
