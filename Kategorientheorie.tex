@@ -3,11 +3,11 @@
 Um die Gelfand-Dualität formal aufschreiben zu können, benötigen wir einige Grundbegriffe der Kategorientheorie. In Anlehnung an \cite[S. 2-23]{Pizza2013} und \cite[S. 1-6]{Ambrogio2009} werden diese im Folgenden kurz definiert sowie die im anschließenden Kapitel benötigten Beispiele genannt.
 
 \begin{defn}[Kategorie]
-Eine \emph{Kategorie} $\KatC$ besteht aus einer Klasse von Objekten, zu je zwei Objekten $X, Y$ einer Klasse von \emph{Morphismen} $\Hom_\KatC(X,Y)$, einer assoziativen Komposition $\circ$ von Morphismen und zu jedem Objekt $Y$ einen \emph{Identitätsmorphismus} $\id_Y$ Dabei muss für alle Objekte $X, Y, Z$ und Morphismen $f \in \Hom_\KatC(X,Y), g \in \Hom_\KatC(Y,Z)$ gelten:
+Eine \emph{Kategorie} $\KatC$ besteht aus einer Klasse von Objekten, zu je zwei Objekten $X, Y$ einer Klasse von \emph{Morphismen} $\Hom_\KatC(X,Y)$, einer assoziativen Komposition $\circ$ von \glqq passenden\grqq{} Morphismen und zu jedem Objekt $Y$ einen \emph{Identitätsmorphismus} $\id_Y$ Dabei muss für alle Objekte $X, Y, Z$ und Morphismen $f \in \Hom_\KatC(X,Y), g \in \Hom_\KatC(Y,Z)$ gelten:
 	\[g \circ f \in \Hom_\KatC(X,Z),\qquad \id_Y \circ f = f \qquad\text{und}\qquad g \circ \id_Y = g\]
 Zwei Objekte $X, Y$ aus $\KatC$ heißen \emph{isomorph}, wenn es Morphismen $f \in \Hom_\KatC(X,Y)$ und $f^{-1} \in\Hom_\KatC(Y,X)$ gibt, sodass
-	\[f^{-1} \circ f = \id_X \qquad\text{und}\qquad f \circ f^{-1} = \id_Y.\]
-	$f$ heißt dann \emph{Isomorphismus}.
+	\[f^{-1} \circ f = \id_X \qquad\text{und}\qquad f \circ f^{-1} = \id_Y\]
+gelten. $f$ heißt dann \emph{Isomorphismus}.
 \end{defn}
 
 \begin{bsp}
@@ -34,7 +34,7 @@ Seien $\KatC, \KatD$ zwei Kategorien. Dann ist ein Funktor $\Funk: \KatC \to \Ka
 \end{defn}
 
 \begin{bsp}\label{bsp:FunktorSpec}
-In \Cref{sec:SpecCA} haben wir gesehen wie wir einer \CAlg{} einen kompakten Hausdorffraum zuordnen können. Dadurch erhalten wir einen Funktor $\SpecC$:
+In \Cref{sec:SpecCA} haben wir gesehen wie wir jeder \CAlg{} einen kompakten Hausdorffraum zuordnen können. Dadurch erhalten wir einen Funktor $\SpecC$:
 \[ \begin{array}{@{}rrcl@{}}
 	\SpecC: 	&\KatCAlg^\op		&\to 		&\KatTop													\\
 				&\A					&\mapsto 	&\SpecC(\A)													\\				
@@ -71,8 +71,8 @@ Analog können wir aus der Zuordnung von \CAlgn{} zu kompakten Hausdorffräumen 
 Außerdem gilt für kompakte Hausdorffräume $X, Y, Z$ sowie $\varphi \in \Hom_\KatTop(X,Y)$, $\psi \in \Hom_\KatTop(Y,Z)$ und $\tau \in \stetig(Z)$:
 \begin{itemize}
 	\item $h_{\id_Z}(\tau) = \tau \circ \id_Z = \tau = \id_{\stetig(Z)}(\tau)$, also $\stetig(\id_Z) = (h_{\id_Z})^\op = (\id_{\stetig(Z)})^\op$ und
-	\item $h_{\psi\circ \varphi}(\tau) = \tau\circ \psi \circ \varphi = h_\varphi(\tau\circ\psi) = h_\varphi \circ h_\psi(\tau)$, also 
-		\[\stetig(\psi \circ \varphi) = h_{\psi \circ \varphi}^\op = (h_\varphi \circ h_\psi)^\op = h_\psi^\op \circ h_\varphi^\op.\]
+	\item $h_{\psi\circ \varphi}(\tau) = \tau\circ \psi \circ \varphi = h_\varphi(\tau\circ\psi) = (h_\varphi \circ h_\psi)(\tau)$, also 
+		\[\stetig(\psi \circ \varphi) = h_{\psi \circ \varphi}^\op = (h_\varphi \circ h_\psi)^\op = h_\psi^\op \circ h_\varphi^\op. \qedhere\]
 \end{itemize}
 \end{proof}
 

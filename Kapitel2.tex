@@ -1,6 +1,6 @@
 \section{Die Gelfand-Dualität}\label{sec:GD}
 
-Im vorangegangenen Kapitel haben wir gezeigt, dass jede \CAlg{} $\A$ (isometrisch) isomorph zu einem Funktionenraum über einem kompakten Hausdorffraum ist (nämlich der Algebra $\stetig(\SpecC\A)$). 
+Im vorangegangenen Kapitel haben wir gezeigt, dass jede \CAlg{} $\A$ isometrisch isomorph zu einem Funktionenraum über einem kompakten Hausdorffraum ist (nämlich der Algebra $\stetig(\SpecC(\A))$). 
 
 In diesem Kapitel werden wir nun sehen, dass umgekehrt auch jeder kompakte Hausdorffraum $X$ homöomorph zu einem bestimmten Funktionenraum über  einer \CAlg{} ist (nämlich dem Raum $\SpecC(\stetig(X))$). Damit zeigt sich, dass \CAlgn{} und kompakte Hausdorffräume in gewisser Weise äquivalent zueinander sind, was die Aussage der Gelfand-Dualität sein wird.
 
@@ -20,9 +20,9 @@ Zunächst ist die Abbildung wohldefiniert, denn sind $x \in X$, $\tau_0 \in \ste
 	\[\left|f_x(\tau_0) - f_x(\tau)\right| = \left|\tau_0(x) - \tau(x)\right| \leq \underset{y \in X}{\sup} \left|\tau_0(y) - \tau(y)\right| = \norm{\tau_0 - \tau} < \epsilon \]
 Also ist $f_x$ stetig. Aus der Definition der Algebra-Struktur auf $\stetig(X)$ (siehe \Cref{lemma:CX}) ergibt sich außerdem direkt, dass $f_x$ ein Algebrenhomomorphismus ist. Insgesamt ist somit tatsächlich $f_x \in \SpecC(\stetig(X))$.
 
-Weiterhin ist $\Homoeo$ stetig, denn sind $x \in X$ und 
+Weiterhin ist $\Homoeo$ stetig, denn sind $x \in X$, $\tau \in \stetig(X)$, $\epsilon > 0$ und 
 	\[U(\Homoeo(x), \tau, \epsilon) := \{g \in \SpecC(\stetig(X)) ~|~ |\Homoeo(x)(\tau) - g(\tau)| < \epsilon\}\]
-eine offene Umgebung von $\Homoeo(x)$ (siehe \Cref{defn:schwachSternTop}), so gilt für alle $y \in \tau^{-1}(B_\epsilon(x))$ (eine offene Menge, da $\tau \in \stetig(X)$, also stetig):
+eine offene Umgebung von $\Homoeo(x)$ (siehe \Cref{defn:schwachSternTop}), so gilt für $y \in \tau^{-1}(B_\epsilon(\tau(x))) \subseteq X$ (eine offene Menge, da $\tau \in \stetig(X)$, also stetig):
 	\[\left|\Homoeo(x)(\tau) - \Homoeo(y)(\tau)\right| = \left|f_x(\tau) - f_y(\tau)\right| = \left|\tau(x) - \tau(y)\right| < \epsilon \]
 Das heißt $\Homoeo(y) \in U(\Homoeo(x), \tau, \epsilon)$ und somit ist $\Homoeo$ stetig.
 
@@ -30,7 +30,7 @@ $\Homoeo$ ist außerdem injektiv, denn sind $x, y \in X$ mit $x \neq y$, so gibt
 	\[\Homoeo(x)(\varphi) = f_x(\varphi) = \varphi(x) \neq \varphi(y) = f_y(\varphi) = \Homoeo(y)(\varphi)\]
 und daher $\Homoeo(x) \neq \Homoeo(y)$, also $\Homoeo$ injektiv.
 
-Somit ist $\Homoeo: X \to \Homoeo(X)$ stetig und injektiv. Ferner ist $X$ kompakt und $\Homoeo(X) \subseteq \SpecC(\stetig(X))$ hausdorffsch (\Cref{lemma:MA}). Damit ist $\Homoeo: X \to \Homoeo(X)$ nach \Cref{lemma:komHDHomoeo} bereits ein Homöomorphismus.
+Somit ist $\Homoeo: X \to \Homoeo(X)$ stetig und bijektiv. Ferner ist $X$ kompakt und $\Homoeo(X) \subseteq \SpecC(\stetig(X))$ hausdorffsch (\Cref{lemma:MA}). Damit ist $\Homoeo: X \to \Homoeo(X)$ nach \Cref{lemma:komHDHomoeo} bereits ein Homöomorphismus.
 
 Schließlich ist $\Homoeo(X) = \SpecC(\stetig(X))$, denn gäbe es ein $g \in \SpecC(\stetig(X)) \backslash \Homoeo(X)$, so wären $\Homoeo(X)$ und $\{g\}$ disjunkte, abgeschlossene Teilmengen in einem kompakten Hausdorffraum. Wiederum erhalten wir durch Anwendung des Lemmas von Urysohn eine stetige Funktion $\psi: \SpecC(\stetig(X)) \to \CC$ mit $\psi|_{\Homoeo(X)} \equiv 0$ und $\psi(g) = 1$. 
 
@@ -81,11 +81,11 @@ und
 Es genügt also $\AlgIso_\A\circ g = h_{\varphi_g}\circ\AlgIso_\B$ zu zeigen.
 
 Sei dazu $b \in \B$, dann ist
-	\[\AlgIso_\A\circ g (b) = \AlgIso_\A(g(b)) = \tau_{g(b)}: f \mapsto f(g(b)) = (f \circ g)(b) = \tau_b(f\circ g)\]
+	\[(\AlgIso_\A\circ g) (b) = \AlgIso_\A(g(b)) = \tau_{g(b)}: f \mapsto f(g(b)) = (f \circ g)(b) = \tau_b(f\circ g)\]
 und 
-	\[h_{\varphi_g}\circ\AlgIso_\B (b) = h_{\varphi_g}(\tau_b) = \tau_b \circ \varphi_g: f \mapsto \tau_b(\varphi_g(f)) = \tau_b(f\circ g).\]
+	\[(h_{\varphi_g}\circ\AlgIso_\B) (b) = h_{\varphi_g}(\tau_b) = \tau_b \circ \varphi_g: f \mapsto \tau_b(\varphi_g(f)) = \tau_b(f\circ g).\]
 Damit ist $\AlgIso_\A\circ g = h_{\varphi_g}\circ\AlgIso_\B$ gezeigt und somit ist:
-	\[g^\op\circ\AlgIso_\A^\op = (\AlgIso_\A\circ g)^\op = (h_{\varphi_g}\circ\AlgIso_\B)^\op = \AlgIso_\B^\op \circ \stetig(\SpecC(g^\op))\]
+	\[g^\op\circ\AlgIso_\A^\op = (\AlgIso_\A\circ g)^\op = (h_{\varphi_g}\circ\AlgIso_\B)^\op = \AlgIso_\B^\op \circ \stetig(\SpecC(g^\op)) \qedhere\]
 \end{itemize}
 \end{proof}
 

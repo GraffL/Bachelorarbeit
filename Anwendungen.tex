@@ -1,9 +1,9 @@
 \subsection{Anwendung (endlich dimensionale \CAlgn)}\label{sec:Anwendung}
 
-Im einführenden Beispiel in \Cref{sec:BeispielCn} haben wir gesehen, dass der $\CC^n$ mit komponentenweiser Multiplikation ein Beispiel für eine \CAlg{} ist. Mit Hilfe der Gelfand-Dualität können wir nun zeigen, dass wir mit diesem Beispiel tatsächlich schon \emph{alle} endlich-dimensionalen \CAlgn{} gesehen haben (bis auf Isomorphie).
+Im einführenden Beispiel in \Cref{sec:BeispielCn} haben wir gesehen, dass $\CC^n$ mit komponentenweiser Multiplikation ein Beispiel für eine \CAlg{} ist. Mit Hilfe der Gelfand-Dualität können wir nun zeigen, dass wir mit diesem Beispiel tatsächlich schon \emph{alle} endlich-dimensionalen \CAlgn{} gesehen haben (bis auf Isomorphie).
 
 \begin{lemma}
-Ist $\A$ ein n-dimensionale C*-Algebra, dann ist $\A$ isomorph zu $\CC^n$.
+Ist $\A$ eine $n$-dimensionale C*-Algebra, dann ist $\A$ isomorph zu $\CC^n$.
 \end{lemma}
 
 \begin{proof}Aus \Cref{sec:BeispielCn} wissen wir, dass $\SpecC(\CC^n)$ eine $n$-elementige Menge ist. Können wir nun zeigen, dass $\SpecC(\A)$ ebenfalls eine $n$-elementige Menge ist, dann müssen $\SpecC(\CC^n)$ und $\SpecC(\A)$ homöomorph sein. Aus \Cref{satz:GD} folgt dann mit \Cref{kor:KatIso2} bereits, dass auch $\CC^n$ und $\A$ isomorph sind.
@@ -14,7 +14,7 @@ Aus dem Lemma von Urysohn (\ref{satz:Ury}) folgt, dass es für je zwei $k, l \in
 	\[\psi_k: \SpecC(\A) \to \CC: h \mapsto \prod_{l=1}^{n+1}\psi_{kl}(h)\]
 Diese ist als Produkt stetiger Funktionen ebenfalls stetig und es gilt für alle $k$:
 	\[\psi_k(h_j) = \begin{cases} 1 &, k=j \\ 0 &, k\neq j \end{cases}\]
-Damit sind $\{\psi_1, \dots, \psi_{n+1}\} \subset \stetig(\SpecC(\A))$ linear unabhängig, denn:
+Damit sind $\{\psi_1, \dots, \psi_{n+1}\} \subseteq \stetig(\SpecC(\A))$ linear unabhängig, denn:
 	\begin{align*}
 							 0 &= \lambda_1\psi_1 + \dots + \lambda_{n+1}\psi_{n+1}, &\text{ für } \lambda_k \in \CC \\
 	\Rightarrow \forall k:   0 &= \lambda_1\psi_1(h_k) + \dots + \lambda_{n+1}\psi_{n+1}(h_k) = \lambda_k &
