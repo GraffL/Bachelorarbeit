@@ -9,7 +9,7 @@ Mit dem Wissen, dass die Kategorie der kompakten Hausdorffräume dual zu der der
 Der Versuch die in den Vorüberlegungen aufgetauchten Probleme zu beseitigen, führt uns zu der folgenden Charakterisierung von \CAlgMann.
 
 \begin{defn}[kompakte Konvergenz]\label{defn:komKonv}
-Sei $X$ ein topologischer Raum und $(\psi_l: X \to \CC)_{l \in \NN}$ eine Folge von Funktionen. Diese Folge \emph{konvergiert kompakt} gegen eine Funktion $\psi: X \to \CC$, wenn die Folge auf jeder kompakten Teilmenge von $X$ gleichmäßig gegen $\psi$ konvergiert.
+Sei ein topologischer Raum $X$ und eine Folge von Funktionen $(\psi_l: X \to \CC)_{l \in \NN}$ gegeben. Diese Folge \emph{konvergiert kompakt} gegen eine Funktion $\psi: X \to \CC$, wenn die Folge auf jeder kompakten Teilmenge von $X$ gleichmäßig gegen $\psi$ konvergiert.
 \end{defn}
 
 \begin{defn}[\CAlgMann]\label{defn:CAM}
@@ -78,7 +78,7 @@ Zu \ref{proof:GD2:kAlghom}: Dass $k_i$ ein Algebrenhomomorphismus ist, zeigt sic
 Also ist $k_i$ ein stetiger Algebrenhomomorphismus.
 
 Zu \ref{proof:GD2:schwachsurj}: Sei $\psi \in \stetig(\overline{B^m} )$ mit $\psi|_{\partial B^m} \equiv \lambda \in \mathbb{C}$ und $i \leq N$. Dann definiere:
-\[\tau: X \to \CC: x \mapsto \begin{cases} \psi(\theta_i^{-1}(x) &, x \in \theta_i(B^m) \\ \lambda &, \text{ sonst} \end{cases} \]
+\[\tau: X \to \CC: x \mapsto \begin{cases} \psi(\theta_i^{-1}(x)) &, x \in \theta_i(B^m) \\ \lambda &, \text{ sonst} \end{cases} \]
 Diese Abbildung hat die gewünschte Eigenschaft:
 \[k_i(\tau) = \tau \circ \theta_i = \psi \circ \theta_i^{-1} \circ \theta_i = \psi|_{B^m}\]
 Noch zu zeigen ist, dass $\tau$ auch tatsächlich stetig ist. Dazu sei $x \in X$ und $\epsilon > 0$ beliebig.
@@ -86,7 +86,7 @@ Noch zu zeigen ist, dass $\tau$ auch tatsächlich stetig ist. Dazu sei $x \in X$
 
 Da $\psi$ stetig ist, existiert ein $\delta > 0$, sodass gilt: 
 	\[\forall r \in B^m: \norm{r - \theta_i^{-1}(x)} <\delta \Rightarrow \left|\psi(r) - \psi(\theta_i^{-1}(x))\right| < \epsilon \]
-Dann ist $\theta_i\left(B_\delta^m(\theta_i^{-1}(x)) \cap B^m\right) \subset X$ eine offene Umgebung von $x$ und es gilt für alle $y \in \theta_i\left(B_\delta^m(\theta_i^{-1}(x)) \cap B^m\right)$, dass $\theta_i^{-1}(y) \in B_\delta^m(\theta_i^{-1}(x))$, also
+Dann ist $\theta_i\left(B_\delta^m(\theta_i^{-1}(x)) \cap B^m\right) \subseteq X$ eine offene Umgebung von $x$ und es gilt für alle $y \in \theta_i\left(B_\delta^m(\theta_i^{-1}(x)) \cap B^m\right)$, dass $\theta_i^{-1}(y) \in B_\delta^m(\theta_i^{-1}(x))$, also
 	\[\left|\tau(y) - \tau(x)\right| = \left|\psi(\theta_i^{-1}(y)) - \psi(\theta_i^{-1}(x))\right| < \epsilon.\]
 
 \Fall{2} $x \notin \theta_i(B^m)$, d.h. $\tau(x) = \lambda$.
